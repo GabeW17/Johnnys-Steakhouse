@@ -10,37 +10,31 @@ export default function Signatures() {
       id="signatures"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28"
     >
-      {/* Performance lighting — a rig of stage beams fanning down from the top
-          plus soft out-of-focus bokeh, all behind the content */}
+      {/* Two spotlights — one from each side — crossing to illuminate the
+          title (same style as the hero beams), warm candle-gold */}
       <div
         className="pointer-events-none absolute inset-0 overflow-hidden"
         aria-hidden="true"
       >
-        {/* the beams */}
         <div
-          className="absolute inset-x-0 top-0 h-[44rem] mix-blend-screen"
+          className="absolute inset-x-0 top-0 h-[42rem] mix-blend-screen"
           style={{
             background:
-              "conic-gradient(from 180deg at 18% -10%, transparent 171deg, rgba(255,210,156,0.10) 178deg, rgba(255,210,156,0.10) 182deg, transparent 189deg)," +
-              "conic-gradient(from 180deg at 34% -10%, transparent 173deg, rgba(255,210,156,0.07) 179deg, rgba(255,210,156,0.07) 181deg, transparent 187deg)," +
-              "conic-gradient(from 180deg at 50% -10%, transparent 170deg, rgba(255,210,156,0.14) 178deg, rgba(255,210,156,0.14) 182deg, transparent 190deg)," +
-              "conic-gradient(from 180deg at 66% -10%, transparent 173deg, rgba(255,210,156,0.07) 179deg, rgba(255,210,156,0.07) 181deg, transparent 187deg)," +
-              "conic-gradient(from 180deg at 82% -10%, transparent 171deg, rgba(255,210,156,0.10) 178deg, rgba(255,210,156,0.10) 182deg, transparent 189deg)",
+              "conic-gradient(from 0deg at 7% -6%, transparent 111deg, rgba(255,210,156,0.24) 126deg, rgba(255,210,156,0.24) 132deg, transparent 147deg)," +
+              "conic-gradient(from 0deg at 93% -6%, transparent 213deg, rgba(255,210,156,0.24) 228deg, rgba(255,210,156,0.24) 234deg, transparent 249deg)",
           }}
         />
-        {/* soft pool lifting the title */}
+        {/* faint warm fill where the two beams meet, on the title */}
         <div
-          className="absolute inset-x-0 top-0 h-[26rem]"
+          className="absolute inset-x-0 top-0 h-[24rem]"
           style={{
             background:
-              "radial-gradient(38% 60% at 50% 30%, rgba(255,210,156,0.08) 0%, transparent 70%)",
+              "radial-gradient(32% 52% at 50% 32%, rgba(255,210,156,0.07) 0%, transparent 70%)",
           }}
         />
-        {/* out-of-focus stage lights */}
-        <div className="absolute left-[6%] top-[16%] h-20 w-20 rounded-full bg-[#ffd29c17] blur-2xl" />
-        <div className="absolute right-[7%] top-[11%] h-28 w-28 rounded-full bg-[#ffd29c12] blur-3xl" />
-        <div className="absolute left-[15%] top-[58%] h-24 w-24 rounded-full bg-[#ffd29c0f] blur-3xl" />
-        <div className="absolute right-[13%] top-[62%] h-16 w-16 rounded-full bg-[#ffd29c12] blur-2xl" />
+        {/* a couple out-of-focus lights */}
+        <div className="absolute left-[7%] top-[14%] h-20 w-20 rounded-full bg-[#ffd29c14] blur-2xl" />
+        <div className="absolute right-[8%] top-[12%] h-24 w-24 rounded-full bg-[#ffd29c12] blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
