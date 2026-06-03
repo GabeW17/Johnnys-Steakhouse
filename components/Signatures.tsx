@@ -21,11 +21,11 @@ export default function Signatures() {
           className="absolute inset-x-0 top-0 h-[44rem] mix-blend-screen"
           style={{
             background:
-              "conic-gradient(from 180deg at 18% -10%, transparent 171deg, rgba(245,239,230,0.10) 178deg, rgba(245,239,230,0.10) 182deg, transparent 189deg)," +
-              "conic-gradient(from 180deg at 34% -10%, transparent 173deg, rgba(245,239,230,0.07) 179deg, rgba(245,239,230,0.07) 181deg, transparent 187deg)," +
-              "conic-gradient(from 180deg at 50% -10%, transparent 170deg, rgba(245,239,230,0.14) 178deg, rgba(245,239,230,0.14) 182deg, transparent 190deg)," +
-              "conic-gradient(from 180deg at 66% -10%, transparent 173deg, rgba(245,239,230,0.07) 179deg, rgba(245,239,230,0.07) 181deg, transparent 187deg)," +
-              "conic-gradient(from 180deg at 82% -10%, transparent 171deg, rgba(245,239,230,0.10) 178deg, rgba(245,239,230,0.10) 182deg, transparent 189deg)",
+              "conic-gradient(from 180deg at 18% -10%, transparent 171deg, rgba(255,210,156,0.10) 178deg, rgba(255,210,156,0.10) 182deg, transparent 189deg)," +
+              "conic-gradient(from 180deg at 34% -10%, transparent 173deg, rgba(255,210,156,0.07) 179deg, rgba(255,210,156,0.07) 181deg, transparent 187deg)," +
+              "conic-gradient(from 180deg at 50% -10%, transparent 170deg, rgba(255,210,156,0.14) 178deg, rgba(255,210,156,0.14) 182deg, transparent 190deg)," +
+              "conic-gradient(from 180deg at 66% -10%, transparent 173deg, rgba(255,210,156,0.07) 179deg, rgba(255,210,156,0.07) 181deg, transparent 187deg)," +
+              "conic-gradient(from 180deg at 82% -10%, transparent 171deg, rgba(255,210,156,0.10) 178deg, rgba(255,210,156,0.10) 182deg, transparent 189deg)",
           }}
         />
         {/* soft pool lifting the title */}
@@ -33,14 +33,14 @@ export default function Signatures() {
           className="absolute inset-x-0 top-0 h-[26rem]"
           style={{
             background:
-              "radial-gradient(38% 60% at 50% 30%, rgba(245,239,230,0.08) 0%, transparent 70%)",
+              "radial-gradient(38% 60% at 50% 30%, rgba(255,210,156,0.08) 0%, transparent 70%)",
           }}
         />
         {/* out-of-focus stage lights */}
-        <div className="absolute left-[6%] top-[16%] h-20 w-20 rounded-full bg-cream/[0.06] blur-2xl" />
-        <div className="absolute right-[7%] top-[11%] h-28 w-28 rounded-full bg-cream/[0.05] blur-3xl" />
-        <div className="absolute left-[15%] top-[58%] h-24 w-24 rounded-full bg-cream/[0.04] blur-3xl" />
-        <div className="absolute right-[13%] top-[62%] h-16 w-16 rounded-full bg-cream/[0.05] blur-2xl" />
+        <div className="absolute left-[6%] top-[16%] h-20 w-20 rounded-full bg-[#ffd29c17] blur-2xl" />
+        <div className="absolute right-[7%] top-[11%] h-28 w-28 rounded-full bg-[#ffd29c12] blur-3xl" />
+        <div className="absolute left-[15%] top-[58%] h-24 w-24 rounded-full bg-[#ffd29c0f] blur-3xl" />
+        <div className="absolute right-[13%] top-[62%] h-16 w-16 rounded-full bg-[#ffd29c12] blur-2xl" />
       </div>
 
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
@@ -51,7 +51,7 @@ export default function Signatures() {
             <p className="eyebrow">{m.eyebrow}</p>
             <span className="h-px w-8 bg-cream/25 sm:w-12" />
           </div>
-          <h2 className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 font-sans text-2xl font-extrabold uppercase tracking-tight text-cream [text-shadow:0_0_44px_rgba(245,239,230,0.18),0_2px_16px_rgba(0,0,0,0.55)] sm:text-4xl lg:text-[2.7rem]">
+          <h2 className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 font-sans text-2xl font-extrabold uppercase tracking-tight text-cream [text-shadow:0_0_44px_rgba(255,210,156,0.18),0_2px_16px_rgba(0,0,0,0.55)] sm:text-4xl lg:text-[2.7rem]">
             {m.lines.map((line, i) => (
               <span
                 key={line}
