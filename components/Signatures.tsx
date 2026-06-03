@@ -20,13 +20,21 @@ export default function Signatures() {
       />
 
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
-        {/* The three-act headline */}
-        <Reveal className="mx-auto max-w-3xl text-center">
+        {/* The three-act headline — one horizontal marquee, not stacked */}
+        <Reveal className="mx-auto max-w-shell text-center">
           <p className="eyebrow">{m.eyebrow}</p>
-          <h2 className="mt-6 font-sans text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-cream sm:text-6xl lg:text-7xl">
-            {m.lines.map((line) => (
-              <span key={line} className="block">
-                {line}
+          <h2 className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 font-sans text-2xl font-extrabold uppercase tracking-tight text-cream sm:text-4xl lg:text-[2.7rem]">
+            {m.lines.map((line, i) => (
+              <span
+                key={line}
+                className="inline-flex items-center gap-x-5 whitespace-nowrap"
+              >
+                {line.replace(/\.$/, "")}
+                {i < m.lines.length - 1 && (
+                  <span aria-hidden="true" className="text-[0.42em] text-cream/35">
+                    ◆
+                  </span>
+                )}
               </span>
             ))}
           </h2>
