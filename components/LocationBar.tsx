@@ -28,7 +28,6 @@ export default function LocationBar() {
     return () => document.removeEventListener("mousedown", onClick);
   }, []);
 
-  const actions = content.locationBar.actions;
   const picked = current !== content.locationBar.defaultLabel;
 
   return (
@@ -118,23 +117,51 @@ export default function LocationBar() {
           )}
         </div>
 
-        {/* High-intent conversion shortcuts */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {actions.map((action, i) => {
-            const isReserve = i === actions.length - 1;
-            return (
-              <a
-                key={action.href}
-                href={action.href}
-                className={`btn btn-sm ${
-                  isReserve ? "btn-primary" : "btn-ghost hidden sm:inline-flex"
-                }`}
-              >
-                {action.label}
-              </a>
-            );
-          })}
-        </div>
+        {/* Go to the selected location (routes to that location's page once
+            those exist; for now jumps to the Locations finder). Disabled until
+            a location is chosen. */}
+        {picked ? (
+          <a
+            href="#locations"
+            className="btn btn-sm btn-primary inline-flex items-center gap-2"
+          >
+            Go to this location
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        ) : (
+          <button
+            type="button"
+            disabled
+            className="btn btn-sm inline-flex cursor-not-allowed items-center gap-2 border border-cream/15 bg-transparent text-dim-cream/45"
+          >
+            Go to this location
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );
