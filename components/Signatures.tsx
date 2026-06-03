@@ -10,32 +10,30 @@ export default function Signatures() {
       id="signatures"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28"
     >
-      {/* Two spotlights — one from each side — crossing to illuminate the
-          title (same style as the hero beams), warm candle-gold */}
+      {/* Two soft spotlights from each side gently lighting the title, masked
+          to fade out well above the cards so the bg stays even behind them */}
       <div
-        className="pointer-events-none absolute inset-0 overflow-hidden"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] mix-blend-screen"
         aria-hidden="true"
-      >
-        <div
-          className="absolute inset-x-0 top-0 h-[42rem] mix-blend-screen"
-          style={{
-            background:
-              "conic-gradient(from 0deg at 7% -6%, transparent 111deg, rgba(255,210,156,0.24) 126deg, rgba(255,210,156,0.24) 132deg, transparent 147deg)," +
-              "conic-gradient(from 0deg at 93% -6%, transparent 213deg, rgba(255,210,156,0.24) 228deg, rgba(255,210,156,0.24) 234deg, transparent 249deg)",
-          }}
-        />
-        {/* faint warm fill where the two beams meet, on the title */}
-        <div
-          className="absolute inset-x-0 top-0 h-[24rem]"
-          style={{
-            background:
-              "radial-gradient(32% 52% at 50% 32%, rgba(255,210,156,0.07) 0%, transparent 70%)",
-          }}
-        />
-        {/* a couple out-of-focus lights */}
-        <div className="absolute left-[7%] top-[14%] h-20 w-20 rounded-full bg-[#ffd29c14] blur-2xl" />
-        <div className="absolute right-[8%] top-[12%] h-24 w-24 rounded-full bg-[#ffd29c12] blur-3xl" />
-      </div>
+        style={{
+          background:
+            "conic-gradient(from 0deg at 10% -8%, transparent 101deg, rgba(255,210,156,0.13) 127deg, rgba(255,210,156,0.13) 131deg, transparent 157deg)," +
+            "conic-gradient(from 0deg at 90% -8%, transparent 203deg, rgba(255,210,156,0.13) 229deg, rgba(255,210,156,0.13) 233deg, transparent 259deg)",
+          maskImage:
+            "linear-gradient(to bottom, #000 0%, #000 32%, transparent 68%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, #000 0%, #000 32%, transparent 68%)",
+        }}
+      />
+      {/* faint warm fill on the title */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[20rem]"
+        aria-hidden="true"
+        style={{
+          background:
+            "radial-gradient(30% 50% at 50% 30%, rgba(255,210,156,0.06) 0%, transparent 70%)",
+        }}
+      />
 
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
         {/* The three-act headline — one horizontal marquee, not stacked */}
