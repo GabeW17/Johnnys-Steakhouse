@@ -127,6 +127,26 @@ export default function Hero() {
           <CurtainIntro />
       </div>
 
+      {/* Brand logo — oversized, overlapping the hero's top-right. Lives in the
+          hero (not the fixed nav) so it scrolls away instead of floating over
+          the rest of the page. A small logo fades into the nav on scroll. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-20">
+        <div className="mx-auto flex max-w-shell justify-end px-5 pt-3 sm:px-8 sm:pt-4">
+          {content.brandLogo ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={content.brandLogo}
+              alt={content.brand}
+              className="h-24 w-auto drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)] sm:h-32"
+            />
+          ) : (
+            <span className="font-display text-4xl leading-none tracking-tight text-cream sm:text-6xl">
+              {content.brandMark}
+              <span className="align-super text-[0.45em] text-cream/55">©</span>
+            </span>
+          )}
+        </div>
+      </div>
     </section>
   );
 }

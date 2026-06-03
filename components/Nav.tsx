@@ -51,21 +51,24 @@ export default function Nav() {
           ))}
         </nav>
 
-        {/* Logo — right, sitting in the black space above the framed hero */}
+        {/* Small logo — fades in only on scroll. The big logo lives in the hero
+            (scrolls away with it), so nothing overlaps the page below. */}
         <a
           href="#top"
           aria-label={content.brand}
-          className="ml-auto flex self-start items-start pt-2 sm:pt-3"
+          className={`ml-auto flex items-center transition-opacity duration-300 ${
+            scrolled ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
         >
           {content.brandLogo ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={content.brandLogo}
               alt={content.brand}
-              className="h-24 w-auto drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)] sm:h-32"
+              className="h-9 w-auto sm:h-10"
             />
           ) : (
-            <span className="font-display text-4xl leading-none tracking-tight text-cream sm:text-6xl">
+            <span className="font-display text-2xl leading-none tracking-tight text-cream sm:text-3xl">
               {content.brandMark}
               <span className="align-super text-[0.45em] text-cream/55">©</span>
             </span>
