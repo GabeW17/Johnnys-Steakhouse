@@ -1,0 +1,132 @@
+import { content } from "@/content";
+import CurtainIntro from "@/components/CurtainIntro";
+import HeroVideo from "@/components/HeroVideo";
+
+function CalendarIcon() {
+  return (
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+    </svg>
+  );
+}
+
+export default function Hero() {
+  const h = content.hero;
+  const delays = [0, 150, 300, 440];
+
+  return (
+    <section
+      id="top"
+      className="relative flex min-h-[100svh] flex-col px-6 pb-6 pt-[80px] sm:px-8 sm:pb-8"
+      style={{
+        background:
+          "radial-gradient(100% 78% at 50% 16%, #241a13 0%, #0d0a08 50%, #070504 80%)",
+      }}
+    >
+      <div className="relative z-0 flex-1 overflow-hidden rounded-3xl border-[3px] border-cream/35 shadow-[0_45px_90px_-30px_rgba(0,0,0,0.9),0_0_60px_-12px_rgba(245,239,230,0.08)]">
+          {/* Full-bleed background — crossfading video playlist if set, else image */}
+          {h.video && h.video.length > 0 ? (
+            <HeroVideo sources={h.video} poster={h.image} />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={h.image}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full animate-heroZoom object-cover"
+            />
+          )}
+
+          {/* Edge vignette */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(125% 110% at 50% 40%, transparent 38%, rgba(7,5,4,0.76) 100%)",
+            }}
+          />
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink/70 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 via-ink/25 to-transparent" />
+
+          {/* Stage spotlights — beams converge on the centered headline */}
+          <div
+            className="pointer-events-none absolute inset-0 mix-blend-screen"
+            style={{
+              background:
+                "conic-gradient(from 0deg at 18% -16%, transparent 134deg, rgba(245,239,230,0.20) 157deg, transparent 180deg), " +
+                "conic-gradient(from 0deg at 82% -16%, transparent 180deg, rgba(245,239,230,0.20) 203deg, transparent 226deg), " +
+                "conic-gradient(from 0deg at 50% -20%, transparent 163deg, rgba(245,239,230,0.13) 180deg, transparent 197deg)",
+            }}
+          />
+          {/* Left scrim so the left-aligned headline reads over the photo */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to right, rgba(6,4,3,0.74) 0%, rgba(6,4,3,0.25) 40%, transparent 62%)",
+            }}
+          />
+
+          {/* Headline + buttons — left, vertically centered */}
+          <div className="absolute inset-0 flex items-center">
+            <div className="mx-auto w-full max-w-shell px-6 sm:px-10">
+              <div className="max-w-2xl">
+                <h1
+                  className="animate-riseIn font-sans text-6xl font-medium uppercase leading-[0.98] tracking-tight text-cream [text-shadow:0_2px_30px_rgba(0,0,0,0.85),0_1px_3px_rgba(0,0,0,0.7)] sm:text-7xl lg:text-8xl"
+                  style={{ animationDelay: `${delays[0]}ms` }}
+                >
+                  {h.headlineLead} {h.headlineEmphasis}
+                </h1>
+                <div
+                  className="mt-8 flex animate-riseIn flex-col items-start gap-3.5 sm:flex-row sm:items-center"
+                  style={{ animationDelay: `${delays[1]}ms` }}
+                >
+                  <a
+                    href="#visit"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-cream px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-xl hover:shadow-black/40"
+                  >
+                    <CalendarIcon />
+                    {h.cta}
+                  </a>
+                  <a
+                    href="#signatures"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-cream/60 bg-ink/20 px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-cream backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-cream hover:text-ink"
+                  >
+                    {h.ctaSecondary}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* The sentence, as an italic quote — bottom-right */}
+          <div className="absolute inset-x-0 bottom-0">
+            <div className="mx-auto flex w-full max-w-shell justify-end px-6 pb-10 sm:px-10 sm:pb-12">
+              <p
+                className="hidden max-w-sm animate-riseIn text-right font-display text-lg italic leading-snug text-cream/90 [text-shadow:0_2px_16px_rgba(0,0,0,0.95)] sm:block lg:max-w-md lg:text-xl"
+                style={{ animationDelay: `${delays[2]}ms` }}
+              >
+                &ldquo;{h.subhead}&rdquo;
+              </p>
+            </div>
+          </div>
+
+          {/* Theatre curtain — opens within the framed "stage" only; the nav,
+              logo and black mat stay visible the whole time. */}
+          <CurtainIntro />
+      </div>
+
+    </section>
+  );
+}

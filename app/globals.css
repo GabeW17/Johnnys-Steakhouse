@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0c0a0a;
+  --espresso: #141010;
+  --oxblood: #1a1413;
+  --panel: #181312;
+  --cream: #f5efe6;
+  --dim-cream: #b0a293;
+  --line: rgba(245, 239, 230, 0.15);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--ink);
+    color: var(--cream);
+    font-family: var(--font-hanken), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--cream);
+    color: var(--ink);
+  }
+}
+
+@layer components {
+  /* Section eyebrow — letter-spaced, dim cream */
+  .eyebrow {
+    @apply font-sans text-[0.7rem] font-medium uppercase tracking-[0.32em] text-dim-cream;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-7 py-3.5 text-[0.8rem] font-semibold uppercase tracking-[0.14em] transition-all duration-300;
+  }
+  .btn-primary {
+    @apply bg-cream text-ink hover:-translate-y-px hover:bg-white;
+  }
+  .btn-ghost {
+    @apply border border-cream/30 bg-transparent text-cream hover:border-cream hover:bg-cream/5;
+  }
+  .btn-sm {
+    @apply px-5 py-2.5 text-[0.72rem] tracking-[0.12em];
+  }
+}
+
+/* ---------- Grain / noise overlay ---------- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-heroZoom,
+  .animate-riseIn {
+    animation: none !important;
+  }
+}
