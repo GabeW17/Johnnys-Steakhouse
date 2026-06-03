@@ -157,7 +157,6 @@ export const content: SiteContent = {
     defaultLabel: "Find your Johnny's",
     actions: [
       { label: "Menu", href: "#signatures" },
-      { label: "Specials", href: "#occasion" },
       { label: "Reserve", href: "#visit" },
     ],
   },
