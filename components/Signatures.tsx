@@ -63,7 +63,7 @@ export default function Signatures() {
               as="article"
               key={dish.name}
               delay={i * 110}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-cream/12 bg-panel shadow-[0_28px_60px_-32px_rgba(0,0,0,0.92)] ring-1 ring-inset ring-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:border-cream/30 hover:shadow-[0_46px_90px_-30px_rgba(0,0,0,1)]"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-cream/12 bg-[#161616] shadow-[0_28px_60px_-32px_rgba(0,0,0,0.92)] ring-1 ring-inset ring-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:border-cream/30 hover:shadow-[0_46px_90px_-30px_rgba(0,0,0,1)]"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -75,7 +75,7 @@ export default function Signatures() {
                 {/* keep the food crisp — only soft scrims for the index + a thin
                     blend into the panel at the very bottom edge */}
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/45 to-transparent" />
-                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-panel/90 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-[#161616]/90 to-transparent" />
                 <span className="absolute left-5 top-4 font-display text-sm italic tracking-wide text-cream/85 [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
                   No.&nbsp;{String(i + 1).padStart(2, "0")}
                 </span>
