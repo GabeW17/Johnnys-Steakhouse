@@ -1,9 +1,8 @@
 import Nav from "@/components/Nav";
 import LocationBar from "@/components/LocationBar";
 import Hero from "@/components/Hero";
-import Statement from "@/components/Statement";
-import OccasionBar from "@/components/OccasionBar";
 import Signatures from "@/components/Signatures";
+import OccasionBar from "@/components/OccasionBar";
 import Atmosphere from "@/components/Atmosphere";
 import Locations from "@/components/Locations";
 import Proof from "@/components/Proof";
@@ -17,9 +16,8 @@ export default function Home() {
       <LocationBar />
       <main>
         <Hero />
-        <Statement />
-        <OccasionBar />
         <Signatures />
+        <OccasionBar />
         <Atmosphere />
         <Locations />
         <Proof />

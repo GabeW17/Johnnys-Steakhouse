@@ -2,40 +2,77 @@ import { content } from "@/content";
 import Reveal from "./Reveal";
 
 export default function Signatures() {
+  const m = content.manifesto;
   const s = content.signatures;
 
   return (
-    <section id="signatures" className="bg-ink py-24 sm:py-32">
-      <div className="mx-auto max-w-shell px-5 sm:px-8">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="eyebrow">{s.eyebrow}</p>
-          <h2 className="mt-4 font-display text-4xl font-semibold text-cream sm:text-5xl">
-            {s.heading}
+    <section
+      id="signatures"
+      className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-32 lg:py-36"
+    >
+      {/* Faint stage glow up top, echoing the hero spotlights */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-72"
+        style={{
+          background:
+            "radial-gradient(55% 100% at 50% 0%, rgba(245,239,230,0.07) 0%, transparent 72%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-shell px-6 sm:px-8">
+        {/* The three-act headline */}
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="eyebrow">{m.eyebrow}</p>
+          <h2 className="mt-6 font-sans text-4xl font-extrabold uppercase leading-[0.95] tracking-tight text-cream sm:text-6xl lg:text-7xl">
+            {m.lines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-dim-cream">{s.subtext}</p>
+          <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-dim-cream sm:text-lg">
+            {m.body}
+          </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        {/* The headliners — a billing of tonight's signatures */}
+        <Reveal className="mt-20 flex items-center justify-center gap-5 sm:mt-24">
+          <span className="h-px w-10 bg-cream/20 sm:w-16" />
+          <p className="font-display text-lg italic text-cream/80 sm:text-xl">
+            {s.heading}
+          </p>
+          <span className="h-px w-10 bg-cream/20 sm:w-16" />
+        </Reveal>
+
+        <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
           {s.dishes.map((dish, i) => (
             <Reveal
               as="article"
               key={dish.name}
               delay={i * 120}
-              className="group overflow-hidden rounded-xl border border-cream/15 bg-panel transition-all duration-500 hover:-translate-y-2 hover:border-cream/30"
+              className="group relative overflow-hidden rounded-2xl border border-cream/15 bg-panel shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)] transition-all duration-500 hover:-translate-y-2 hover:border-cream/35 hover:shadow-[0_44px_80px_-28px_rgba(0,0,0,1)]"
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[4/3] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={dish.image}
                   alt={dish.name}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-110"
                 />
+                {/* fade the photo into the card body + darken the top for the index */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-panel via-panel/10 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/45 to-transparent" />
+                <span className="absolute left-5 top-4 font-display text-base italic text-cream/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.9)]">
+                  No.&nbsp;{String(i + 1).padStart(2, "0")}
+                </span>
               </div>
-              <div className="p-7">
-                <div className="flex items-baseline justify-between gap-3">
+              <div className="p-6 sm:p-7">
+                <div className="flex items-baseline gap-3">
                   <h3 className="font-display text-2xl font-semibold text-cream">
                     {dish.name}
                   </h3>
+                  {/* menu-style leader between name and price */}
+                  <span className="mb-1 h-px flex-1 bg-cream/20" />
                   <span className="font-display text-xl text-cream">
                     {dish.price}
                   </span>
