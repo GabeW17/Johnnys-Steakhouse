@@ -110,11 +110,20 @@ export default function Hero() {
             </div>
           </div>
 
+          {/* Localized scrim so the bottom-right quote reads over the bright plate */}
+          <div
+            className="pointer-events-none absolute bottom-0 right-0 h-3/5 w-3/5"
+            style={{
+              background:
+                "radial-gradient(125% 100% at 100% 100%, rgba(6,4,3,0.82) 0%, rgba(6,4,3,0.4) 40%, transparent 70%)",
+            }}
+          />
+
           {/* The sentence, as an italic quote — bottom-right */}
           <div className="absolute inset-x-0 bottom-0">
             <div className="mx-auto flex w-full max-w-shell justify-end px-6 pb-10 sm:px-10 sm:pb-12">
               <p
-                className="hidden max-w-sm animate-riseIn text-right font-display text-lg italic leading-snug text-cream/90 [text-shadow:0_2px_16px_rgba(0,0,0,0.95)] sm:block lg:max-w-md lg:text-xl"
+                className="hidden max-w-sm animate-riseIn text-right font-display text-lg italic leading-snug text-cream [text-shadow:0_2px_22px_rgba(0,0,0,0.98),0_1px_4px_rgba(0,0,0,0.92)] sm:block lg:max-w-md lg:text-xl"
                 style={{ animationDelay: `${delays[2]}ms` }}
               >
                 &ldquo;{h.subhead}&rdquo;
