@@ -20,6 +20,8 @@ export interface Dish {
   price: string;
   description: string;
   image: string;
+  /** short category/billing label shown above the name */
+  tag?: string;
 }
 
 export interface LocationItem {
@@ -195,6 +197,7 @@ export const content: SiteContent = {
       {
         name: "Steak de Burgo",
         price: "$44",
+        tag: "Signature Filet",
         description:
           "Our signature filet with roasted garlic, basil and oregano, finished in a rich cream sauce.",
         image: IMAGES.dishes[0],
@@ -202,6 +205,7 @@ export const content: SiteContent = {
       {
         name: "Chanel No. 5",
         price: "$32",
+        tag: "Seafood Pasta",
         description:
           "Marilyn's trademark — cheese ravioli with lobster, shrimp, artichokes, prosciutto and spinach in garlic cream.",
         image: IMAGES.dishes[1],
@@ -209,6 +213,7 @@ export const content: SiteContent = {
       {
         name: "Bone-In Ribeye",
         price: "$64",
+        tag: "Ribeye · 20 oz",
         description:
           "A 20 oz. cut — flavorful and tender, with the perfect amount of marbling.",
         image: IMAGES.dishes[2],

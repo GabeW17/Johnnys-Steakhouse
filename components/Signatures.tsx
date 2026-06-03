@@ -57,36 +57,42 @@ export default function Signatures() {
           <span className="h-px w-10 bg-cream/20 sm:w-16" />
         </Reveal>
 
-        <div className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
           {s.dishes.map((dish, i) => (
             <Reveal
               as="article"
               key={dish.name}
-              delay={i * 120}
-              className="group relative overflow-hidden rounded-2xl border border-cream/15 bg-panel shadow-[0_30px_60px_-30px_rgba(0,0,0,0.9)] transition-all duration-500 hover:-translate-y-2 hover:border-cream/35 hover:shadow-[0_44px_80px_-28px_rgba(0,0,0,1)]"
+              delay={i * 110}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-cream/12 bg-panel shadow-[0_28px_60px_-32px_rgba(0,0,0,0.92)] ring-1 ring-inset ring-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:border-cream/30 hover:shadow-[0_46px_90px_-30px_rgba(0,0,0,1)]"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={dish.image}
                   alt={dish.name}
-                  className="h-full w-full object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-110"
+                  className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                 />
-                {/* fade the photo into the card body + darken the top for the index */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-panel via-panel/10 to-transparent" />
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-black/45 to-transparent" />
-                <span className="absolute left-5 top-4 font-display text-base italic text-cream/90 [text-shadow:0_1px_10px_rgba(0,0,0,0.9)]">
+                {/* keep the food crisp — only soft scrims for the index + a thin
+                    blend into the panel at the very bottom edge */}
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/45 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-panel/90 to-transparent" />
+                <span className="absolute left-5 top-4 font-display text-sm italic tracking-wide text-cream/85 [text-shadow:0_1px_8px_rgba(0,0,0,0.9)]">
                   No.&nbsp;{String(i + 1).padStart(2, "0")}
                 </span>
               </div>
-              <div className="p-6 sm:p-7">
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
+                {dish.tag && (
+                  <p className="mb-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-dim-cream/75">
+                    {dish.tag}
+                  </p>
+                )}
                 <div className="flex items-baseline gap-3">
-                  <h3 className="font-display text-2xl font-semibold text-cream">
+                  <h3 className="font-display text-2xl font-semibold leading-tight text-cream">
                     {dish.name}
                   </h3>
                   {/* menu-style leader between name and price */}
-                  <span className="mb-1 h-px flex-1 bg-cream/20" />
-                  <span className="font-display text-xl text-cream">
+                  <span className="mb-1.5 h-px flex-1 bg-cream/15" />
+                  <span className="font-display text-xl text-cream/95">
                     {dish.price}
                   </span>
                 </div>
