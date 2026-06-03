@@ -2,7 +2,7 @@ import { content } from "@/content";
 import CurtainIntro from "@/components/CurtainIntro";
 import HeroVideo from "@/components/HeroVideo";
 
-function CalendarIcon() {
+function PinIcon() {
   return (
     <svg
       width="15"
@@ -15,8 +15,8 @@ function CalendarIcon() {
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <rect x="3" y="4" width="18" height="18" rx="2" />
-      <path d="M16 2v4M8 2v4M3 10h18" />
+      <path d="M12 21s-7-5.686-7-11a7 7 0 1 1 14 0c0 5.314-7 11-7 11Z" />
+      <circle cx="12" cy="10" r="2.5" />
     </svg>
   );
 }
@@ -95,10 +95,10 @@ export default function Hero() {
                   style={{ animationDelay: `${delays[1]}ms` }}
                 >
                   <a
-                    href="#visit"
+                    href="#locations"
                     className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-gradient-to-b from-white to-cream px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_14px_30px_-8px_rgba(0,0,0,0.72),0_4px_10px_-4px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_42px_-8px_rgba(0,0,0,0.82),0_6px_14px_-4px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.95)]"
                   >
-                    <CalendarIcon />
+                    <PinIcon />
                     {h.cta}
                   </a>
                   <a

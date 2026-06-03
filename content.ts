@@ -166,7 +166,7 @@ export const content: SiteContent = {
     headlineEmphasis: "showtime.",
     subhead:
       "Our goal is for every guest to give us a standing ovation at the end of their dining experience.",
-    cta: "Book your table",
+    cta: "Find your Johnny's",
     ctaSecondary: "View the menu",
     image: IMAGES.hero,
     // Video clips are in /public — re-enable the playlist by restoring this array:
