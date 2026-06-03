@@ -8,22 +8,27 @@ export default function Signatures() {
   return (
     <section
       id="signatures"
-      className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-32 lg:py-36"
+      className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28"
     >
-      {/* Faint stage glow up top, echoing the hero spotlights */}
+      {/* A single spotlight beam down onto the title, echoing the hero */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-72"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem]"
         style={{
           background:
-            "radial-gradient(55% 100% at 50% 0%, rgba(245,239,230,0.07) 0%, transparent 72%)",
+            "conic-gradient(from 180deg at 50% -6%, transparent 167deg, rgba(245,239,230,0.10) 180deg, transparent 193deg), " +
+            "radial-gradient(40% 62% at 50% 32%, rgba(245,239,230,0.09) 0%, transparent 70%)",
         }}
       />
 
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
         {/* The three-act headline — one horizontal marquee, not stacked */}
         <Reveal className="mx-auto max-w-shell text-center">
-          <p className="eyebrow">{m.eyebrow}</p>
-          <h2 className="mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 font-sans text-2xl font-extrabold uppercase tracking-tight text-cream sm:text-4xl lg:text-[2.7rem]">
+          <div className="flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-cream/25 sm:w-12" />
+            <p className="eyebrow">{m.eyebrow}</p>
+            <span className="h-px w-8 bg-cream/25 sm:w-12" />
+          </div>
+          <h2 className="mt-5 flex flex-wrap items-center justify-center gap-x-5 gap-y-1 font-sans text-2xl font-extrabold uppercase tracking-tight text-cream [text-shadow:0_0_44px_rgba(245,239,230,0.18),0_2px_16px_rgba(0,0,0,0.55)] sm:text-4xl lg:text-[2.7rem]">
             {m.lines.map((line, i) => (
               <span
                 key={line}
@@ -31,20 +36,20 @@ export default function Signatures() {
               >
                 {line.replace(/\.$/, "")}
                 {i < m.lines.length - 1 && (
-                  <span aria-hidden="true" className="text-[0.42em] text-cream/35">
+                  <span aria-hidden="true" className="text-[0.42em] text-cream/40">
                     ◆
                   </span>
                 )}
               </span>
             ))}
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-dim-cream sm:text-lg">
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-dim-cream sm:text-lg">
             {m.body}
           </p>
         </Reveal>
 
         {/* The headliners — a billing of tonight's signatures */}
-        <Reveal className="mt-20 flex items-center justify-center gap-5 sm:mt-24">
+        <Reveal className="mt-16 flex items-center justify-center gap-5 sm:mt-20">
           <span className="h-px w-10 bg-cream/20 sm:w-16" />
           <p className="font-display text-lg italic text-cream/80 sm:text-xl">
             {s.heading}
