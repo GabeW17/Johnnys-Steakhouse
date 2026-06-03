@@ -59,16 +59,6 @@ export default function Hero() {
           <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink/70 to-transparent" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 via-ink/25 to-transparent" />
 
-          {/* Stage spotlights — beams converge on the centered headline */}
-          <div
-            className="pointer-events-none absolute inset-0 mix-blend-screen"
-            style={{
-              background:
-                "conic-gradient(from 0deg at 18% -16%, transparent 134deg, rgba(245,239,230,0.20) 157deg, transparent 180deg), " +
-                "conic-gradient(from 0deg at 82% -16%, transparent 180deg, rgba(245,239,230,0.20) 203deg, transparent 226deg), " +
-                "conic-gradient(from 0deg at 50% -20%, transparent 163deg, rgba(245,239,230,0.13) 180deg, transparent 197deg)",
-            }}
-          />
           {/* Left scrim so the left-aligned headline reads over the photo */}
           <div
             className="pointer-events-none absolute inset-0"
@@ -77,13 +67,25 @@ export default function Hero() {
                 "linear-gradient(to right, rgba(6,4,3,0.74) 0%, rgba(6,4,3,0.25) 40%, transparent 62%)",
             }}
           />
+          {/* Stage spotlights — painted OVER the scrims (screen blend) so the
+              beams glow against the darkened left. One rakes down onto the
+              headline, one onto the dish, plus a soft pool lifting the headline. */}
+          <div
+            className="pointer-events-none absolute inset-0 mix-blend-screen"
+            style={{
+              background:
+                "conic-gradient(from 0deg at 13% -22%, transparent 137deg, rgba(245,239,230,0.34) 159deg, rgba(245,239,230,0.34) 168deg, transparent 191deg), " +
+                "conic-gradient(from 0deg at 81% -20%, transparent 175deg, rgba(245,239,230,0.26) 197deg, rgba(245,239,230,0.26) 206deg, transparent 229deg), " +
+                "radial-gradient(48% 52% at 23% 50%, rgba(245,239,230,0.18) 0%, transparent 72%)",
+            }}
+          />
 
           {/* Headline + buttons — left, vertically centered */}
           <div className="absolute inset-0 flex items-center">
             <div className="mx-auto w-full max-w-shell px-6 sm:px-10">
               <div className="max-w-2xl">
                 <h1
-                  className="animate-riseIn font-sans text-6xl font-medium uppercase leading-[0.98] tracking-tight text-cream [text-shadow:0_2px_30px_rgba(0,0,0,0.85),0_1px_3px_rgba(0,0,0,0.7)] sm:text-7xl lg:text-8xl"
+                  className="animate-riseIn font-sans text-6xl font-medium uppercase leading-[0.98] tracking-tight text-cream [text-shadow:0_1px_0_rgba(255,255,255,0.18),0_2px_4px_rgba(0,0,0,0.75),0_6px_16px_rgba(0,0,0,0.8),0_20px_46px_rgba(0,0,0,0.62),0_0_48px_rgba(245,239,230,0.16)] sm:text-7xl lg:text-8xl"
                   style={{ animationDelay: `${delays[0]}ms` }}
                 >
                   {h.headlineLead} {h.headlineEmphasis}
@@ -94,14 +96,14 @@ export default function Hero() {
                 >
                   <a
                     href="#visit"
-                    className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-cream px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:shadow-xl hover:shadow-black/40"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-gradient-to-b from-white to-cream px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_14px_30px_-8px_rgba(0,0,0,0.72),0_4px_10px_-4px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_42px_-8px_rgba(0,0,0,0.82),0_6px_14px_-4px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.95)]"
                   >
                     <CalendarIcon />
                     {h.cta}
                   </a>
                   <a
                     href="#signatures"
-                    className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-cream/60 bg-ink/20 px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-cream backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:bg-cream hover:text-ink"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-cream/60 bg-ink/25 px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-cream shadow-[0_12px_26px_-10px_rgba(0,0,0,0.82),inset_0_1px_0_rgba(245,239,230,0.16)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-cream hover:text-ink hover:shadow-[0_18px_34px_-10px_rgba(0,0,0,0.85)]"
                   >
                     {h.ctaSecondary}
                   </a>
