@@ -17,12 +17,12 @@ export default function Signatures() {
         aria-hidden="true"
         style={{
           background:
-            "conic-gradient(from 0deg at 10% -8%, transparent 101deg, rgba(255,210,156,0.13) 127deg, rgba(255,210,156,0.13) 131deg, transparent 157deg)," +
-            "conic-gradient(from 0deg at 90% -8%, transparent 203deg, rgba(255,210,156,0.13) 229deg, rgba(255,210,156,0.13) 233deg, transparent 259deg)",
+            "conic-gradient(from 0deg at -2% 26%, transparent 74deg, rgba(255,210,156,0.15) 90deg, rgba(255,210,156,0.15) 97deg, transparent 113deg)," +
+            "conic-gradient(from 0deg at 102% 26%, transparent 247deg, rgba(255,210,156,0.15) 263deg, rgba(255,210,156,0.15) 270deg, transparent 286deg)",
           maskImage:
-            "linear-gradient(to bottom, #000 0%, #000 32%, transparent 68%)",
+            "linear-gradient(to bottom, #000 0%, #000 36%, transparent 74%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, #000 0%, #000 32%, transparent 68%)",
+            "linear-gradient(to bottom, #000 0%, #000 36%, transparent 74%)",
         }}
       />
       {/* faint warm fill on the title */}
