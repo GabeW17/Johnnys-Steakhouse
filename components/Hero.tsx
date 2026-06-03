@@ -75,7 +75,7 @@ export default function Hero() {
             style={{
               background:
                 "conic-gradient(from 0deg at 13% -22%, transparent 137deg, rgba(245,239,230,0.34) 159deg, rgba(245,239,230,0.34) 168deg, transparent 191deg), " +
-                "conic-gradient(from 0deg at 81% -20%, transparent 175deg, rgba(245,239,230,0.26) 197deg, rgba(245,239,230,0.26) 206deg, transparent 229deg), " +
+                "conic-gradient(from 0deg at 87% -22%, transparent 169deg, rgba(245,239,230,0.36) 191deg, rgba(245,239,230,0.36) 201deg, transparent 223deg), " +
                 "radial-gradient(48% 52% at 23% 50%, rgba(245,239,230,0.18) 0%, transparent 72%)",
             }}
           />
