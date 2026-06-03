@@ -86,7 +86,7 @@ export default function Signatures() {
               as="article"
               key={dish.name}
               delay={i * 110}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-cream/12 bg-[#161616] shadow-[0_28px_60px_-32px_rgba(0,0,0,0.92)] ring-1 ring-inset ring-white/[0.04] transition-all duration-500 hover:-translate-y-2 hover:border-cream/30 hover:shadow-[0_46px_90px_-30px_rgba(0,0,0,1)]"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-cream/35 bg-[#161616] shadow-[0_28px_60px_-32px_rgba(0,0,0,0.92)] transition-all duration-500 hover:-translate-y-2 hover:border-cream/55 hover:shadow-[0_46px_90px_-30px_rgba(0,0,0,1)]"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
