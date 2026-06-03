@@ -32,7 +32,7 @@ export default function LocationBar() {
 
   return (
     <div
-      className={`fixed inset-x-0 top-0 z-40 transform border-b border-cream/10 bg-[#121212]/95 backdrop-blur-md transition-transform duration-500 ease-out-expo ${
+      className={`fixed inset-x-0 top-0 z-40 transform border-b border-ink/10 bg-cream/95 shadow-[0_10px_30px_-14px_rgba(0,0,0,0.55)] backdrop-blur-md transition-transform duration-500 ease-out-expo ${
         shown ? "translate-y-[68px]" : "-translate-y-full"
       }`}
     >
@@ -44,7 +44,7 @@ export default function LocationBar() {
             onClick={() => setOpen((o) => !o)}
             aria-haspopup="listbox"
             aria-expanded={open}
-            className="flex items-center gap-2 text-sm font-medium text-cream transition-colors hover:text-white"
+            className="flex items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-black"
           >
             <svg
               width="14"
@@ -56,15 +56,13 @@ export default function LocationBar() {
               strokeLinecap="round"
               strokeLinejoin="round"
               aria-hidden="true"
-              className="text-dim-cream"
+              className="text-ink/55"
             >
               <path d="M12 21s-7-5.686-7-11a7 7 0 1 1 14 0c0 5.314-7 11-7 11Z" />
               <circle cx="12" cy="10" r="2.5" />
             </svg>
             <span>
-              {picked && (
-                <span className="text-dim-cream">Johnny&rsquo;s </span>
-              )}
+              {picked && <span className="text-ink/50">Johnny&rsquo;s </span>}
               {current}
             </span>
             <svg
@@ -77,7 +75,7 @@ export default function LocationBar() {
               strokeLinecap="round"
               strokeLinejoin="round"
               aria-hidden="true"
-              className={`text-dim-cream transition-transform duration-300 ${
+              className={`text-ink/50 transition-transform duration-300 ${
                 open ? "rotate-180" : ""
               }`}
             >
@@ -88,9 +86,9 @@ export default function LocationBar() {
           {open && (
             <ul
               role="listbox"
-              className="absolute left-0 top-[calc(100%+10px)] z-50 max-h-72 w-60 overflow-auto rounded-lg border border-cream/10 bg-[#161616] py-1.5 shadow-2xl shadow-black/60"
+              className="absolute left-0 top-[calc(100%+10px)] z-50 max-h-72 w-60 overflow-auto rounded-lg border border-ink/10 bg-cream py-1.5 shadow-2xl shadow-black/30"
             >
-              <li className="px-4 pb-1.5 pt-1 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-dim-cream/70">
+              <li className="px-4 pb-1.5 pt-1 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-ink/45">
                 Choose your location
               </li>
               {content.locations.items.map((loc) => {
@@ -103,12 +101,12 @@ export default function LocationBar() {
                         setCurrent(loc.city);
                         setOpen(false);
                       }}
-                      className={`flex w-full items-center justify-between px-4 py-2 text-left text-sm transition-colors hover:bg-cream/5 ${
-                        active ? "text-cream" : "text-dim-cream"
+                      className={`flex w-full items-center justify-between px-4 py-2 text-left text-sm transition-colors hover:bg-ink/5 ${
+                        active ? "font-medium text-ink" : "text-ink/65"
                       }`}
                     >
                       <span>{loc.city}</span>
-                      <span className="text-xs text-dim-cream">{loc.state}</span>
+                      <span className="text-xs text-ink/45">{loc.state}</span>
                     </button>
                   </li>
                 );
@@ -123,7 +121,7 @@ export default function LocationBar() {
         {picked ? (
           <a
             href="#locations"
-            className="btn btn-sm btn-primary inline-flex items-center gap-2"
+            className="btn btn-sm inline-flex items-center gap-2 bg-ink text-cream hover:bg-[#201c1a]"
           >
             Go to this location
             <svg
@@ -144,7 +142,7 @@ export default function LocationBar() {
           <button
             type="button"
             disabled
-            className="btn btn-sm inline-flex cursor-not-allowed items-center gap-2 border border-cream/15 bg-transparent text-dim-cream/45"
+            className="btn btn-sm inline-flex cursor-not-allowed items-center gap-2 border border-ink/20 bg-transparent text-ink/35"
           >
             Go to this location
             <svg
