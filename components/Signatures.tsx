@@ -10,15 +10,38 @@ export default function Signatures() {
       id="signatures"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28"
     >
-      {/* A single spotlight beam down onto the title, echoing the hero */}
+      {/* Performance lighting — a rig of stage beams fanning down from the top
+          plus soft out-of-focus bokeh, all behind the content */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[26rem]"
-        style={{
-          background:
-            "conic-gradient(from 180deg at 50% -6%, transparent 167deg, rgba(245,239,230,0.10) 180deg, transparent 193deg), " +
-            "radial-gradient(40% 62% at 50% 32%, rgba(245,239,230,0.09) 0%, transparent 70%)",
-        }}
-      />
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        {/* the beams */}
+        <div
+          className="absolute inset-x-0 top-0 h-[44rem] mix-blend-screen"
+          style={{
+            background:
+              "conic-gradient(from 180deg at 18% -10%, transparent 171deg, rgba(245,239,230,0.10) 178deg, rgba(245,239,230,0.10) 182deg, transparent 189deg)," +
+              "conic-gradient(from 180deg at 34% -10%, transparent 173deg, rgba(245,239,230,0.07) 179deg, rgba(245,239,230,0.07) 181deg, transparent 187deg)," +
+              "conic-gradient(from 180deg at 50% -10%, transparent 170deg, rgba(245,239,230,0.14) 178deg, rgba(245,239,230,0.14) 182deg, transparent 190deg)," +
+              "conic-gradient(from 180deg at 66% -10%, transparent 173deg, rgba(245,239,230,0.07) 179deg, rgba(245,239,230,0.07) 181deg, transparent 187deg)," +
+              "conic-gradient(from 180deg at 82% -10%, transparent 171deg, rgba(245,239,230,0.10) 178deg, rgba(245,239,230,0.10) 182deg, transparent 189deg)",
+          }}
+        />
+        {/* soft pool lifting the title */}
+        <div
+          className="absolute inset-x-0 top-0 h-[26rem]"
+          style={{
+            background:
+              "radial-gradient(38% 60% at 50% 30%, rgba(245,239,230,0.08) 0%, transparent 70%)",
+          }}
+        />
+        {/* out-of-focus stage lights */}
+        <div className="absolute left-[6%] top-[16%] h-20 w-20 rounded-full bg-cream/[0.06] blur-2xl" />
+        <div className="absolute right-[7%] top-[11%] h-28 w-28 rounded-full bg-cream/[0.05] blur-3xl" />
+        <div className="absolute left-[15%] top-[58%] h-24 w-24 rounded-full bg-cream/[0.04] blur-3xl" />
+        <div className="absolute right-[13%] top-[62%] h-16 w-16 rounded-full bg-cream/[0.05] blur-2xl" />
+      </div>
 
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
         {/* The three-act headline — one horizontal marquee, not stacked */}
