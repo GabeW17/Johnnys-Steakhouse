@@ -391,7 +391,7 @@ export const content: SiteContent = {
     cta: "Reserve your seat",
     ctaHref: "#locations",
     ctaImage:
-      "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=2000",
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2000",
     gallery: IMAGES.gallery,
     blurb:
       "An upscale supper club in the Rat Pack tradition — prime steaks aged in-house, pasta rolled by hand, and a martini poured the old-fashioned way.",
