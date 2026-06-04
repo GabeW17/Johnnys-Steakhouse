@@ -1,21 +1,9 @@
 import { content } from "@/content";
 import Reveal from "./Reveal";
 
-function PressQuote({ r }: { r: { quote: string; author: string } }) {
-  return (
-    <figure className="flex w-[360px] shrink-0 flex-col justify-center border-l border-cream/12 px-9">
-      <blockquote className="font-display text-lg italic leading-snug text-cream/85">
-        &ldquo;{r.quote}&rdquo;
-      </blockquote>
-      <figcaption className="mt-3.5 text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-dim-cream">
-        {r.author}
-      </figcaption>
-    </figure>
-  );
-}
-
 export default function Proof() {
   const p = content.proof;
+  const quotes = p.reviews.slice(0, 6);
 
   return (
     <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-32 lg:py-36">
@@ -60,13 +48,23 @@ export default function Proof() {
             </p>
           </div>
         </Reveal>
-      </div>
 
-      {/* supporting praise — a quiet editorial marquee of pull-quotes */}
-      <div className="marquee-mask group relative mt-16 sm:mt-20">
-        <div className="animate-marquee flex w-max group-hover:[animation-play-state:paused]">
-          {[...p.reviews, ...p.reviews].map((r, i) => (
-            <PressQuote key={i} r={r} />
+        {/* supporting praise — a quiet, ruled press grid */}
+        <div className="mt-16 grid gap-x-12 gap-y-10 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3">
+          {quotes.map((r, i) => (
+            <Reveal
+              as="figure"
+              key={r.author}
+              delay={(i % 3) * 110}
+              className="border-t border-cream/15 pt-6 text-left"
+            >
+              <blockquote className="font-display text-lg italic leading-relaxed text-cream/85">
+                &ldquo;{r.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-4 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-dim-cream">
+                {r.author}
+              </figcaption>
+            </Reveal>
           ))}
         </div>
       </div>
