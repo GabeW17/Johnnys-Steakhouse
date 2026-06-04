@@ -94,24 +94,31 @@ export default function Locations() {
       {/* Warm candlelit glow, matching the rest of the site */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div
-          className="absolute inset-x-0 top-0 h-72"
+          className="absolute inset-x-0 top-0 h-80"
           style={{
             background:
-              "radial-gradient(55% 100% at 50% 0%, rgba(255,210,156,0.08) 0%, transparent 70%)",
+              "radial-gradient(55% 100% at 50% 0%, rgba(255,210,156,0.12) 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute left-1/2 top-1/2 h-[42rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 rounded-full"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(255,210,156,0.06) 0%, transparent 70%)",
           }}
         />
         <div
           className="absolute -left-24 top-1/4 h-[30rem] w-[30rem] rounded-full"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(255,210,156,0.05) 0%, transparent 72%)",
+              "radial-gradient(closest-side, rgba(255,210,156,0.06) 0%, transparent 72%)",
           }}
         />
         <div
           className="absolute -right-24 bottom-[12%] h-[28rem] w-[28rem] rounded-full"
           style={{
             background:
-              "radial-gradient(closest-side, rgba(255,210,156,0.045) 0%, transparent 72%)",
+              "radial-gradient(closest-side, rgba(255,210,156,0.055) 0%, transparent 72%)",
           }}
         />
       </div>
@@ -132,13 +139,13 @@ export default function Locations() {
         {/* Store locator — a full map with the menu/detail floating on top */}
         <div className="relative mt-12">
           <div
-            className="pointer-events-none absolute -inset-4 rounded-[2rem]"
+            className="pointer-events-none absolute -inset-8 rounded-[2.6rem]"
             style={{
               background:
-                "radial-gradient(closest-side, rgba(255,210,156,0.10) 0%, transparent 72%)",
+                "radial-gradient(closest-side, rgba(255,210,156,0.17) 0%, transparent 72%)",
             }}
           />
-          <div className="relative isolate h-[540px] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92)] sm:h-[620px]">
+          <div className="relative isolate h-[540px] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_60px_120px_-32px_rgba(0,0,0,0.95),0_26px_55px_-30px_rgba(0,0,0,0.85)] ring-1 ring-inset ring-cream/10 sm:h-[620px]">
             <div className="absolute inset-0 z-0">
               <LocationsMap
                 onSelect={setSelected}
@@ -148,6 +155,9 @@ export default function Locations() {
                 onReset={() => setSelected(null)}
               />
             </div>
+
+            {/* top-edge sheen — lifts the card off the section */}
+            <div className="pointer-events-none absolute inset-x-8 top-0 z-[5] h-px bg-gradient-to-r from-transparent via-cream/45 to-transparent" />
 
             <div className="absolute bottom-3 left-3 right-3 top-auto z-10 flex max-h-[58%] flex-col overflow-hidden rounded-2xl border border-cream/20 bg-[#100f0e]/95 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] sm:bottom-4 sm:left-4 sm:right-auto sm:top-4 sm:max-h-none sm:w-[358px]">
               {selected ? (
