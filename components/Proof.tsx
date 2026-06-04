@@ -25,8 +25,18 @@ export default function Proof() {
           </p>
         </Reveal>
 
-        {/* Three equal voices — testimonial cards */}
-        <div className="mt-12 grid gap-6 sm:mt-14 sm:grid-cols-3 lg:gap-7">
+        {/* Three equal voices — testimonial cards over a warm glow */}
+        <div className="relative mt-12 sm:mt-14">
+          {/* warm candle glow behind the cards */}
+          <div
+            className="pointer-events-none absolute -inset-x-4 -inset-y-10"
+            aria-hidden="true"
+            style={{
+              background:
+                "radial-gradient(58% 80% at 50% 50%, rgba(255,210,156,0.09) 0%, transparent 72%)",
+            }}
+          />
+          <div className="relative grid gap-6 sm:grid-cols-3 lg:gap-7">
           {reviews.map((r, i) => (
             <Reveal
               as="figure"
@@ -50,6 +60,7 @@ export default function Proof() {
               </figcaption>
             </Reveal>
           ))}
+          </div>
         </div>
       </div>
     </section>
