@@ -1,6 +1,18 @@
 import { content } from "@/content";
 import Reveal from "./Reveal";
 
+function Stars() {
+  return (
+    <div className="flex gap-1 text-[#d3ad77]" aria-label="Rated 5 out of 5 stars">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <svg key={i} width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 .587l3.668 7.431 8.2 1.192-5.934 5.787 1.402 8.169L12 18.896l-7.336 3.86 1.402-8.169L.132 9.21l8.2-1.192z" />
+        </svg>
+      ))}
+    </div>
+  );
+}
+
 export default function Proof() {
   const p = content.proof;
   const reviews = p.reviews.slice(0, 3);
@@ -33,7 +45,7 @@ export default function Proof() {
             aria-hidden="true"
             style={{
               background:
-                "radial-gradient(58% 80% at 50% 50%, rgba(255,210,156,0.09) 0%, transparent 72%)",
+                "radial-gradient(58% 80% at 50% 50%, rgba(255,210,156,0.06) 0%, transparent 72%)",
             }}
           />
           <div className="relative grid gap-6 sm:grid-cols-3 lg:gap-7">
@@ -42,16 +54,11 @@ export default function Proof() {
               as="figure"
               key={i}
               delay={(i % 3) * 110}
-              className="flex flex-col rounded-2xl border border-cream/15 bg-[#161616] p-7 text-left shadow-[0_30px_60px_-34px_rgba(0,0,0,0.95)] ring-1 ring-inset ring-white/[0.03] sm:p-8"
+              className="flex flex-col rounded-2xl border border-cream/15 bg-[#161616] p-7 text-left shadow-[0_30px_60px_-34px_rgba(0,0,0,0.95),0_0_46px_-6px_rgba(255,210,156,0.34)] ring-1 ring-inset ring-white/[0.04] sm:p-8"
             >
-              <span
-                aria-hidden="true"
-                className="block text-5xl leading-[0.4] text-cream/20"
-              >
-                &ldquo;
-              </span>
-              <blockquote className="mt-4 flex-1 text-base leading-relaxed text-cream/85 sm:text-[1.05rem]">
-                {r.quote}
+              <Stars />
+              <blockquote className="mt-5 flex-1 text-base leading-relaxed text-cream/85 sm:text-[1.05rem]">
+                &ldquo;{r.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-6 border-t border-cream/10 pt-5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-dim-cream">
                 {r.author}
