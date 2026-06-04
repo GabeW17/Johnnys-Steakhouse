@@ -16,26 +16,6 @@ const STATE_NAMES: Record<string, string> = {
   MN: "Minnesota",
 };
 
-function PinGlyph({ className = "" }: { className?: string }) {
-  return (
-    <svg
-      width="17"
-      height="17"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className={className}
-    >
-      <path d="M12 21s-7-5.686-7-11a7 7 0 1 1 14 0c0 5.314-7 11-7 11Z" />
-      <circle cx="12" cy="10" r="2.5" />
-    </svg>
-  );
-}
-
 export default function Locations() {
   const l = content.locations;
   const [selected, setSelected] = useState<LocationItem | null>(null);
@@ -91,7 +71,7 @@ export default function Locations() {
             </div>
 
             {/* Floating panel: list of all locations, or the selected detail */}
-            <div className="absolute bottom-3 left-3 right-3 top-auto z-10 flex max-h-[56%] flex-col overflow-hidden rounded-2xl border border-cream/15 bg-[#100f0e]/95 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] sm:bottom-4 sm:left-4 sm:right-auto sm:top-4 sm:max-h-none sm:w-[358px]">
+            <div className="absolute bottom-3 left-3 right-3 top-auto z-10 flex max-h-[56%] flex-col overflow-hidden rounded-2xl border border-cream/20 bg-[#100f0e]/95 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] sm:bottom-4 sm:left-4 sm:right-auto sm:top-4 sm:max-h-none sm:w-[358px]">
             {selected ? (
               <>
                 <button
@@ -195,8 +175,11 @@ export default function Locations() {
               </>
             ) : (
               <>
-                <div className="border-b border-cream/10 p-3">
-                  <div className="relative">
+                <div className="border-b border-cream/10 px-5 pb-4 pt-4">
+                  <p className="text-[0.6rem] font-semibold uppercase tracking-[0.28em] text-dim-cream">
+                    {l.eyebrow}
+                  </p>
+                  <div className="relative mt-3">
                     <svg
                       width="15"
                       height="15"
@@ -207,7 +190,7 @@ export default function Locations() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       aria-hidden="true"
-                      className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-dim-cream"
+                      className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-dim-cream"
                     >
                       <circle cx="11" cy="11" r="7" />
                       <path d="M21 21l-4.3-4.3" />
@@ -218,7 +201,7 @@ export default function Locations() {
                       onChange={(e) => setQ(e.target.value)}
                       placeholder={l.searchPlaceholder}
                       aria-label={l.searchPlaceholder}
-                      className="w-full rounded-lg border border-cream/15 bg-cream/5 py-2.5 pl-9 pr-3 text-sm text-cream placeholder:text-dim-cream focus:border-cream/40 focus:outline-none"
+                      className="w-full rounded-full border border-cream/20 bg-cream/[0.04] py-2.5 pl-10 pr-4 text-sm text-cream placeholder:text-dim-cream/70 focus:border-cream/45 focus:outline-none"
                     />
                   </div>
                 </div>
@@ -228,20 +211,18 @@ export default function Locations() {
                       key={`${loc.city}-${loc.state}`}
                       type="button"
                       onClick={() => setSelected(loc)}
-                      className="group flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left transition-colors hover:bg-cream/5"
+                      className="group flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left transition-colors hover:bg-cream/[0.05]"
                     >
-                      <PinGlyph className="shrink-0 text-dim-cream transition-colors group-hover:text-cream" />
-                      <div className="min-w-0 flex-1">
-                        <h3 className="truncate font-display text-base text-cream">
-                          {loc.city}
-                        </h3>
-                        <p className="text-[0.64rem] uppercase tracking-[0.16em] text-dim-cream">
-                          {STATE_NAMES[loc.state] ?? loc.state}
-                        </p>
-                      </div>
+                      <span className="shrink-0 font-display text-[1.05rem] leading-none text-cream transition-colors group-hover:text-white">
+                        {loc.city}
+                      </span>
+                      <span className="h-px flex-1 bg-cream/10" />
+                      <span className="shrink-0 text-[0.58rem] uppercase tracking-[0.18em] text-dim-cream">
+                        {STATE_NAMES[loc.state] ?? loc.state}
+                      </span>
                       <svg
-                        width="14"
-                        height="14"
+                        width="13"
+                        height="13"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -249,7 +230,7 @@ export default function Locations() {
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         aria-hidden="true"
-                        className="shrink-0 -translate-x-1 text-dim-cream opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                        className="shrink-0 text-cream opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                       >
                         <path d="M5 12h14M13 6l6 6-6 6" />
                       </svg>
