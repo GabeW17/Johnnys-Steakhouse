@@ -93,8 +93,13 @@
 
 /* ---------- Leaflet map — dark supper-club theming ---------- */
 .leaflet-container {
-  background: #0c0a0a;
+  background: #13100c;
   font-family: var(--font-hanken), system-ui, sans-serif;
+}
+/* Warm-tint the cool dark map tiles to match the candlelit palette.
+   Higher specificity than Leaflet's own `.leaflet-tile { filter: inherit }`. */
+.leaflet-tile-pane .leaflet-tile {
+  filter: brightness(0.95) sepia(0.45) saturate(1.35) hue-rotate(-6deg);
 }
 /* Glowing warm pin = a little spotlight marking each venue */
 .jis-marker {
