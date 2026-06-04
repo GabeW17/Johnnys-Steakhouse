@@ -122,20 +122,38 @@
   border: 0;
 }
 .jis-cluster {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 40px;
+}
+.jis-cluster-logo {
+  height: 32px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(255, 210, 156, 0.7))
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85));
+}
+.jis-cluster-count {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
   border-radius: 9999px;
-  background: rgba(18, 16, 15, 0.92);
-  border: 1px solid rgba(245, 239, 230, 0.5);
-  color: #f5efe6;
+  background: #f5efe6;
+  color: #0c0a0a;
   font-family: var(--font-hanken), system-ui, sans-serif;
-  font-weight: 600;
-  font-size: 0.9rem;
-  box-shadow: 0 0 0 4px rgba(255, 210, 156, 0.16),
-    0 0 16px 4px rgba(255, 210, 156, 0.45), 0 4px 12px rgba(0, 0, 0, 0.6);
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 0 0 2px rgba(12, 10, 10, 0.65),
+    0 0 10px rgba(255, 210, 156, 0.6);
 }
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {

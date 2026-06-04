@@ -66,9 +66,9 @@ export default function LocationsMap({
         maxClusterRadius: 40,
         iconCreateFunction: (c: any) =>
           L.divIcon({
-            html: `<div class="jis-cluster">${c.getChildCount()}</div>`,
+            html: `<div class="jis-cluster"><img src="/johnnys-mark.png" alt="" class="jis-cluster-logo" /><span class="jis-cluster-count">${c.getChildCount()}</span></div>`,
             className: "jis-cluster-wrap",
-            iconSize: [38, 38],
+            iconSize: [42, 40],
           }),
       });
 
