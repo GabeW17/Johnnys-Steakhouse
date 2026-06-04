@@ -138,6 +138,8 @@ export interface SiteContent {
     ctaLine: string;
     cta: string;
     ctaHref: string;
+    /** dish/drink photos for the closing horizontal filmstrip */
+    gallery: string[];
   };
 
   mobileReserve: string;
@@ -156,6 +158,19 @@ const IMAGES = {
     "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400",
     "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1400",
     "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?q=80&w=1400",
+  ],
+  // Closing filmstrip — a varied parade of plates & pours for the footer CTA
+  gallery: [
+    "https://images.unsplash.com/photo-1546964124-0cce460f38ef?q=80&w=700",
+    "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=700",
+    "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=700",
+    "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=700",
+    "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?q=80&w=700",
+    "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=700",
+    "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=700",
+    "https://images.unsplash.com/photo-1547595628-c61a29f496f0?q=80&w=700",
+    "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=700",
+    "https://images.unsplash.com/photo-1551024601-bec78aea704b?q=80&w=700",
   ],
 };
 
@@ -351,6 +366,7 @@ export const content: SiteContent = {
     ctaLine: "A table's always waiting.",
     cta: "Find your Johnny's",
     ctaHref: "#locations",
+    gallery: IMAGES.gallery,
   },
 
   mobileReserve: "Find a table",
