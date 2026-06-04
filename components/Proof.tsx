@@ -7,17 +7,6 @@ export default function Proof() {
 
   return (
     <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-32 lg:py-36">
-      {/* Diagonal spotlights rising from the lower sides up to "A standing ovation" */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] mix-blend-screen"
-        aria-hidden="true"
-        style={{
-          background:
-            "conic-gradient(from 0deg at -6% 64%, transparent 30deg, rgba(255,210,156,0.16) 47deg, rgba(255,210,156,0.16) 55deg, transparent 73deg)," +
-            "conic-gradient(from 0deg at 106% 64%, transparent 287deg, rgba(255,210,156,0.16) 305deg, rgba(255,210,156,0.16) 313deg, transparent 330deg)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-3">
