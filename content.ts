@@ -300,6 +300,26 @@ export const content: SiteContent = {
           "Felt like the Rat Pack might stroll in any minute. Flawless service, and the ribeye was unreal.",
         author: "Tony R.",
       },
+      {
+        quote:
+          "Best martini in town, hands down — and the whole room hums on a Friday night.",
+        author: "Olivia R.",
+      },
+      {
+        quote:
+          "They treated my parents' 50th like opening night. We will never forget it.",
+        author: "The Bennetts",
+      },
+      {
+        quote:
+          "Hand-rolled pasta that tastes like someone's nonna is in the back. Absolutely stunning.",
+        author: "Gina M.",
+      },
+      {
+        quote:
+          "Dark, glamorous, and the service is a performance of its own. A proper supper club.",
+        author: "David K.",
+      },
     ],
   },
 

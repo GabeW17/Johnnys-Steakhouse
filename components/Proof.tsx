@@ -68,25 +68,26 @@ export default function Proof() {
           </div>
         </Reveal>
 
-        {/* supporting reviews */}
-        <div className="mt-16 grid gap-5 sm:mt-20 sm:grid-cols-3">
-          {p.reviews.map((r, i) => (
-            <Reveal
-              as="figure"
-              key={r.author}
-              delay={i * 110}
-              className="rounded-2xl border border-cream/12 bg-[#161616] p-6 text-left shadow-[0_24px_50px_-30px_rgba(0,0,0,0.9)]"
+      </div>
+
+      {/* supporting reviews — a slow, edge-faded marquee (pauses on hover) */}
+      <div className="marquee-mask group relative mt-16 sm:mt-20">
+        <div className="animate-marquee flex w-max gap-5 group-hover:[animation-play-state:paused]">
+          {[...p.reviews, ...p.reviews].map((r, i) => (
+            <figure
+              key={i}
+              className="w-[330px] shrink-0 rounded-2xl border border-cream/10 bg-[#141312] p-6 text-left"
             >
               <span className="text-[#e6c178]">
                 <Stars size="h-3.5" />
               </span>
-              <blockquote className="mt-4 text-sm leading-relaxed text-dim-cream">
+              <blockquote className="mt-3.5 font-display text-base italic leading-relaxed text-cream/90">
                 &ldquo;{r.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-4 text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-cream/80">
+              <figcaption className="mt-4 text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-dim-cream">
                 {r.author}
               </figcaption>
-            </Reveal>
+            </figure>
           ))}
         </div>
       </div>
