@@ -33,8 +33,11 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-cream/15 bg-ink">
-      {/* ===== Closing CTA — a single candlelit photo, darkened ===== */}
-      <section className="relative overflow-hidden">
+      {/* ===== Closing CTA — a framed candlelit photo card ===== */}
+      <section className="bg-ink px-5 py-12 sm:px-8 sm:py-16">
+        <div className="relative mx-auto max-w-shell overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_40px_90px_-35px_rgba(0,0,0,0.92),0_0_60px_-6px_rgba(255,210,156,0.35)] ring-1 ring-inset ring-cream/10">
+          {/* top-edge sheen */}
+          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-cream/40 to-transparent" />
         {/* Still photo backdrop */}
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -67,7 +70,7 @@ export default function Footer() {
         />
 
         {/* Content */}
-        <div className="relative z-10 mx-auto flex max-w-shell flex-col items-center gap-7 px-6 py-24 text-center sm:px-8 sm:py-32">
+        <div className="relative z-10 flex flex-col items-center gap-7 px-6 py-20 text-center sm:py-24">
           <h2 className="font-display text-3xl font-semibold leading-tight text-cream [text-shadow:0_1px_0_rgba(255,255,255,0.25),0_2px_5px_rgba(0,0,0,0.85),0_8px_20px_rgba(0,0,0,0.82),0_18px_44px_rgba(0,0,0,0.6),0_0_46px_rgba(255,210,156,0.22)] sm:text-4xl lg:text-5xl">
             {f.ctaLine}
           </h2>
@@ -78,6 +81,7 @@ export default function Footer() {
             <PinIcon />
             {f.cta}
           </a>
+        </div>
         </div>
       </section>
 
