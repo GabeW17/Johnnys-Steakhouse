@@ -1,36 +1,16 @@
 import { content } from "@/content";
 import Reveal from "./Reveal";
 
-function ReviewCard({ r }: { r: { quote: string; author: string } }) {
+function PressQuote({ r }: { r: { quote: string; author: string } }) {
   return (
-    <figure className="w-[320px] shrink-0 rounded-2xl border border-cream/10 bg-[#141312] p-6 text-left">
-      <span className="text-[#e6c178]">
-        <Stars size="h-3.5" />
-      </span>
-      <blockquote className="mt-3.5 font-display text-base italic leading-relaxed text-cream/90">
+    <figure className="flex w-[360px] shrink-0 flex-col justify-center border-l border-cream/12 px-9">
+      <blockquote className="font-display text-lg italic leading-snug text-cream/85">
         &ldquo;{r.quote}&rdquo;
       </blockquote>
-      <figcaption className="mt-4 text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-dim-cream">
+      <figcaption className="mt-3.5 text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-dim-cream">
         {r.author}
       </figcaption>
     </figure>
-  );
-}
-
-function Stars({ size = "h-4" }: { size?: string }) {
-  return (
-    <div className="flex items-center gap-0.5" aria-hidden="true">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <svg
-          key={i}
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className={`${size} w-auto`}
-        >
-          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-        </svg>
-      ))}
-    </div>
   );
 }
 
@@ -61,20 +41,11 @@ export default function Proof() {
             <p className="eyebrow">{p.eyebrow}</p>
             <span className="h-px w-8 bg-cream/25" />
           </div>
+          <p className="mt-4 text-xs uppercase tracking-[0.22em] text-dim-cream">
+            {p.rating} average · {p.count}
+          </p>
 
-          {/* aggregate rating */}
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <span className="text-[#e6c178]">
-              <Stars size="h-5" />
-            </span>
-            <span className="font-display text-2xl leading-none text-cream">
-              {p.rating}
-            </span>
-            <span className="text-sm text-dim-cream">from {p.count}</span>
-          </div>
-
-          {/* hero pull-quote */}
-          <div className="relative mt-10">
+          <div className="relative mt-9">
             <span
               aria-hidden="true"
               className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 select-none font-display text-[13rem] leading-none text-cream/[0.06]"
@@ -89,29 +60,14 @@ export default function Proof() {
             </p>
           </div>
         </Reveal>
-
       </div>
 
-      {/* supporting reviews — two slow rows drifting opposite ways (pause on hover) */}
-      <div className="mt-14 space-y-4 sm:mt-16">
-        <div className="marquee-mask group relative">
-          <div className="animate-marquee flex w-max gap-4 group-hover:[animation-play-state:paused]">
-            {[...p.reviews, ...p.reviews].map((r, i) => (
-              <ReviewCard key={i} r={r} />
-            ))}
-          </div>
-        </div>
-        <div className="marquee-mask group relative">
-          <div className="animate-marquee-reverse flex w-max gap-4 group-hover:[animation-play-state:paused]">
-            {[
-              ...p.reviews.slice(3),
-              ...p.reviews.slice(0, 3),
-              ...p.reviews.slice(3),
-              ...p.reviews.slice(0, 3),
-            ].map((r, i) => (
-              <ReviewCard key={i} r={r} />
-            ))}
-          </div>
+      {/* supporting praise — a quiet editorial marquee of pull-quotes */}
+      <div className="marquee-mask group relative mt-16 sm:mt-20">
+        <div className="animate-marquee flex w-max group-hover:[animation-play-state:paused]">
+          {[...p.reviews, ...p.reviews].map((r, i) => (
+            <PressQuote key={i} r={r} />
+          ))}
         </div>
       </div>
     </section>
