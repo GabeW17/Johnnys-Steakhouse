@@ -7,16 +7,36 @@ import { content, type LocationItem } from "@/content";
 
 const keyOf = (l: LocationItem) => `${l.city}-${l.state}`;
 
+function miles(
+  a: { lat: number; lng: number },
+  b: { lat: number; lng: number }
+) {
+  const toRad = (d: number) => (d * Math.PI) / 180;
+  const R = 3958.8;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+
 export default function LocationsMap({
   onSelect,
   focus,
+  hovered,
+  userLoc,
 }: {
   onSelect?: (loc: LocationItem) => void;
   focus?: LocationItem | null;
+  hovered?: LocationItem | null;
+  userLoc?: { lat: number; lng: number } | null;
 }) {
   const elRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
+  const LRef = useRef<any>(null);
   const markersRef = useRef<Record<string, any>>({});
+  const userMarkerRef = useRef<any>(null);
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
 
@@ -26,8 +46,9 @@ export default function LocationsMap({
     (async () => {
       const mod = await import("leaflet");
       const L: any = (mod as any).default ?? mod;
-      await import("leaflet.markercluster"); // adds L.markerClusterGroup
+      await import("leaflet.markercluster");
       if (cancelled || !elRef.current || mapRef.current) return;
+      LRef.current = L;
 
       const map = L.map(elRef.current, {
         scrollWheelZoom: false,
@@ -39,7 +60,7 @@ export default function LocationsMap({
         maxBoundsViscosity: 1,
       });
       mapRef.current = map;
-      map.setView([39.5, -95], 4); // continental US baseline
+      map.setView([39.5, -95], 4);
       L.control.zoom({ position: "topright" }).addTo(map);
 
       L.tileLayer(
@@ -59,7 +80,6 @@ export default function LocationsMap({
         iconAnchor: [13, 14],
       });
 
-      // Cluster nearby venues into a count badge that splits on zoom/click
       const cluster = L.markerClusterGroup({
         showCoverageOnHover: false,
         spiderfyOnMaxZoom: true,
@@ -104,11 +124,13 @@ export default function LocationsMap({
         mapRef.current.remove();
         mapRef.current = null;
         markersRef.current = {};
+        userMarkerRef.current = null;
+        LRef.current = null;
       }
     };
   }, []);
 
-  // Fly to + highlight the focused location
+  // Selected: fly to + strong highlight
   useEffect(() => {
     const map = mapRef.current;
     if (!map) return;
@@ -125,6 +147,56 @@ export default function LocationsMap({
     }
     apply();
   }, [focus]);
+
+  // Hovered (from the list): light highlight
+  useEffect(() => {
+    const hk = hovered ? keyOf(hovered) : null;
+    Object.entries(markersRef.current).forEach(([k, m]) => {
+      const pin = m.getElement?.()?.querySelector?.(".jis-pin-logo");
+      if (pin) pin.classList.toggle("jis-pin-logo--hover", k === hk);
+    });
+  }, [hovered]);
+
+  // User location: "you are here" marker + zoom to user + nearest venue
+  useEffect(() => {
+    const map = mapRef.current;
+    const L = LRef.current;
+    if (!map || !L) return;
+    if (userMarkerRef.current) {
+      map.removeLayer(userMarkerRef.current);
+      userMarkerRef.current = null;
+    }
+    if (!userLoc) return;
+
+    const dot = L.marker([userLoc.lat, userLoc.lng], {
+      icon: L.divIcon({
+        className: "jis-user",
+        html: '<span class="jis-user-dot"></span>',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+      }),
+      interactive: false,
+      zIndexOffset: 2000,
+    });
+    dot.addTo(map);
+    userMarkerRef.current = dot;
+
+    const nearest = [...content.locations.items].sort(
+      (a, b) => miles(userLoc, a) - miles(userLoc, b)
+    )[0];
+    const wide = window.innerWidth >= 640;
+    map.fitBounds(
+      L.latLngBounds(
+        [userLoc.lat, userLoc.lng],
+        [nearest.lat, nearest.lng]
+      ).pad(0.4),
+      {
+        paddingTopLeft: wide ? [360, 70] : [30, 60],
+        paddingBottomRight: wide ? [60, 60] : [30, 280],
+        maxZoom: 9,
+      }
+    );
+  }, [userLoc]);
 
   return (
     <div

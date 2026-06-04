@@ -111,10 +111,46 @@
     drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85));
   transition: transform 0.25s ease, filter 0.25s ease;
 }
+.jis-pin-logo--hover {
+  transform: scale(1.28);
+  filter: drop-shadow(0 0 10px rgba(255, 210, 156, 0.85))
+    drop-shadow(0 1px 2px rgba(0, 0, 0, 0.85));
+}
 .jis-pin-logo--active {
   transform: scale(1.5);
   filter: drop-shadow(0 0 12px rgba(255, 210, 156, 0.95))
     drop-shadow(0 0 5px rgba(255, 210, 156, 0.85));
+}
+/* "You are here" marker */
+.jis-user-dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 2px solid #0c0a0a;
+  box-shadow: 0 0 0 4px rgba(120, 170, 255, 0.35),
+    0 0 16px 5px rgba(120, 170, 255, 0.5);
+  animation: jisUserPulse 2s ease-out infinite;
+}
+@keyframes jisUserPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(120, 170, 255, 0.5),
+      0 0 16px 5px rgba(120, 170, 255, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 11px rgba(120, 170, 255, 0),
+      0 0 16px 5px rgba(120, 170, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(120, 170, 255, 0),
+      0 0 16px 5px rgba(120, 170, 255, 0.5);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .jis-user-dot {
+    animation: none;
+  }
 }
 /* Cluster badge — count of nearby venues */
 .jis-cluster-wrap {
