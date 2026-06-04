@@ -39,10 +39,23 @@ function PinGlyph({ className = "" }: { className?: string }) {
 export default function Locations() {
   const l = content.locations;
   const [selected, setSelected] = useState<LocationItem | null>(null);
+  const [q, setQ] = useState("");
 
   const directions = selected
     ? `https://www.google.com/maps/search/?api=1&query=${selected.lat},${selected.lng}`
     : "#";
+
+  const query = q.trim().toLowerCase();
+  const filtered = query
+    ? l.items.filter((loc) => {
+        const sn = (STATE_NAMES[loc.state] ?? loc.state).toLowerCase();
+        return (
+          loc.city.toLowerCase().includes(query) ||
+          loc.state.toLowerCase().includes(query) ||
+          sn.includes(query)
+        );
+      })
+    : l.items;
 
   return (
     <section
@@ -78,7 +91,7 @@ export default function Locations() {
             </div>
 
             {/* Floating panel: list of all locations, or the selected detail */}
-            <div className="absolute bottom-3 left-3 right-3 top-auto z-10 flex max-h-[56%] flex-col overflow-hidden rounded-2xl border border-cream/15 bg-[#0f0e0e]/85 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:bottom-4 sm:left-4 sm:right-auto sm:top-4 sm:max-h-none sm:w-[358px]">
+            <div className="absolute bottom-3 left-3 right-3 top-auto z-10 flex max-h-[56%] flex-col overflow-hidden rounded-2xl border border-cream/15 bg-[#100f0e]/95 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] sm:bottom-4 sm:left-4 sm:right-auto sm:top-4 sm:max-h-none sm:w-[358px]">
             {selected ? (
               <>
                 <button
@@ -182,13 +195,35 @@ export default function Locations() {
               </>
             ) : (
               <>
-                <div className="border-b border-cream/10 px-5 py-3.5">
-                  <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-dim-cream">
-                    {l.items.length} locations · tap to view
-                  </p>
+                <div className="border-b border-cream/10 p-3">
+                  <div className="relative">
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-dim-cream"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M21 21l-4.3-4.3" />
+                    </svg>
+                    <input
+                      type="text"
+                      value={q}
+                      onChange={(e) => setQ(e.target.value)}
+                      placeholder={l.searchPlaceholder}
+                      aria-label={l.searchPlaceholder}
+                      className="w-full rounded-lg border border-cream/15 bg-cream/5 py-2.5 pl-9 pr-3 text-sm text-cream placeholder:text-dim-cream focus:border-cream/40 focus:outline-none"
+                    />
+                  </div>
                 </div>
                 <div className="flex-1 overflow-y-auto p-2">
-                  {l.items.map((loc) => (
+                  {filtered.map((loc) => (
                     <button
                       key={`${loc.city}-${loc.state}`}
                       type="button"
@@ -220,6 +255,11 @@ export default function Locations() {
                       </svg>
                     </button>
                   ))}
+                  {filtered.length === 0 && (
+                    <p className="px-3 py-8 text-center text-sm text-dim-cream">
+                      No locations match &ldquo;{q}&rdquo;.
+                    </p>
+                  )}
                 </div>
               </>
             )}
