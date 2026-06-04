@@ -34,7 +34,7 @@ export default function Hero() {
           "radial-gradient(100% 78% at 50% 16%, #241a13 0%, #0d0a08 50%, #070504 80%)",
       }}
     >
-      <div className="relative z-0 flex-1 overflow-hidden rounded-3xl border-[3px] border-cream/35 shadow-[0_45px_90px_-30px_rgba(0,0,0,0.9),0_0_60px_-12px_rgba(245,239,230,0.08)]">
+      <div className="relative z-0 flex-1 overflow-hidden rounded-3xl border-[3px] border-cream/35 shadow-[0_45px_90px_-30px_rgba(0,0,0,0.9),0_0_60px_-12px_rgba(255,210,156,0.1)]">
           {/* Full-bleed background — crossfading video playlist if set, else image */}
           {h.video && h.video.length > 0 ? (
             <HeroVideo sources={h.video} poster={h.image} />
@@ -74,9 +74,9 @@ export default function Hero() {
             className="pointer-events-none absolute inset-0 mix-blend-screen"
             style={{
               background:
-                "conic-gradient(from 0deg at 13% -22%, transparent 137deg, rgba(245,239,230,0.34) 159deg, rgba(245,239,230,0.34) 168deg, transparent 191deg), " +
-                "conic-gradient(from 0deg at 87% -22%, transparent 169deg, rgba(245,239,230,0.36) 191deg, rgba(245,239,230,0.36) 201deg, transparent 223deg), " +
-                "radial-gradient(48% 52% at 23% 50%, rgba(245,239,230,0.18) 0%, transparent 72%)",
+                "conic-gradient(from 0deg at 13% -22%, transparent 137deg, rgba(255,210,156,0.34) 159deg, rgba(255,210,156,0.34) 168deg, transparent 191deg), " +
+                "conic-gradient(from 0deg at 87% -22%, transparent 169deg, rgba(255,210,156,0.36) 191deg, rgba(255,210,156,0.36) 201deg, transparent 223deg), " +
+                "radial-gradient(48% 52% at 23% 50%, rgba(255,210,156,0.18) 0%, transparent 72%)",
             }}
           />
 
@@ -85,7 +85,7 @@ export default function Hero() {
             <div className="mx-auto w-full max-w-shell px-6 sm:px-10">
               <div className="max-w-2xl">
                 <h1
-                  className="animate-riseIn font-sans text-6xl font-medium uppercase leading-[0.98] tracking-tight text-cream [text-shadow:0_1px_0_rgba(255,255,255,0.18),0_2px_4px_rgba(0,0,0,0.75),0_6px_16px_rgba(0,0,0,0.8),0_20px_46px_rgba(0,0,0,0.62),0_0_48px_rgba(245,239,230,0.16)] sm:text-7xl lg:text-8xl"
+                  className="animate-riseIn font-sans text-6xl font-medium uppercase leading-[0.98] tracking-tight text-cream [text-shadow:0_1px_0_rgba(255,255,255,0.18),0_2px_4px_rgba(0,0,0,0.75),0_6px_16px_rgba(0,0,0,0.8),0_20px_46px_rgba(0,0,0,0.62),0_0_48px_rgba(255,210,156,0.2)] sm:text-7xl lg:text-8xl"
                   style={{ animationDelay: `${delays[0]}ms` }}
                 >
                   {h.headlineLead} {h.headlineEmphasis}
