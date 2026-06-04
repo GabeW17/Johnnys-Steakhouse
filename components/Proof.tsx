@@ -1,6 +1,22 @@
 import { content } from "@/content";
 import Reveal from "./Reveal";
 
+function ReviewCard({ r }: { r: { quote: string; author: string } }) {
+  return (
+    <figure className="w-[320px] shrink-0 rounded-2xl border border-cream/10 bg-[#141312] p-6 text-left">
+      <span className="text-[#e6c178]">
+        <Stars size="h-3.5" />
+      </span>
+      <blockquote className="mt-3.5 font-display text-base italic leading-relaxed text-cream/90">
+        &ldquo;{r.quote}&rdquo;
+      </blockquote>
+      <figcaption className="mt-4 text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-dim-cream">
+        {r.author}
+      </figcaption>
+    </figure>
+  );
+}
+
 function Stars({ size = "h-4" }: { size?: string }) {
   return (
     <div className="flex items-center gap-0.5" aria-hidden="true">
@@ -70,25 +86,26 @@ export default function Proof() {
 
       </div>
 
-      {/* supporting reviews — a slow, edge-faded marquee (pauses on hover) */}
-      <div className="marquee-mask group relative mt-16 sm:mt-20">
-        <div className="animate-marquee flex w-max gap-5 group-hover:[animation-play-state:paused]">
-          {[...p.reviews, ...p.reviews].map((r, i) => (
-            <figure
-              key={i}
-              className="w-[330px] shrink-0 rounded-2xl border border-cream/10 bg-[#141312] p-6 text-left"
-            >
-              <span className="text-[#e6c178]">
-                <Stars size="h-3.5" />
-              </span>
-              <blockquote className="mt-3.5 font-display text-base italic leading-relaxed text-cream/90">
-                &ldquo;{r.quote}&rdquo;
-              </blockquote>
-              <figcaption className="mt-4 text-[0.66rem] font-semibold uppercase tracking-[0.16em] text-dim-cream">
-                {r.author}
-              </figcaption>
-            </figure>
-          ))}
+      {/* supporting reviews — two slow rows drifting opposite ways (pause on hover) */}
+      <div className="mt-14 space-y-4 sm:mt-16">
+        <div className="marquee-mask group relative">
+          <div className="animate-marquee flex w-max gap-4 group-hover:[animation-play-state:paused]">
+            {[...p.reviews, ...p.reviews].map((r, i) => (
+              <ReviewCard key={i} r={r} />
+            ))}
+          </div>
+        </div>
+        <div className="marquee-mask group relative">
+          <div className="animate-marquee-reverse flex w-max gap-4 group-hover:[animation-play-state:paused]">
+            {[
+              ...p.reviews.slice(3),
+              ...p.reviews.slice(0, 3),
+              ...p.reviews.slice(3),
+              ...p.reviews.slice(0, 3),
+            ].map((r, i) => (
+              <ReviewCard key={i} r={r} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

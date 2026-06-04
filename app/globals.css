@@ -262,6 +262,9 @@
 .animate-marquee {
   animation: marquee 55s linear infinite;
 }
+.animate-marquee-reverse {
+  animation: marquee 64s linear infinite reverse;
+}
 .marquee-mask {
   -webkit-mask-image: linear-gradient(
     to right,
