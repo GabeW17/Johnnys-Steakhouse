@@ -45,13 +45,20 @@ export default function Proof() {
                 "radial-gradient(60% 72% at 50% 50%, rgba(255,210,156,0.06) 0%, transparent 72%)",
             }}
           />
-          {/* tighter stage spotlight on the featured quote */}
+          {/* Stage spotlights — two warm beams from above converging on the
+              featured quote, plus a soft footlight pool lighting it. */}
           <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[24rem] w-[42rem] max-w-full -translate-x-1/2 -translate-y-1/2"
+            className="pointer-events-none absolute inset-0 mix-blend-screen"
             aria-hidden="true"
             style={{
               background:
-                "radial-gradient(closest-side, rgba(255,210,156,0.12) 0%, transparent 70%)",
+                "conic-gradient(from 0deg at 36% -30%, transparent 152deg, rgba(255,210,156,0.17) 167deg, rgba(255,210,156,0.17) 173deg, transparent 188deg)," +
+                "conic-gradient(from 0deg at 64% -30%, transparent 172deg, rgba(255,210,156,0.17) 187deg, rgba(255,210,156,0.17) 193deg, transparent 208deg)," +
+                "radial-gradient(32% 40% at 50% 54%, rgba(255,210,156,0.13) 0%, transparent 72%)",
+              maskImage:
+                "linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%)",
             }}
           />
 
@@ -61,7 +68,7 @@ export default function Proof() {
               the centering transform. */}
           <div className="relative z-10 mx-auto mb-10 max-w-2xl text-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:w-[46%] lg:max-w-xl lg:-translate-x-1/2 lg:-translate-y-1/2">
             <Reveal as="figure">
-              <blockquote className="font-display text-2xl italic leading-snug text-cream [text-shadow:0_0_46px_rgba(255,210,156,0.3),0_2px_18px_rgba(0,0,0,0.6)] sm:text-3xl lg:text-[2rem]">
+              <blockquote className="font-display text-2xl italic leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
                 &ldquo;{p.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">

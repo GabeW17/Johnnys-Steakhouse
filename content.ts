@@ -161,7 +161,7 @@ export interface SiteContent {
 const IMAGES = {
   hero: "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=2000",
   atmosphere:
-    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600",
+    "https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=1600",
   dishes: [
     "https://images.unsplash.com/photo-1546964124-0cce460f38ef?q=80&w=1200",
     "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200",
@@ -284,13 +284,13 @@ export const content: SiteContent = {
       "Our team has been doing this for decades, and it shows in the details: the tableside flourish, the perfectly timed pour, the way the night seems to build. Every guest leaves with a standing ovation.",
     ],
     highlights: ["The Blue Bar", "Prime Rib · Fri & Sat", "Private dining"],
-    cta: "Reserve your evening",
+    cta: "Find your table",
     image: IMAGES.atmosphere,
   },
 
   locations: {
     eyebrow: "Find Your Johnny's",
-    heading: "23 tables across the Midwest.",
+    heading: "23 tables across the country.",
     subtext:
       "From West Des Moines to the heart of Texas — same hand-cut steaks, same standing ovation. Find the supper club nearest you.",
     searchPlaceholder: "Search by city…",
@@ -385,7 +385,7 @@ export const content: SiteContent = {
   footer: {
     brand: "Johnny's Italian Steakhouse",
     tagline: "A Heart of America brand",
-    ctaLine: "A table's always waiting.",
+    ctaLine: "The curtain's always up.",
     cta: "Reserve your seat",
     ctaHref: "#locations",
     gallery: IMAGES.gallery,
