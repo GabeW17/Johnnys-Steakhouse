@@ -10,15 +10,18 @@ export default function Signatures() {
       id="signatures"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28"
     >
-      {/* Two soft spotlights from above, raking down onto the three-act title */}
+      {/* Three soft spotlights from above — one per act, raking down onto each word */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] mix-blend-screen"
         aria-hidden="true"
         style={{
           background:
-            "conic-gradient(from 0deg at 36% -12%, transparent 160deg, rgba(255,210,156,0.14) 174deg, rgba(255,210,156,0.14) 179deg, transparent 192deg)," +
-            "conic-gradient(from 0deg at 64% -12%, transparent 168deg, rgba(255,210,156,0.14) 181deg, rgba(255,210,156,0.14) 186deg, transparent 200deg)," +
-            "radial-gradient(40% 56% at 50% 22%, rgba(255,210,156,0.07) 0%, transparent 70%)",
+            "conic-gradient(from 0deg at 22% -12%, transparent 163deg, rgba(255,210,156,0.13) 175deg, rgba(255,210,156,0.13) 180deg, transparent 193deg)," +
+            "conic-gradient(from 0deg at 50% -12%, transparent 168deg, rgba(255,210,156,0.13) 178deg, rgba(255,210,156,0.13) 183deg, transparent 197deg)," +
+            "conic-gradient(from 0deg at 78% -12%, transparent 167deg, rgba(255,210,156,0.13) 181deg, rgba(255,210,156,0.13) 186deg, transparent 198deg)," +
+            "radial-gradient(20% 48% at 22% 24%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
+            "radial-gradient(20% 48% at 50% 24%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
+            "radial-gradient(20% 48% at 78% 24%, rgba(255,210,156,0.06) 0%, transparent 72%)",
           maskImage:
             "linear-gradient(to bottom, #000 0%, #000 40%, transparent 76%)",
           WebkitMaskImage:
