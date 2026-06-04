@@ -10,31 +10,6 @@ export default function Signatures() {
       id="signatures"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28"
     >
-      {/* Two soft spotlights from each side gently lighting the title, masked
-          to fade out well above the cards so the bg stays even behind them */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] mix-blend-screen"
-        aria-hidden="true"
-        style={{
-          background:
-            "conic-gradient(from 0deg at -2% 26%, transparent 74deg, rgba(255,210,156,0.15) 90deg, rgba(255,210,156,0.15) 97deg, transparent 113deg)," +
-            "conic-gradient(from 0deg at 102% 26%, transparent 247deg, rgba(255,210,156,0.15) 263deg, rgba(255,210,156,0.15) 270deg, transparent 286deg)",
-          maskImage:
-            "linear-gradient(to bottom, #000 0%, #000 36%, transparent 74%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, #000 0%, #000 36%, transparent 74%)",
-        }}
-      />
-      {/* faint warm fill on the title */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[20rem]"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(30% 50% at 50% 30%, rgba(255,210,156,0.06) 0%, transparent 70%)",
-        }}
-      />
-
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
         {/* The three-act headline — one horizontal marquee, not stacked */}
         <Reveal className="mx-auto max-w-shell text-center">
@@ -72,8 +47,20 @@ export default function Signatures() {
           <span className="h-px w-10 bg-cream/20 sm:w-16" />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
-          {s.dishes.map((dish, i) => (
+        <div className="relative mt-12">
+          {/* Stage spotlights from above — one shining down on each meal card */}
+          <div
+            className="pointer-events-none absolute inset-0 z-10 mix-blend-screen"
+            aria-hidden="true"
+            style={{
+              background:
+                "radial-gradient(34% 36% at 16.8% 4%, rgba(255,210,156,0.20) 0%, transparent 66%)," +
+                "radial-gradient(36% 38% at 50% 1%, rgba(255,210,156,0.24) 0%, transparent 66%)," +
+                "radial-gradient(34% 36% at 83.2% 4%, rgba(255,210,156,0.20) 0%, transparent 66%)",
+            }}
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+            {s.dishes.map((dish, i) => (
             <Reveal
               as="article"
               key={dish.name}
@@ -116,7 +103,8 @@ export default function Signatures() {
                 </p>
               </div>
             </Reveal>
-          ))}
+            ))}
+          </div>
         </div>
 
         <Reveal className="mt-14 text-center">
