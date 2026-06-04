@@ -25,19 +25,25 @@ export default function Proof() {
           </p>
         </Reveal>
 
-        {/* Three equal voices — a clean ruled press row */}
-        <div className="mt-12 grid gap-x-12 gap-y-10 sm:mt-14 sm:grid-cols-3">
+        {/* Three equal voices — testimonial cards */}
+        <div className="mt-12 grid gap-6 sm:mt-14 sm:grid-cols-3 lg:gap-7">
           {reviews.map((r, i) => (
             <Reveal
               as="figure"
               key={i}
               delay={(i % 3) * 110}
-              className="border-t border-cream/15 pt-6 text-left"
+              className="flex flex-col rounded-2xl border border-cream/15 bg-[#161616] p-7 text-left shadow-[0_30px_60px_-34px_rgba(0,0,0,0.95)] ring-1 ring-inset ring-white/[0.03] sm:p-8"
             >
-              <blockquote className="text-lg leading-relaxed text-cream/85">
-                &ldquo;{r.quote}&rdquo;
+              <span
+                aria-hidden="true"
+                className="block text-5xl leading-[0.4] text-cream/20"
+              >
+                &ldquo;
+              </span>
+              <blockquote className="mt-4 flex-1 text-base leading-relaxed text-cream/85 sm:text-[1.05rem]">
+                {r.quote}
               </blockquote>
-              <figcaption className="mt-4 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-dim-cream">
+              <figcaption className="mt-6 border-t border-cream/10 pt-5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-dim-cream">
                 {r.author}
                 <span className="mx-1.5 text-cream/30">·</span>
                 {r.city}
