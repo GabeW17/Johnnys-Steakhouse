@@ -7,18 +7,14 @@ export default function Proof() {
 
   return (
     <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-32 lg:py-36">
-      {/* Two soft side spotlights converging on "A standing ovation" */}
+      {/* Diagonal spotlights rising from the lower sides up to "A standing ovation" */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] mix-blend-screen"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] mix-blend-screen"
         aria-hidden="true"
         style={{
           background:
-            "conic-gradient(from 0deg at -2% 24%, transparent 74deg, rgba(255,210,156,0.16) 90deg, rgba(255,210,156,0.16) 97deg, transparent 113deg)," +
-            "conic-gradient(from 0deg at 102% 24%, transparent 247deg, rgba(255,210,156,0.16) 263deg, rgba(255,210,156,0.16) 270deg, transparent 286deg)",
-          maskImage:
-            "linear-gradient(to bottom, #000 0%, #000 40%, transparent 78%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, #000 0%, #000 40%, transparent 78%)",
+            "conic-gradient(from 0deg at -6% 64%, transparent 30deg, rgba(255,210,156,0.16) 47deg, rgba(255,210,156,0.16) 55deg, transparent 73deg)," +
+            "conic-gradient(from 0deg at 106% 64%, transparent 287deg, rgba(255,210,156,0.16) 305deg, rgba(255,210,156,0.16) 313deg, transparent 330deg)",
         }}
       />
 

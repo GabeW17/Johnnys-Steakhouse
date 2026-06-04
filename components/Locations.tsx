@@ -94,13 +94,6 @@ export default function Locations() {
       {/* Warm candlelit glow, matching the rest of the site */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div
-          className="absolute inset-x-0 top-0 h-80"
-          style={{
-            background:
-              "radial-gradient(55% 100% at 50% 0%, rgba(255,210,156,0.12) 0%, transparent 70%)",
-          }}
-        />
-        <div
           className="absolute left-1/2 top-1/2 h-[42rem] w-[64rem] -translate-x-1/2 -translate-y-1/2 rounded-full"
           style={{
             background:
@@ -138,14 +131,7 @@ export default function Locations() {
 
         {/* Store locator — a full map with the menu/detail floating on top */}
         <div className="relative mt-12">
-          <div
-            className="pointer-events-none absolute -inset-8 rounded-[2.6rem]"
-            style={{
-              background:
-                "radial-gradient(closest-side, rgba(255,210,156,0.17) 0%, transparent 72%)",
-            }}
-          />
-          <div className="relative isolate h-[540px] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_60px_120px_-32px_rgba(0,0,0,0.95),0_26px_55px_-30px_rgba(0,0,0,0.85)] ring-1 ring-inset ring-cream/10 sm:h-[620px]">
+          <div className="relative isolate h-[540px] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_60px_120px_-32px_rgba(0,0,0,0.95),0_26px_55px_-30px_rgba(0,0,0,0.85),0_0_60px_-2px_rgba(255,210,156,0.45)] ring-1 ring-inset ring-cream/10 sm:h-[620px]">
             <div className="absolute inset-0 z-0">
               <LocationsMap
                 onSelect={setSelected}
