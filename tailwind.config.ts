@@ -17,7 +17,10 @@ const config: Config = {
         "dim-cream": "#b0a293",
       },
       fontFamily: {
-        display: ["var(--font-bodoni)", "Georgia", "serif"],
+        // Whole site uses Hanken Grotesk (the hero / three-act font).
+        // `display` kept as a token but mapped to Hanken so every heading,
+        // dish name, quote and the brand text matches the hero.
+        display: ["var(--font-hanken)", "system-ui", "sans-serif"],
         sans: ["var(--font-hanken)", "system-ui", "sans-serif"],
       },
       maxWidth: {
