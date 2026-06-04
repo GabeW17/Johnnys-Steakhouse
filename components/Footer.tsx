@@ -11,7 +11,7 @@ export default function Footer() {
       <section className="relative overflow-hidden">
         {/* Scrolling dish backdrop */}
         <div
-          className="pointer-events-none absolute inset-0 scale-[1.06] [filter:brightness(0.78)_blur(1px)]"
+          className="pointer-events-none absolute inset-0 scale-[1.06] [filter:brightness(0.86)_blur(1px)]"
           aria-hidden="true"
         >
           <div className="flex h-full w-max animate-marquee will-change-transform hover:[animation-play-state:paused]">
@@ -36,8 +36,8 @@ export default function Footer() {
           aria-hidden="true"
           style={{
             background:
-              "radial-gradient(70% 92% at 50% 50%, rgba(7,5,4,0.5) 0%, rgba(7,5,4,0.28) 55%, transparent 100%), " +
-              "linear-gradient(180deg, rgba(7,5,4,0.9) 0%, rgba(7,5,4,0.34) 28%, rgba(7,5,4,0.34) 72%, rgba(7,5,4,0.94) 100%)",
+              "radial-gradient(70% 92% at 50% 50%, rgba(7,5,4,0.46) 0%, rgba(7,5,4,0.22) 55%, transparent 100%), " +
+              "linear-gradient(180deg, rgba(7,5,4,0.88) 0%, rgba(7,5,4,0.26) 28%, rgba(7,5,4,0.26) 72%, rgba(7,5,4,0.92) 100%)",
           }}
         />
         {/* Warm candle glow over the top */}
@@ -52,12 +52,12 @@ export default function Footer() {
 
         {/* Content */}
         <div className="relative z-10 mx-auto flex max-w-shell flex-col items-center gap-7 px-6 py-24 text-center sm:px-8 sm:py-32">
-          <h2 className="font-display text-3xl font-semibold leading-tight text-cream [text-shadow:0_2px_24px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.8)] sm:text-4xl lg:text-5xl">
+          <h2 className="font-display text-3xl font-semibold leading-tight text-cream [text-shadow:0_1px_0_rgba(255,255,255,0.25),0_2px_5px_rgba(0,0,0,0.85),0_8px_20px_rgba(0,0,0,0.82),0_18px_44px_rgba(0,0,0,0.6),0_0_46px_rgba(255,210,156,0.22)] sm:text-4xl lg:text-5xl">
             {f.ctaLine}
           </h2>
           <a
             href={f.ctaHref}
-            className="btn btn-primary inline-flex items-center gap-2.5"
+            className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-gradient-to-b from-white to-cream px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_14px_30px_-8px_rgba(0,0,0,0.72),0_4px_10px_-4px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_42px_-8px_rgba(0,0,0,0.82),0_6px_14px_-4px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.95)]"
           >
             <svg
               width="15"
