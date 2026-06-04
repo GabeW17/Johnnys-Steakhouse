@@ -30,6 +30,11 @@ export interface LocationItem {
   /** coordinates for the map */
   lat: number;
   lng: number;
+  /** storefront photo shown in the location card */
+  image?: string;
+  /** optional per-location overrides (else the brand defaults are used) */
+  hours?: string;
+  specials?: string;
   /** optionally marks a highlighted "nearest you" card (unused on the master page) */
   nearest?: boolean;
 }
@@ -98,6 +103,11 @@ export interface SiteContent {
     subtext: string;
     searchPlaceholder: string;
     searchCta: string;
+    /** brand-wide defaults shown in each location card */
+    hours: string;
+    specials: string;
+    reserveLabel: string;
+    directionsLabel: string;
     items: LocationItem[];
   };
 
@@ -132,6 +142,11 @@ const IMAGES = {
     "https://images.unsplash.com/photo-1546964124-0cce460f38ef?q=80&w=1200",
     "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200",
     "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=1200",
+  ],
+  exteriors: [
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400",
+    "https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1400",
+    "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?q=80&w=1400",
   ],
 };
 
@@ -242,15 +257,19 @@ export const content: SiteContent = {
       "From West Des Moines to the heart of Texas — same hand-cut steaks, same standing ovation. Find the supper club nearest you.",
     searchPlaceholder: "Search by city…",
     searchCta: "Find a location",
+    hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM",
+    specials: "Prime Rib, every Friday & Saturday",
+    reserveLabel: "Reserve a table",
+    directionsLabel: "Get directions",
     items: [
-      { city: "West Des Moines", state: "IA", lat: 41.5772, lng: -93.7113 },
-      { city: "Des Moines", state: "IA", lat: 41.5868, lng: -93.625 },
-      { city: "Middleton", state: "WI", lat: 43.0972, lng: -89.5043 },
-      { city: "Sun Prairie", state: "WI", lat: 43.1836, lng: -89.2137 },
-      { city: "Eau Claire", state: "WI", lat: 44.8113, lng: -91.4985 },
-      { city: "East Peoria", state: "IL", lat: 40.6663, lng: -89.5801 },
-      { city: "Olathe", state: "KS", lat: 38.8814, lng: -94.8191 },
-      { city: "Shenandoah", state: "TX", lat: 30.1816, lng: -95.4524 },
+      { city: "West Des Moines", state: "IA", lat: 41.5772, lng: -93.7113, image: IMAGES.exteriors[0] },
+      { city: "Des Moines", state: "IA", lat: 41.5868, lng: -93.625, image: IMAGES.exteriors[1] },
+      { city: "Middleton", state: "WI", lat: 43.0972, lng: -89.5043, image: IMAGES.exteriors[2] },
+      { city: "Sun Prairie", state: "WI", lat: 43.1836, lng: -89.2137, image: IMAGES.exteriors[0] },
+      { city: "Eau Claire", state: "WI", lat: 44.8113, lng: -91.4985, image: IMAGES.exteriors[1] },
+      { city: "East Peoria", state: "IL", lat: 40.6663, lng: -89.5801, image: IMAGES.exteriors[2] },
+      { city: "Olathe", state: "KS", lat: 38.8814, lng: -94.8191, image: IMAGES.exteriors[0] },
+      { city: "Shenandoah", state: "TX", lat: 30.1816, lng: -95.4524, image: IMAGES.exteriors[1] },
     ],
   },
 

@@ -2,11 +2,17 @@
 
 import { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
-import { content } from "@/content";
+import { content, type LocationItem } from "@/content";
 
-export default function LocationsMap() {
+export default function LocationsMap({
+  onSelect,
+}: {
+  onSelect?: (loc: LocationItem) => void;
+}) {
   const elRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<{ remove: () => void } | null>(null);
+  const onSelectRef = useRef(onSelect);
+  onSelectRef.current = onSelect;
 
   useEffect(() => {
     let cancelled = false;
@@ -45,11 +51,9 @@ export default function LocationsMap() {
       const pts: [number, number][] = [];
       content.locations.items.forEach((loc) => {
         pts.push([loc.lat, loc.lng]);
-        L.marker([loc.lat, loc.lng], { icon })
+        L.marker([loc.lat, loc.lng], { icon, title: `${loc.city}, ${loc.state}` })
           .addTo(map)
-          .bindPopup(
-            `<span class="jis-pop-brand">Johnny&rsquo;s</span><span class="jis-pop-city">${loc.city}, ${loc.state}</span>`
-          );
+          .on("click", () => onSelectRef.current?.(loc));
       });
 
       const bounds = L.latLngBounds(pts);

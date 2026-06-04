@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { content } from "@/content";
+import { content, type LocationItem } from "@/content";
 import Reveal from "./Reveal";
 import LocationsMap from "./LocationsMap";
+import LocationCard from "./LocationCard";
 
 const STATE_NAMES: Record<string, string> = {
   IA: "Iowa",
@@ -19,6 +20,7 @@ const STATE_NAMES: Record<string, string> = {
 export default function Locations() {
   const l = content.locations;
   const [q, setQ] = useState("");
+  const [selected, setSelected] = useState<LocationItem | null>(null);
 
   const query = q.trim().toLowerCase();
   const items = query
@@ -60,7 +62,7 @@ export default function Locations() {
             }}
           />
           <div className="relative isolate h-[360px] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92)] sm:h-[460px]">
-            <LocationsMap />
+            <LocationsMap onSelect={setSelected} />
           </div>
         </div>
 
@@ -100,10 +102,11 @@ export default function Locations() {
             className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
           >
             {items.map((loc) => (
-              <a
+              <button
                 key={`${loc.city}-${loc.state}`}
-                href="#locations"
-                className="group flex items-center gap-3 rounded-xl border border-cream/12 bg-[#161616] px-5 py-4 transition-all duration-300 hover:-translate-y-1 hover:border-cream/30 hover:bg-[#1a1a1a]"
+                type="button"
+                onClick={() => setSelected(loc)}
+                className="group flex items-center gap-3 rounded-xl border border-cream/12 bg-[#161616] px-5 py-4 text-left transition-all duration-300 hover:-translate-y-1 hover:border-cream/30 hover:bg-[#1a1a1a]"
               >
                 <svg
                   width="17"
@@ -142,13 +145,17 @@ export default function Locations() {
                 >
                   <path d="M5 12h14M13 6l6 6-6 6" />
                 </svg>
-              </a>
+              </button>
             ))}
           </Reveal>
         ) : (
           <p className="mt-12 text-center text-dim-cream">
             No locations match &ldquo;{q}&rdquo;.
           </p>
+        )}
+
+        {selected && (
+          <LocationCard loc={selected} onClose={() => setSelected(null)} />
         )}
       </div>
     </section>
