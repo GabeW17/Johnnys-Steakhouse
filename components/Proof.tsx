@@ -54,7 +54,7 @@ export default function Proof() {
               as="figure"
               key={i}
               delay={(i % 3) * 110}
-              className="flex flex-col rounded-2xl border border-cream/15 bg-[#161616] p-7 text-left shadow-[0_30px_60px_-34px_rgba(0,0,0,0.95),0_0_46px_-6px_rgba(255,210,156,0.34)] ring-1 ring-inset ring-white/[0.04] sm:p-8"
+              className="flex flex-col rounded-2xl border border-cream/15 bg-[#161616] p-7 text-left shadow-[0_30px_60px_-34px_rgba(0,0,0,0.95),0_0_46px_-6px_rgba(255,210,156,0.34)] ring-1 ring-inset ring-white/[0.04] transition-all duration-500 hover:-translate-y-1.5 hover:border-cream/30 hover:shadow-[0_46px_84px_-34px_rgba(0,0,0,1),0_0_62px_-4px_rgba(255,210,156,0.5)] sm:p-8"
             >
               <Stars />
               <blockquote className="mt-5 flex-1 text-base leading-relaxed text-cream/85 sm:text-[1.05rem]">

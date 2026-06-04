@@ -29,7 +29,7 @@ export default function Atmosphere() {
                 "radial-gradient(closest-side, rgba(255,210,156,0.16) 0%, transparent 72%)",
             }}
           />
-          <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92),0_0_60px_-4px_rgba(255,210,156,0.4)] ring-1 ring-inset ring-cream/10 sm:aspect-[5/4] lg:aspect-auto lg:h-[34rem]">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92),0_0_60px_-4px_rgba(255,210,156,0.4)] ring-1 ring-inset ring-cream/10 transition-shadow duration-500 hover:shadow-[0_50px_100px_-35px_rgba(0,0,0,0.95),0_0_76px_-4px_rgba(255,210,156,0.55)] sm:aspect-[5/4] lg:aspect-auto lg:h-[34rem]">
             {/* top-edge sheen */}
             <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-cream/40 to-transparent" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -37,7 +37,7 @@ export default function Atmosphere() {
               src={a.image}
               alt=""
               aria-hidden="true"
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
             />
             {/* vignette + warm bottom glow */}
             <div

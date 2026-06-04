@@ -35,7 +35,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden border-t border-cream/15 bg-ink">
       {/* ===== Closing CTA — a framed candlelit photo card ===== */}
       <section className="bg-ink px-5 py-12 sm:px-8 sm:py-16">
-        <div className="relative mx-auto max-w-shell overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_40px_90px_-35px_rgba(0,0,0,0.92),0_0_60px_-6px_rgba(255,210,156,0.35)] ring-1 ring-inset ring-cream/10">
+        <div className="group relative mx-auto max-w-shell overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_40px_90px_-35px_rgba(0,0,0,0.92),0_0_60px_-6px_rgba(255,210,156,0.35)] ring-1 ring-inset ring-cream/10 transition-shadow duration-500 hover:shadow-[0_46px_100px_-35px_rgba(0,0,0,0.95),0_0_78px_-6px_rgba(255,210,156,0.5)]">
           {/* top-edge sheen */}
           <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-cream/40 to-transparent" />
         {/* Still photo backdrop */}
@@ -45,7 +45,7 @@ export default function Footer() {
             src={f.ctaImage}
             alt=""
             aria-hidden="true"
-            className="h-full w-full object-cover [filter:brightness(0.8)]"
+            className="h-full w-full object-cover [filter:brightness(0.8)] transition-transform duration-[1400ms] ease-out group-hover:scale-105"
           />
         </div>
 
