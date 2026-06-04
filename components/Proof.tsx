@@ -27,19 +27,18 @@ export default function Proof() {
 
         {/* The spotlight — featured review, lit from above like a performer */}
         <div className="relative mt-10 sm:mt-12">
-          {/* two warm beams from above converging on the quote + a footlight pool */}
+          {/* a single soft spotlight from above + a gentle pool where it lands */}
           <div
-            className="pointer-events-none absolute inset-x-0 -top-12 bottom-0 mix-blend-screen"
+            className="pointer-events-none absolute inset-x-0 -top-16 bottom-0 mix-blend-screen"
             aria-hidden="true"
             style={{
               background:
-                "conic-gradient(from 0deg at 38% -34%, transparent 151deg, rgba(255,210,156,0.16) 166deg, rgba(255,210,156,0.16) 174deg, transparent 189deg)," +
-                "conic-gradient(from 0deg at 62% -34%, transparent 171deg, rgba(255,210,156,0.16) 186deg, rgba(255,210,156,0.16) 194deg, transparent 209deg)," +
-                "radial-gradient(34% 62% at 50% 52%, rgba(255,210,156,0.12) 0%, transparent 72%)",
+                "conic-gradient(from 0deg at 50% -75%, transparent 162deg, rgba(255,210,156,0.09) 174deg, rgba(255,210,156,0.09) 186deg, transparent 198deg)," +
+                "radial-gradient(40% 50% at 50% 50%, rgba(255,210,156,0.13) 0%, transparent 72%)",
               maskImage:
-                "linear-gradient(to bottom, #000 0%, #000 74%, transparent 100%)",
+                "linear-gradient(to bottom, transparent 0%, #000 22%, #000 76%, transparent 100%)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, #000 0%, #000 74%, transparent 100%)",
+                "linear-gradient(to bottom, transparent 0%, #000 22%, #000 76%, transparent 100%)",
             }}
           />
           <Reveal

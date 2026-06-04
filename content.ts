@@ -142,7 +142,9 @@ export interface SiteContent {
     ctaLine: string;
     cta: string;
     ctaHref: string;
-    /** dish/drink photos for the closing horizontal filmstrip */
+    /** still candlelit photo behind the closing CTA */
+    ctaImage: string;
+    /** dish/drink photos (legacy filmstrip; currently unused) */
     gallery: string[];
     /** short brand sentence under the wordmark in the footer body */
     blurb: string;
@@ -388,6 +390,8 @@ export const content: SiteContent = {
     ctaLine: "The curtain's always up.",
     cta: "Reserve your seat",
     ctaHref: "#locations",
+    ctaImage:
+      "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2000",
     gallery: IMAGES.gallery,
     blurb:
       "An upscale supper club in the Rat Pack tradition — prime steaks aged in-house, pasta rolled by hand, and a martini poured the old-fashioned way.",

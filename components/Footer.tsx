@@ -29,33 +29,21 @@ function PinIcon() {
 export default function Footer() {
   const f = content.footer;
   const loc = content.locations;
-  // Duplicated so the marquee can translate -50% and loop seamlessly.
-  const strip = [...f.gallery, ...f.gallery];
   const hourLines = loc.hours.split(/\s{2,}/).filter(Boolean);
 
   return (
     <footer className="relative overflow-hidden border-t border-cream/15 bg-ink">
-      {/* ===== Closing CTA — dishes scroll as a darkened background ===== */}
+      {/* ===== Closing CTA — a single candlelit photo, darkened ===== */}
       <section className="relative overflow-hidden">
-        {/* Scrolling dish backdrop */}
-        <div
-          className="pointer-events-none absolute inset-0 scale-[1.06] [filter:brightness(0.86)_blur(1px)]"
-          aria-hidden="true"
-        >
-          <div className="flex h-full w-max animate-marquee will-change-transform hover:[animation-play-state:paused]">
-            {strip.map((src, i) => (
-              <div key={i} className="h-full w-[58vw] shrink-0 sm:w-[26rem]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={src}
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ))}
-          </div>
+        {/* Still photo backdrop */}
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={f.ctaImage}
+            alt=""
+            aria-hidden="true"
+            className="h-full w-full object-cover [filter:brightness(0.8)]"
+          />
         </div>
 
         {/* Dark scrim — darker at the edges (blend into footer) + behind the text */}
