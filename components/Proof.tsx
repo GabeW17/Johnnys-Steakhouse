@@ -3,7 +3,7 @@ import Reveal from "./Reveal";
 
 export default function Proof() {
   const p = content.proof;
-  const supporting = p.reviews.slice(0, 6);
+  const supporting = p.reviews.slice(0, 3);
 
   return (
     <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28">
@@ -26,7 +26,7 @@ export default function Proof() {
         </Reveal>
 
         {/* The spotlight — featured review, lit from above like a performer */}
-        <div className="relative mt-14 sm:mt-16">
+        <div className="relative mt-10 sm:mt-12">
           {/* two warm beams from above converging on the quote + a footlight pool */}
           <div
             className="pointer-events-none absolute inset-x-0 -top-12 bottom-0 mix-blend-screen"
@@ -44,7 +44,7 @@ export default function Proof() {
           />
           <Reveal
             as="figure"
-            className="relative z-10 mx-auto max-w-2xl px-2 py-6 text-center sm:py-8"
+            className="relative z-10 mx-auto max-w-2xl px-2 py-4 text-center sm:py-6"
           >
             <span
               aria-hidden="true"
@@ -66,7 +66,7 @@ export default function Proof() {
         </div>
 
         {/* The room — supporting voices, a clean editorial row */}
-        <div className="relative mt-14 grid gap-x-10 gap-y-10 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="relative mt-10 grid gap-x-10 gap-y-10 sm:mt-12 sm:grid-cols-3">
           {supporting.map((r, i) => (
             <Reveal
               as="figure"
