@@ -10,18 +10,19 @@ export default function Signatures() {
       id="signatures"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28"
     >
-      {/* Two soft side spotlights converging on the three-act title */}
+      {/* Two soft spotlights from above, raking down onto the three-act title */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] mix-blend-screen"
         aria-hidden="true"
         style={{
           background:
-            "conic-gradient(from 0deg at -2% 26%, transparent 74deg, rgba(255,210,156,0.16) 90deg, rgba(255,210,156,0.16) 97deg, transparent 113deg)," +
-            "conic-gradient(from 0deg at 102% 26%, transparent 247deg, rgba(255,210,156,0.16) 263deg, rgba(255,210,156,0.16) 270deg, transparent 286deg)",
+            "conic-gradient(from 0deg at 36% -12%, transparent 160deg, rgba(255,210,156,0.14) 174deg, rgba(255,210,156,0.14) 179deg, transparent 192deg)," +
+            "conic-gradient(from 0deg at 64% -12%, transparent 168deg, rgba(255,210,156,0.14) 181deg, rgba(255,210,156,0.14) 186deg, transparent 200deg)," +
+            "radial-gradient(40% 56% at 50% 22%, rgba(255,210,156,0.07) 0%, transparent 70%)",
           maskImage:
-            "linear-gradient(to bottom, #000 0%, #000 36%, transparent 74%)",
+            "linear-gradient(to bottom, #000 0%, #000 40%, transparent 76%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, #000 0%, #000 36%, transparent 74%)",
+            "linear-gradient(to bottom, #000 0%, #000 40%, transparent 76%)",
         }}
       />
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">

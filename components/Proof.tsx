@@ -36,8 +36,17 @@ export default function Proof() {
           </p>
         </Reveal>
 
-        {/* the ovation — voices from the room */}
-        <div className="mt-16 grid gap-x-12 gap-y-10 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3">
+        {/* the ovation — voices from the room, with a soft glow behind */}
+        <div className="relative mt-16 sm:mt-20">
+          <div
+            className="pointer-events-none absolute -inset-x-6 -inset-y-10"
+            aria-hidden="true"
+            style={{
+              background:
+                "radial-gradient(55% 70% at 50% 50%, rgba(255,210,156,0.06) 0%, transparent 72%)",
+            }}
+          />
+          <div className="relative grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {quotes.map((r, i) => (
             <Reveal
               as="figure"
@@ -53,6 +62,7 @@ export default function Proof() {
               </figcaption>
             </Reveal>
           ))}
+          </div>
         </div>
       </div>
     </section>
