@@ -93,16 +93,25 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* ===== Footer body — two-tone grey base ===== */}
-      <div className="relative border-t border-cream/10 bg-[#191a1d]">
+      {/* ===== Footer body — two-tone grey base (warm, to match the site) ===== */}
+      <div className="relative border-t border-cream/10 bg-[#2a2824]">
         <div className="mx-auto max-w-shell px-6 pb-28 pt-16 sm:px-8 sm:pb-16">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.15fr] lg:gap-12">
             {/* Brand */}
             <div className="max-w-sm">
-              <p className="font-display text-2xl font-semibold leading-none text-cream">
-                {f.brand}
-              </p>
-              <p className="mt-4 text-sm leading-relaxed text-dim-cream">
+              {content.brandLogo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={content.brandLogo}
+                  alt={f.brand}
+                  className="h-16 w-auto"
+                />
+              ) : (
+                <p className="font-display text-2xl font-semibold leading-none text-cream">
+                  {f.brand}
+                </p>
+              )}
+              <p className="mt-5 text-sm leading-relaxed text-dim-cream">
                 {f.blurb}
               </p>
               <div className="mt-6 flex gap-3">

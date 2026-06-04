@@ -55,38 +55,40 @@ export default function Proof() {
             }}
           />
 
-          {/* The spotlight — featured review, center stage */}
-          <Reveal
-            as="figure"
-            className="relative z-10 mx-auto mb-12 max-w-2xl text-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:w-[46%] lg:max-w-xl lg:-translate-x-1/2 lg:-translate-y-1/2"
-          >
-            <blockquote className="font-display text-2xl italic leading-snug text-cream [text-shadow:0_0_46px_rgba(255,210,156,0.3),0_2px_18px_rgba(0,0,0,0.6)] sm:text-3xl lg:text-[2rem]">
-              &ldquo;{p.quote}&rdquo;
-            </blockquote>
-            <figcaption className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
-              {p.author}
-              <span className="mx-2 text-cream/30">·</span>
-              <span className="text-[#d3ad77]">{p.city}</span>
-            </figcaption>
-          </Reveal>
-
-          {/* The room — surrounding voices */}
-          {surround.map((r, i) => (
-            <Reveal
-              as="figure"
-              key={i}
-              delay={150 + i * 90}
-              className={`mx-auto mb-10 max-w-sm text-center last:mb-0 lg:mx-0 lg:mb-0 ${POS[i]}`}
-            >
-              <blockquote className="font-display text-base italic leading-relaxed text-cream/55 sm:text-lg lg:text-[0.95rem]">
-                &ldquo;{r.quote}&rdquo;
+          {/* The spotlight — featured review, center stage.
+              Positioning (incl. the -translate centering) lives on this plain
+              wrapper; Reveal is INSIDE so its transform animation can't clobber
+              the centering transform. */}
+          <div className="relative z-10 mx-auto mb-12 max-w-2xl text-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:w-[46%] lg:max-w-xl lg:-translate-x-1/2 lg:-translate-y-1/2">
+            <Reveal as="figure">
+              <blockquote className="font-display text-2xl italic leading-snug text-cream [text-shadow:0_0_46px_rgba(255,210,156,0.3),0_2px_18px_rgba(0,0,0,0.6)] sm:text-3xl lg:text-[2rem]">
+                &ldquo;{p.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-3 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-cream/40">
-                {r.author}
-                <span className="mx-1.5 text-cream/25">·</span>
-                {r.city}
+              <figcaption className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
+                {p.author}
+                <span className="mx-2 text-cream/30">·</span>
+                <span className="text-[#d3ad77]">{p.city}</span>
               </figcaption>
             </Reveal>
+          </div>
+
+          {/* The room — surrounding voices (wrapper positions, Reveal animates) */}
+          {surround.map((r, i) => (
+            <div
+              key={i}
+              className={`mx-auto mb-10 max-w-sm text-center last:mb-0 lg:mx-0 lg:mb-0 ${POS[i]}`}
+            >
+              <Reveal as="figure" delay={150 + i * 90}>
+                <blockquote className="font-display text-base italic leading-relaxed text-cream/55 sm:text-lg lg:text-[0.95rem]">
+                  &ldquo;{r.quote}&rdquo;
+                </blockquote>
+                <figcaption className="mt-3 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-cream/40">
+                  {r.author}
+                  <span className="mx-1.5 text-cream/25">·</span>
+                  {r.city}
+                </figcaption>
+              </Reveal>
+            </div>
           ))}
         </div>
       </div>
