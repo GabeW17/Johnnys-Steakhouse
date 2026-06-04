@@ -51,7 +51,7 @@ export default function Proof() {
             >
               &ldquo;
             </span>
-            <blockquote className="mt-2 font-display text-2xl italic leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
+            <blockquote className="mt-2 font-display text-2xl leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
               {p.quote}
             </blockquote>
             <figcaption className="mt-5 flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
@@ -73,7 +73,7 @@ export default function Proof() {
               delay={(i % 3) * 110}
               className="border-t border-cream/15 pt-6 text-left"
             >
-              <blockquote className="font-display text-lg italic leading-relaxed text-cream/85">
+              <blockquote className="font-display text-lg leading-relaxed text-cream/85">
                 &ldquo;{r.quote}&rdquo;
               </blockquote>
               <figcaption className="mt-4 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-dim-cream">
