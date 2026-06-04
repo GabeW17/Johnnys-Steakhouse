@@ -3,11 +3,11 @@ import Reveal from "./Reveal";
 
 export default function Proof() {
   const p = content.proof;
-  const quotes = p.reviews.slice(0, 6);
+  const quotes = [{ quote: p.quote, author: p.author }, ...p.reviews].slice(0, 6);
 
   return (
     <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-32 lg:py-36">
-      {/* stage spotlights raking down onto the featured review */}
+      {/* stage spotlights — the room, on its feet */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] mix-blend-screen"
         aria-hidden="true"
@@ -23,38 +23,29 @@ export default function Proof() {
       />
 
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
-        <Reveal className="mx-auto max-w-4xl text-center">
+        <Reveal className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-cream/25" />
             <p className="eyebrow">{p.eyebrow}</p>
             <span className="h-px w-8 bg-cream/25" />
           </div>
-          <p className="mt-4 text-xs uppercase tracking-[0.22em] text-dim-cream">
-            {p.rating} average · {p.count}
+          <h2 className="mt-5 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl lg:text-6xl">
+            {p.heading}
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-dim-cream sm:text-lg">
+            {p.lead}
           </p>
-
-          <div className="relative mt-9">
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 select-none font-display text-[13rem] leading-none text-cream/[0.06]"
-            >
-              &ldquo;
-            </span>
-            <blockquote className="relative font-display text-3xl font-medium italic leading-[1.18] text-cream sm:text-4xl lg:text-[2.9rem]">
-              {p.quote}
-            </blockquote>
-            <p className="mt-8 text-[0.7rem] uppercase tracking-[0.22em] text-dim-cream">
-              {p.author}
-            </p>
-          </div>
+          <p className="mt-6 text-xs uppercase tracking-[0.22em] text-dim-cream">
+            Rated {p.rating} · {p.count}
+          </p>
         </Reveal>
 
-        {/* supporting praise — a quiet, ruled press grid */}
+        {/* the ovation — voices from the room */}
         <div className="mt-16 grid gap-x-12 gap-y-10 sm:mt-20 sm:grid-cols-2 lg:grid-cols-3">
           {quotes.map((r, i) => (
             <Reveal
               as="figure"
-              key={r.author}
+              key={i}
               delay={(i % 3) * 110}
               className="border-t border-cream/15 pt-6 text-left"
             >

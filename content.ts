@@ -113,6 +113,8 @@ export interface SiteContent {
 
   proof: {
     eyebrow: string;
+    heading: string;
+    lead: string;
     rating: string;
     count: string;
     quote: string;
@@ -278,7 +280,9 @@ export const content: SiteContent = {
   },
 
   proof: {
-    eyebrow: "Standing ovation",
+    eyebrow: "Curtain call",
+    heading: "A standing ovation.",
+    lead: "Our goal is to earn one at the end of every meal — and night after night, the room rises to its feet.",
     rating: "4.9",
     count: "600+ reviews",
     quote:
