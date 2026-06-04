@@ -386,7 +386,7 @@ export const content: SiteContent = {
     brand: "Johnny's Italian Steakhouse",
     tagline: "A Heart of America brand",
     ctaLine: "A table's always waiting.",
-    cta: "Find your Johnny's",
+    cta: "Reserve your seat",
     ctaHref: "#locations",
     gallery: IMAGES.gallery,
     blurb:

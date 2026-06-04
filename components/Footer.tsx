@@ -93,8 +93,8 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* ===== Footer body — two-tone grey base (warm, to match the site) ===== */}
-      <div className="relative border-t border-cream/10 bg-[#2a2824]">
+      {/* ===== Footer body ===== */}
+      <div className="relative border-t border-cream/10 bg-ink">
         <div className="mx-auto max-w-shell px-6 pb-28 pt-16 sm:px-8 sm:pb-16">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.15fr] lg:gap-12">
             {/* Brand */}
@@ -191,7 +191,7 @@ export default function Footer() {
                 className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-cream transition-colors hover:text-white"
               >
                 <PinIcon />
-                {f.cta}
+                Find a location
               </a>
             </div>
           </div>
