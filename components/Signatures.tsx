@@ -16,12 +16,12 @@ export default function Signatures() {
         aria-hidden="true"
         style={{
           background:
-            "conic-gradient(from 0deg at 22% -12%, transparent 163deg, rgba(255,210,156,0.13) 175deg, rgba(255,210,156,0.13) 180deg, transparent 193deg)," +
-            "conic-gradient(from 0deg at 50% -12%, transparent 168deg, rgba(255,210,156,0.13) 178deg, rgba(255,210,156,0.13) 183deg, transparent 197deg)," +
-            "conic-gradient(from 0deg at 78% -12%, transparent 167deg, rgba(255,210,156,0.13) 181deg, rgba(255,210,156,0.13) 186deg, transparent 198deg)," +
-            "radial-gradient(20% 48% at 22% 24%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
-            "radial-gradient(20% 48% at 50% 24%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
-            "radial-gradient(20% 48% at 78% 24%, rgba(255,210,156,0.06) 0%, transparent 72%)",
+            "conic-gradient(from 0deg at 22% -16%, transparent 154deg, rgba(255,210,156,0.12) 167deg, rgba(255,210,156,0.12) 186deg, transparent 199deg)," +
+            "conic-gradient(from 0deg at 50% -16%, transparent 160deg, rgba(255,210,156,0.12) 172deg, rgba(255,210,156,0.12) 190deg, transparent 202deg)," +
+            "conic-gradient(from 0deg at 78% -16%, transparent 161deg, rgba(255,210,156,0.12) 174deg, rgba(255,210,156,0.12) 193deg, transparent 206deg)," +
+            "radial-gradient(32% 56% at 22% 27%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
+            "radial-gradient(32% 56% at 50% 27%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
+            "radial-gradient(32% 56% at 78% 27%, rgba(255,210,156,0.06) 0%, transparent 72%)",
           maskImage:
             "linear-gradient(to bottom, #000 0%, #000 40%, transparent 76%)",
           WebkitMaskImage:

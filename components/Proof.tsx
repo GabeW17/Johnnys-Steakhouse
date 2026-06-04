@@ -1,18 +1,20 @@
 import { content } from "@/content";
 import Reveal from "./Reveal";
 
-// Desktop scatter — the room arranged around the spotlit center quote.
+// Desktop scatter — the room arranged in a balanced ring around the
+// spotlit center quote (2 top · 2 mid · 2 bottom).
 const POS = [
-  "lg:absolute lg:left-0 lg:top-[5%] lg:max-w-[15rem] lg:text-left",
-  "lg:absolute lg:right-0 lg:top-[5%] lg:max-w-[15rem] lg:text-right",
-  "lg:absolute lg:left-0 lg:top-[47%] lg:max-w-[14rem] lg:text-left",
-  "lg:absolute lg:right-0 lg:top-[47%] lg:max-w-[14rem] lg:text-right",
-  "lg:absolute lg:bottom-0 lg:left-1/2 lg:max-w-[17rem] lg:-translate-x-1/2 lg:text-center",
+  "lg:absolute lg:left-0 lg:top-[3%] lg:max-w-[14.5rem] lg:text-left",
+  "lg:absolute lg:right-0 lg:top-[3%] lg:max-w-[14.5rem] lg:text-right",
+  "lg:absolute lg:left-0 lg:top-[41%] lg:max-w-[13.5rem] lg:text-left",
+  "lg:absolute lg:right-0 lg:top-[41%] lg:max-w-[13.5rem] lg:text-right",
+  "lg:absolute lg:bottom-[2%] lg:left-0 lg:max-w-[14.5rem] lg:text-left",
+  "lg:absolute lg:bottom-[2%] lg:right-0 lg:max-w-[14.5rem] lg:text-right",
 ];
 
 export default function Proof() {
   const p = content.proof;
-  const surround = p.reviews.slice(0, 5);
+  const surround = p.reviews.slice(0, 6);
 
   return (
     <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28">
@@ -35,7 +37,7 @@ export default function Proof() {
         </Reveal>
 
         {/* The ovation — voices from the room around a spotlit center quote */}
-        <div className="relative mt-12 sm:mt-14 lg:mt-14 lg:min-h-[520px]">
+        <div className="relative mt-12 sm:mt-14 lg:mt-16 lg:min-h-[560px]">
           {/* broad warm wash over the whole room */}
           <div
             className="pointer-events-none absolute -inset-x-6 -inset-y-12"
@@ -68,13 +70,21 @@ export default function Proof() {
               the centering transform. */}
           <div className="relative z-10 mx-auto mb-10 max-w-2xl text-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:w-[46%] lg:max-w-xl lg:-translate-x-1/2 lg:-translate-y-1/2">
             <Reveal as="figure">
-              <blockquote className="font-display text-2xl italic leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
-                &ldquo;{p.quote}&rdquo;
+              <span
+                aria-hidden="true"
+                className="block font-display text-6xl leading-[0.5] text-[#d3ad77]/35 sm:text-7xl"
+              >
+                &ldquo;
+              </span>
+              <blockquote className="mt-3 font-display text-2xl italic leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
+                {p.quote}
               </blockquote>
-              <figcaption className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
+              <figcaption className="mt-6 flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
+                <span className="h-px w-5 bg-cream/25" />
                 {p.author}
-                <span className="mx-2 text-cream/30">·</span>
+                <span className="text-cream/30">·</span>
                 <span className="text-[#d3ad77]">{p.city}</span>
+                <span className="h-px w-5 bg-cream/25" />
               </figcaption>
             </Reveal>
           </div>
