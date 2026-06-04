@@ -6,75 +6,80 @@ export default function Footer() {
   const strip = [...f.gallery, ...f.gallery];
 
   return (
-    <footer className="relative overflow-hidden border-t border-cream/15 bg-ink pb-28 pt-16 md:pb-16">
-      {/* warm closing glow */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-64"
-        aria-hidden="true"
-        style={{
-          background:
-            "radial-gradient(50% 100% at 50% 0%, rgba(255,210,156,0.06) 0%, transparent 70%)",
-        }}
-      />
-
-      {/* Closing call to action */}
-      <div className="relative mx-auto flex max-w-shell flex-col items-center gap-7 px-6 text-center sm:px-8">
-        <h2 className="font-display text-3xl font-semibold leading-tight text-cream sm:text-4xl lg:text-5xl">
-          {f.ctaLine}
-        </h2>
-        <a
-          href={f.ctaHref}
-          className="btn btn-primary inline-flex items-center gap-2.5"
+    <footer className="relative overflow-hidden border-t border-cream/15 bg-ink">
+      {/* ===== Closing CTA — dishes scroll as a darkened background ===== */}
+      <section className="relative overflow-hidden">
+        {/* Scrolling dish backdrop */}
+        <div
+          className="pointer-events-none absolute inset-0 scale-[1.06] [filter:brightness(0.55)_blur(1.5px)]"
+          aria-hidden="true"
         >
-          <svg
-            width="15"
-            height="15"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M12 21s-7-5.686-7-11a7 7 0 1 1 14 0c0 5.314-7 11-7 11Z" />
-            <circle cx="12" cy="10" r="2.5" />
-          </svg>
-          {f.cta}
-        </a>
-      </div>
-
-      {/* Dish filmstrip — full-bleed, slow continuous scroll, edge-faded */}
-      <div className="marquee-mask relative mt-12 overflow-hidden sm:mt-14">
-        <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
-          {strip.map((src, i) => (
-            <div
-              key={i}
-              className="relative mr-3 h-24 w-36 shrink-0 overflow-hidden rounded-xl border border-cream/10 shadow-[0_18px_36px_-22px_rgba(0,0,0,0.9)] ring-1 ring-inset ring-white/[0.06] sm:mr-4 sm:h-28 sm:w-44"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={src}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                className="h-full w-full object-cover"
-              />
-              {/* gentle warm darkening so the strip sits in the candlelit room */}
-              <div
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(7,5,4,0.12) 0%, transparent 38%, rgba(7,5,4,0.32) 100%)",
-                }}
-              />
-            </div>
-          ))}
+          <div className="flex h-full w-max animate-marquee will-change-transform hover:[animation-play-state:paused]">
+            {strip.map((src, i) => (
+              <div key={i} className="h-full w-[58vw] shrink-0 sm:w-[26rem]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={src}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Brand */}
-      <div className="relative mx-auto mt-12 flex max-w-shell flex-col items-center gap-3 border-t border-cream/10 px-6 pt-10 text-center sm:px-8 sm:mt-14">
+        {/* Dark scrim — darker at the edges (blend into footer) + behind the text */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(75% 95% at 50% 50%, rgba(7,5,4,0.62) 0%, rgba(7,5,4,0.45) 55%, transparent 100%), " +
+              "linear-gradient(180deg, rgba(7,5,4,0.95) 0%, rgba(7,5,4,0.55) 26%, rgba(7,5,4,0.55) 74%, rgba(7,5,4,0.97) 100%)",
+          }}
+        />
+        {/* Warm candle glow over the top */}
+        <div
+          className="pointer-events-none absolute inset-0 mix-blend-screen"
+          aria-hidden="true"
+          style={{
+            background:
+              "radial-gradient(70% 130% at 50% 0%, rgba(255,210,156,0.12) 0%, transparent 58%)",
+          }}
+        />
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto flex max-w-shell flex-col items-center gap-7 px-6 py-24 text-center sm:px-8 sm:py-32">
+          <h2 className="font-display text-3xl font-semibold leading-tight text-cream [text-shadow:0_2px_24px_rgba(0,0,0,0.9),0_1px_4px_rgba(0,0,0,0.8)] sm:text-4xl lg:text-5xl">
+            {f.ctaLine}
+          </h2>
+          <a
+            href={f.ctaHref}
+            className="btn btn-primary inline-flex items-center gap-2.5"
+          >
+            <svg
+              width="15"
+              height="15"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M12 21s-7-5.686-7-11a7 7 0 1 1 14 0c0 5.314-7 11-7 11Z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg>
+            {f.cta}
+          </a>
+        </div>
+      </section>
+
+      {/* ===== Brand ===== */}
+      <div className="relative mx-auto flex max-w-shell flex-col items-center gap-3 border-t border-cream/10 px-6 pb-28 pt-10 text-center sm:px-8 md:pb-14">
         <p className="font-display text-2xl font-semibold text-cream">
           {f.brand}
         </p>
