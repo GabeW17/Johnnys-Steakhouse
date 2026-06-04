@@ -121,7 +121,9 @@ export interface SiteContent {
     count: string;
     quote: string;
     author: string;
-    reviews: { quote: string; author: string }[];
+    /** featured reviewer's city (shown in warm gold, the spotlight) */
+    city: string;
+    reviews: { quote: string; author: string; city: string }[];
   };
 
   visit: {
@@ -317,42 +319,50 @@ export const content: SiteContent = {
     count: "600+ reviews",
     quote:
       "Best steak we've ever had — the kind of night you keep talking about. The room, the service, the martinis: every detail felt like a performance.",
-    author: "Google review · West Des Moines",
+    author: "Mara K.",
+    city: "West Des Moines",
     reviews: [
       {
         quote:
           "The Steak de Burgo is worth the drive. Tableside everything, and not a beat missed all night.",
         author: "Marcus T.",
+        city: "Middleton",
       },
       {
         quote:
           "Our anniversary spot for years — the Blue Bar at candlelight is pure old-Hollywood romance.",
         author: "Diane & Paul",
+        city: "East Peoria",
       },
       {
         quote:
           "Felt like the Rat Pack might stroll in any minute. Flawless service, and the ribeye was unreal.",
         author: "Tony R.",
+        city: "Olathe",
       },
       {
         quote:
           "Best martini in town, hands down — and the whole room hums on a Friday night.",
         author: "Olivia R.",
+        city: "Eau Claire",
       },
       {
         quote:
           "They treated my parents' 50th like opening night. We will never forget it.",
         author: "The Bennetts",
+        city: "Sun Prairie",
       },
       {
         quote:
           "Hand-rolled pasta that tastes like someone's nonna is in the back. Absolutely stunning.",
         author: "Gina M.",
+        city: "Des Moines",
       },
       {
         quote:
           "Dark, glamorous, and the service is a performance of its own. A proper supper club.",
         author: "David K.",
+        city: "Shenandoah",
       },
     ],
   },
