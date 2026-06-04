@@ -31,8 +31,13 @@ export default function LocationsMap({
         scrollWheelZoom: false,
         zoomControl: false,
         attributionControl: true,
+        minZoom: 4,
+        maxZoom: 12,
+        maxBounds: L.latLngBounds([12, -132], [54, -62]),
+        maxBoundsViscosity: 1,
       });
       mapRef.current = map;
+      map.setView([39.5, -95], 4); // continental US baseline
       L.control.zoom({ position: "topright" }).addTo(map);
 
       L.tileLayer(
@@ -47,9 +52,9 @@ export default function LocationsMap({
 
       const icon = L.divIcon({
         className: "jis-marker",
-        html: '<span class="jis-pin"></span>',
-        iconSize: [16, 16],
-        iconAnchor: [8, 8],
+        html: '<img src="/johnnys-mark.png" alt="" class="jis-pin-logo" />',
+        iconSize: [26, 28],
+        iconAnchor: [13, 14],
       });
 
       const pts: [number, number][] = [];
@@ -69,11 +74,11 @@ export default function LocationsMap({
         map.invalidateSize();
         const wide = window.innerWidth >= 640;
         // keep pins clear of the floating panel (left rail on desktop,
-        // bottom sheet on mobile)
+        // bottom sheet on mobile); minZoom 4 floors it at a US view
         map.fitBounds(bounds, {
-          paddingTopLeft: wide ? [400, 50] : [30, 30],
-          paddingBottomRight: wide ? [50, 50] : [30, 330],
-          maxZoom: 8,
+          paddingTopLeft: wide ? [330, 50] : [24, 30],
+          paddingBottomRight: wide ? [50, 50] : [30, 300],
+          maxZoom: 6,
         });
       };
       fit();
@@ -96,8 +101,8 @@ export default function LocationsMap({
     if (!map) return;
     const fk = focus ? keyOf(focus) : null;
     Object.entries(markersRef.current).forEach(([k, m]) => {
-      const pin = m.getElement?.()?.querySelector?.(".jis-pin");
-      if (pin) pin.classList.toggle("jis-pin--active", k === fk);
+      const pin = m.getElement?.()?.querySelector?.(".jis-pin-logo");
+      if (pin) pin.classList.toggle("jis-pin-logo--active", k === fk);
     });
     if (focus) map.flyTo([focus.lat, focus.lng], 9, { duration: 0.9 });
   }, [focus]);
