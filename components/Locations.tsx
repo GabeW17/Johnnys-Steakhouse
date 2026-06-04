@@ -89,9 +89,34 @@ export default function Locations() {
   return (
     <section
       id="locations"
-      className="border-t border-cream/10 bg-ink py-24 sm:py-32"
+      className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-32"
     >
-      <div className="mx-auto max-w-shell px-6 sm:px-8">
+      {/* Warm candlelit glow, matching the rest of the site */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div
+          className="absolute inset-x-0 top-0 h-72"
+          style={{
+            background:
+              "radial-gradient(55% 100% at 50% 0%, rgba(255,210,156,0.08) 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute -left-24 top-1/4 h-[30rem] w-[30rem] rounded-full"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(255,210,156,0.05) 0%, transparent 72%)",
+          }}
+        />
+        <div
+          className="absolute -right-24 bottom-[12%] h-[28rem] w-[28rem] rounded-full"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(255,210,156,0.045) 0%, transparent 72%)",
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-shell px-6 sm:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <div className="flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-cream/25" />
@@ -120,6 +145,7 @@ export default function Locations() {
                 focus={selected}
                 hovered={hovered}
                 userLoc={userLoc}
+                onReset={() => setSelected(null)}
               />
             </div>
 

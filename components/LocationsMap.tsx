@@ -26,11 +26,13 @@ export default function LocationsMap({
   focus,
   hovered,
   userLoc,
+  onReset,
 }: {
   onSelect?: (loc: LocationItem) => void;
   focus?: LocationItem | null;
   hovered?: LocationItem | null;
   userLoc?: { lat: number; lng: number } | null;
+  onReset?: () => void;
 }) {
   const elRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
@@ -39,6 +41,8 @@ export default function LocationsMap({
   const userMarkerRef = useRef<any>(null);
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
+  const onResetRef = useRef(onReset);
+  onResetRef.current = onReset;
 
   useEffect(() => {
     let cancelled = false;
@@ -116,6 +120,28 @@ export default function LocationsMap({
       };
       fit();
       setTimeout(fit, 350);
+
+      // "Show all locations" control — re-fit to the whole map
+      const FitControl = L.Control.extend({
+        options: { position: "topright" },
+        onAdd() {
+          const div = L.DomUtil.create("div", "leaflet-bar jis-fit");
+          const a = L.DomUtil.create("a", "", div);
+          a.href = "#";
+          a.title = "Show all locations";
+          a.setAttribute("role", "button");
+          a.setAttribute("aria-label", "Show all locations");
+          a.innerHTML =
+            '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>';
+          L.DomEvent.on(a, "click", (e: any) => {
+            L.DomEvent.stop(e);
+            onResetRef.current?.();
+            fit();
+          });
+          return div;
+        },
+      });
+      map.addControl(new FitControl());
     })();
 
     return () => {

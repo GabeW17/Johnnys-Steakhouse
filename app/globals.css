@@ -234,6 +234,14 @@
   background: #242120;
   color: #fff;
 }
+.jis-fit {
+  margin-top: 8px !important;
+}
+.jis-fit a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .leaflet-control-attribution {
   background: rgba(12, 10, 10, 0.7) !important;
   color: #8a8078 !important;
