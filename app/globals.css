@@ -121,35 +121,44 @@
   filter: drop-shadow(0 0 12px rgba(255, 210, 156, 0.95))
     drop-shadow(0 0 5px rgba(255, 210, 156, 0.85));
 }
-/* "You are here" marker */
+/* "You are here" marker — clean radar ping */
 .jis-user-dot {
+  position: relative;
   display: block;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
+}
+.jis-user-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(245, 239, 230, 0.4);
+  animation: jisPing 1.9s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.jis-user-dot::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
   border-radius: 9999px;
   background: #ffffff;
-  border: 2px solid #0c0a0a;
-  box-shadow: 0 0 0 4px rgba(120, 170, 255, 0.35),
-    0 0 16px 5px rgba(120, 170, 255, 0.5);
-  animation: jisUserPulse 2s ease-out infinite;
+  box-shadow: 0 0 0 2px rgba(12, 10, 10, 0.55),
+    0 0 12px 3px rgba(245, 239, 230, 0.65);
 }
-@keyframes jisUserPulse {
+@keyframes jisPing {
   0% {
-    box-shadow: 0 0 0 0 rgba(120, 170, 255, 0.5),
-      0 0 16px 5px rgba(120, 170, 255, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 11px rgba(120, 170, 255, 0),
-      0 0 16px 5px rgba(120, 170, 255, 0.5);
+    transform: scale(0.5);
+    opacity: 0.7;
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(120, 170, 255, 0),
-      0 0 16px 5px rgba(120, 170, 255, 0.5);
+    transform: scale(2.5);
+    opacity: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .jis-user-dot {
+  .jis-user-dot::before {
     animation: none;
+    opacity: 0;
   }
 }
 /* Cluster badge — count of nearby venues */
