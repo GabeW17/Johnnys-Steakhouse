@@ -93,6 +93,8 @@ export interface SiteContent {
     eyebrow: string;
     heading: string;
     paragraphs: string[];
+    /** small supper-club detail row under the copy */
+    highlights: string[];
     cta: string;
     image: string;
   };
@@ -140,6 +142,15 @@ export interface SiteContent {
     ctaHref: string;
     /** dish/drink photos for the closing horizontal filmstrip */
     gallery: string[];
+    /** short brand sentence under the wordmark in the footer body */
+    blurb: string;
+    /** quick-links column */
+    explore: NavLink[];
+    /** social profiles (icon = which glyph to render) */
+    social: { label: string; href: string; icon: "instagram" | "facebook" }[];
+    copyright: string;
+    /** legal / utility links in the bottom bar */
+    legal: NavLink[];
   };
 
   mobileReserve: string;
@@ -270,6 +281,7 @@ export const content: SiteContent = {
       "Settle into the Blue Bar beneath velvet draperies and low candlelight, a martini sweating in your hand and Sinatra drifting through the room. This is dinner the way the Rat Pack meant it — unhurried, glamorous, a little theatrical.",
       "Our team has been doing this for decades, and it shows in the details: the tableside flourish, the perfectly timed pour, the way the night seems to build. Every guest leaves with a standing ovation.",
     ],
+    highlights: ["The Blue Bar", "Prime Rib · Fri & Sat", "Private dining"],
     cta: "Reserve your evening",
     image: IMAGES.atmosphere,
   },
@@ -367,6 +379,25 @@ export const content: SiteContent = {
     cta: "Find your Johnny's",
     ctaHref: "#locations",
     gallery: IMAGES.gallery,
+    blurb:
+      "An upscale supper club in the Rat Pack tradition — prime steaks aged in-house, pasta rolled by hand, and a martini poured the old-fashioned way.",
+    explore: [
+      { label: "The Menu", href: "#signatures" },
+      { label: "Locations", href: "#locations" },
+      { label: "Reservations", href: "#locations" },
+      { label: "Private Events", href: "#" },
+      { label: "Gift Cards", href: "#" },
+    ],
+    social: [
+      { label: "Instagram", href: "#", icon: "instagram" },
+      { label: "Facebook", href: "#", icon: "facebook" },
+    ],
+    copyright: "© 2026 Johnny's Italian Steakhouse",
+    legal: [
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms of Service", href: "#" },
+      { label: "Accessibility", href: "#" },
+    ],
   },
 
   mobileReserve: "Find a table",
