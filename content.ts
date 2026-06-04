@@ -292,7 +292,7 @@ export const content: SiteContent = {
 
   locations: {
     eyebrow: "Find Your Johnny's",
-    heading: "23 tables across the country.",
+    heading: "11 tables across the country.",
     subtext:
       "From West Des Moines to the heart of Texas — same hand-cut steaks, same standing ovation. Find the supper club nearest you.",
     searchPlaceholder: "Search by city…",
