@@ -5,7 +5,6 @@ import Signatures from "@/components/Signatures";
 import Atmosphere from "@/components/Atmosphere";
 import Locations from "@/components/Locations";
 import Proof from "@/components/Proof";
-import Visit from "@/components/Visit";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -19,7 +18,6 @@ export default function Home() {
         <Locations />
         <Atmosphere />
         <Proof />
-        <Visit />
       </main>
       <Footer />
     </>

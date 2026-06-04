@@ -135,6 +135,9 @@ export interface SiteContent {
   footer: {
     brand: string;
     tagline: string;
+    ctaLine: string;
+    cta: string;
+    ctaHref: string;
   };
 
   mobileReserve: string;
@@ -345,6 +348,9 @@ export const content: SiteContent = {
   footer: {
     brand: "Johnny's Italian Steakhouse",
     tagline: "A Heart of America brand",
+    ctaLine: "A table's always waiting.",
+    cta: "Find your Johnny's",
+    ctaHref: "#locations",
   },
 
   mobileReserve: "Find a table",
