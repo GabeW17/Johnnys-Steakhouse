@@ -4,13 +4,18 @@ import { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import { content, type LocationItem } from "@/content";
 
+const keyOf = (l: LocationItem) => `${l.city}-${l.state}`;
+
 export default function LocationsMap({
   onSelect,
+  focus,
 }: {
   onSelect?: (loc: LocationItem) => void;
+  focus?: LocationItem | null;
 }) {
   const elRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<{ remove: () => void } | null>(null);
+  const mapRef = useRef<any>(null);
+  const markersRef = useRef<Record<string, any>>({});
   const onSelectRef = useRef(onSelect);
   onSelectRef.current = onSelect;
 
@@ -19,7 +24,6 @@ export default function LocationsMap({
 
     (async () => {
       const mod = await import("leaflet");
-      // leaflet ships as a CJS/UMD module — grab the namespace either way
       const L: any = (mod as any).default ?? mod;
       if (cancelled || !elRef.current || mapRef.current) return;
 
@@ -45,15 +49,18 @@ export default function LocationsMap({
         html: '<span class="jis-pin"></span>',
         iconSize: [16, 16],
         iconAnchor: [8, 8],
-        popupAnchor: [0, -9],
       });
 
       const pts: [number, number][] = [];
       content.locations.items.forEach((loc) => {
         pts.push([loc.lat, loc.lng]);
-        L.marker([loc.lat, loc.lng], { icon, title: `${loc.city}, ${loc.state}` })
+        const m = L.marker([loc.lat, loc.lng], {
+          icon,
+          title: `${loc.city}, ${loc.state}`,
+        })
           .addTo(map)
           .on("click", () => onSelectRef.current?.(loc));
+        markersRef.current[keyOf(loc)] = m;
       });
 
       const bounds = L.latLngBounds(pts);
@@ -62,7 +69,6 @@ export default function LocationsMap({
         map.fitBounds(bounds, { padding: [40, 40], maxZoom: 8 });
       };
       fit();
-      // re-fit once layout/fonts settle (a wrong size at init mis-zooms it)
       setTimeout(fit, 350);
     })();
 
@@ -71,9 +77,22 @@ export default function LocationsMap({
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
+        markersRef.current = {};
       }
     };
   }, []);
+
+  // Fly to + highlight the focused location
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+    const fk = focus ? keyOf(focus) : null;
+    Object.entries(markersRef.current).forEach(([k, m]) => {
+      const pin = m.getElement?.()?.querySelector?.(".jis-pin");
+      if (pin) pin.classList.toggle("jis-pin--active", k === fk);
+    });
+    if (focus) map.flyTo([focus.lat, focus.lng], 9, { duration: 0.9 });
+  }, [focus]);
 
   return (
     <div
