@@ -1,20 +1,9 @@
 import { content } from "@/content";
 import Reveal from "./Reveal";
 
-// Desktop scatter — the room arranged in a balanced ring around the
-// spotlit center quote (2 top · 2 mid · 2 bottom).
-const POS = [
-  "lg:absolute lg:left-0 lg:top-[3%] lg:max-w-[14.5rem] lg:text-left",
-  "lg:absolute lg:right-0 lg:top-[3%] lg:max-w-[14.5rem] lg:text-right",
-  "lg:absolute lg:left-0 lg:top-[41%] lg:max-w-[13.5rem] lg:text-left",
-  "lg:absolute lg:right-0 lg:top-[41%] lg:max-w-[13.5rem] lg:text-right",
-  "lg:absolute lg:bottom-[2%] lg:left-0 lg:max-w-[14.5rem] lg:text-left",
-  "lg:absolute lg:bottom-[2%] lg:right-0 lg:max-w-[14.5rem] lg:text-right",
-];
-
 export default function Proof() {
   const p = content.proof;
-  const surround = p.reviews.slice(0, 6);
+  const supporting = p.reviews.slice(0, 6);
 
   return (
     <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28">
@@ -36,76 +25,64 @@ export default function Proof() {
           </p>
         </Reveal>
 
-        {/* The ovation — voices from the room around a spotlit center quote */}
-        <div className="relative mt-12 sm:mt-14 lg:mt-16 lg:min-h-[560px]">
-          {/* broad warm wash over the whole room */}
+        {/* The spotlight — featured review, lit from above like a performer */}
+        <div className="relative mt-14 sm:mt-16">
+          {/* two warm beams from above converging on the quote + a footlight pool */}
           <div
-            className="pointer-events-none absolute -inset-x-6 -inset-y-12"
+            className="pointer-events-none absolute inset-x-0 -top-12 bottom-0 mix-blend-screen"
             aria-hidden="true"
             style={{
               background:
-                "radial-gradient(60% 72% at 50% 50%, rgba(255,210,156,0.06) 0%, transparent 72%)",
-            }}
-          />
-          {/* Stage spotlights — two warm beams from above converging on the
-              featured quote, plus a soft footlight pool lighting it. */}
-          <div
-            className="pointer-events-none absolute inset-0 mix-blend-screen"
-            aria-hidden="true"
-            style={{
-              background:
-                "conic-gradient(from 0deg at 36% -30%, transparent 152deg, rgba(255,210,156,0.17) 167deg, rgba(255,210,156,0.17) 173deg, transparent 188deg)," +
-                "conic-gradient(from 0deg at 64% -30%, transparent 172deg, rgba(255,210,156,0.17) 187deg, rgba(255,210,156,0.17) 193deg, transparent 208deg)," +
-                "radial-gradient(32% 40% at 50% 54%, rgba(255,210,156,0.13) 0%, transparent 72%)",
+                "conic-gradient(from 0deg at 38% -34%, transparent 151deg, rgba(255,210,156,0.16) 166deg, rgba(255,210,156,0.16) 174deg, transparent 189deg)," +
+                "conic-gradient(from 0deg at 62% -34%, transparent 171deg, rgba(255,210,156,0.16) 186deg, rgba(255,210,156,0.16) 194deg, transparent 209deg)," +
+                "radial-gradient(34% 62% at 50% 52%, rgba(255,210,156,0.12) 0%, transparent 72%)",
               maskImage:
-                "linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%)",
+                "linear-gradient(to bottom, #000 0%, #000 74%, transparent 100%)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, #000 0%, #000 68%, transparent 100%)",
+                "linear-gradient(to bottom, #000 0%, #000 74%, transparent 100%)",
             }}
           />
+          <Reveal
+            as="figure"
+            className="relative z-10 mx-auto max-w-2xl px-2 py-6 text-center sm:py-8"
+          >
+            <span
+              aria-hidden="true"
+              className="block font-display text-6xl leading-[0.5] text-[#d3ad77]/35 sm:text-7xl"
+            >
+              &ldquo;
+            </span>
+            <blockquote className="mt-3 font-display text-2xl italic leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
+              {p.quote}
+            </blockquote>
+            <figcaption className="mt-6 flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
+              <span className="h-px w-5 bg-cream/25" />
+              {p.author}
+              <span className="text-cream/30">·</span>
+              <span className="text-[#d3ad77]">{p.city}</span>
+              <span className="h-px w-5 bg-cream/25" />
+            </figcaption>
+          </Reveal>
+        </div>
 
-          {/* The spotlight — featured review, center stage.
-              Positioning (incl. the -translate centering) lives on this plain
-              wrapper; Reveal is INSIDE so its transform animation can't clobber
-              the centering transform. */}
-          <div className="relative z-10 mx-auto mb-10 max-w-2xl text-center lg:absolute lg:left-1/2 lg:top-1/2 lg:mb-0 lg:w-[46%] lg:max-w-xl lg:-translate-x-1/2 lg:-translate-y-1/2">
-            <Reveal as="figure">
-              <span
-                aria-hidden="true"
-                className="block font-display text-6xl leading-[0.5] text-[#d3ad77]/35 sm:text-7xl"
-              >
-                &ldquo;
-              </span>
-              <blockquote className="mt-3 font-display text-2xl italic leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
-                {p.quote}
+        {/* The room — supporting voices, a clean editorial row */}
+        <div className="relative mt-14 grid gap-x-10 gap-y-10 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
+          {supporting.map((r, i) => (
+            <Reveal
+              as="figure"
+              key={i}
+              delay={(i % 3) * 110}
+              className="border-t border-cream/15 pt-6 text-left"
+            >
+              <blockquote className="font-display text-lg italic leading-relaxed text-cream/85">
+                &ldquo;{r.quote}&rdquo;
               </blockquote>
-              <figcaption className="mt-6 flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
-                <span className="h-px w-5 bg-cream/25" />
-                {p.author}
-                <span className="text-cream/30">·</span>
-                <span className="text-[#d3ad77]">{p.city}</span>
-                <span className="h-px w-5 bg-cream/25" />
+              <figcaption className="mt-4 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-dim-cream">
+                {r.author}
+                <span className="mx-1.5 text-cream/30">·</span>
+                {r.city}
               </figcaption>
             </Reveal>
-          </div>
-
-          {/* The room — surrounding voices (wrapper positions, Reveal animates) */}
-          {surround.map((r, i) => (
-            <div
-              key={i}
-              className={`mx-auto mb-8 max-w-sm text-center last:mb-0 lg:mx-0 lg:mb-0 ${POS[i]}`}
-            >
-              <Reveal as="figure" delay={150 + i * 90}>
-                <blockquote className="font-display text-base italic leading-relaxed text-cream/55 sm:text-lg lg:text-[0.95rem]">
-                  &ldquo;{r.quote}&rdquo;
-                </blockquote>
-                <figcaption className="mt-3 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-cream/40">
-                  {r.author}
-                  <span className="mx-1.5 text-cream/25">·</span>
-                  {r.city}
-                </figcaption>
-              </Reveal>
-            </div>
           ))}
         </div>
       </div>
