@@ -112,8 +112,12 @@ export interface SiteContent {
   };
 
   proof: {
+    eyebrow: string;
+    rating: string;
+    count: string;
     quote: string;
-    stat: string;
+    author: string;
+    reviews: { quote: string; author: string }[];
   };
 
   visit: {
@@ -274,9 +278,29 @@ export const content: SiteContent = {
   },
 
   proof: {
+    eyebrow: "Standing ovation",
+    rating: "4.9",
+    count: "600+ reviews",
     quote:
-      "Best steak we've ever had. The atmosphere makes every occasion feel special.",
-    stat: "★★★★★ · 4.9 average · 600+ reviews",
+      "Best steak we've ever had — the kind of night you keep talking about. The room, the service, the martinis: every detail felt like a performance.",
+    author: "Google review · West Des Moines",
+    reviews: [
+      {
+        quote:
+          "The Steak de Burgo is worth the drive. Tableside everything, and not a beat missed all night.",
+        author: "Marcus T.",
+      },
+      {
+        quote:
+          "Our anniversary spot for years — the Blue Bar at candlelight is pure old-Hollywood romance.",
+        author: "Diane & Paul",
+      },
+      {
+        quote:
+          "Felt like the Rat Pack might stroll in any minute. Flawless service, and the ribeye was unreal.",
+        author: "Tony R.",
+      },
+    ],
   },
 
   visit: {

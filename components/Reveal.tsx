@@ -13,7 +13,7 @@ interface RevealProps {
   /** stagger delay in ms */
   delay?: number;
   className?: string;
-  as?: "div" | "section" | "li" | "article";
+  as?: "div" | "section" | "li" | "article" | "figure";
 }
 
 /**

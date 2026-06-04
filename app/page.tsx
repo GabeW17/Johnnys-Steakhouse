@@ -15,9 +15,9 @@ export default function Home() {
       <LocationBar />
       <main>
         <Hero />
+        <Locations />
         <Signatures />
         <Atmosphere />
-        <Locations />
         <Proof />
         <Visit />
       </main>
