@@ -6,7 +6,7 @@ export default function Proof() {
   const supporting = p.reviews.slice(0, 3);
 
   return (
-    <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28">
+    <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-16 sm:py-20 lg:py-24">
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
         <Reveal className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-3">
@@ -26,7 +26,7 @@ export default function Proof() {
         </Reveal>
 
         {/* The spotlight — featured review, lit from above like a performer */}
-        <div className="relative mt-10 sm:mt-12">
+        <div className="relative mt-8 sm:mt-10">
           {/* a single soft spotlight from above + a gentle pool where it lands */}
           <div
             className="pointer-events-none absolute inset-x-0 -top-16 bottom-0 mix-blend-screen"
@@ -43,29 +43,29 @@ export default function Proof() {
           />
           <Reveal
             as="figure"
-            className="relative z-10 mx-auto max-w-2xl px-2 py-4 text-center sm:py-6"
+            className="relative z-10 mx-auto max-w-2xl px-2 py-3 text-center sm:py-4"
           >
             <span
               aria-hidden="true"
-              className="block font-display text-6xl leading-[0.5] text-[#d3ad77]/35 sm:text-7xl"
+              className="block font-display text-6xl leading-[0.5] text-cream/20 sm:text-7xl"
             >
               &ldquo;
             </span>
-            <blockquote className="mt-3 font-display text-2xl italic leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
+            <blockquote className="mt-2 font-display text-2xl italic leading-snug text-cream [text-shadow:0_2px_18px_rgba(0,0,0,0.7)] sm:text-3xl lg:text-[2rem]">
               {p.quote}
             </blockquote>
-            <figcaption className="mt-6 flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
+            <figcaption className="mt-5 flex items-center justify-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-dim-cream">
               <span className="h-px w-5 bg-cream/25" />
               {p.author}
               <span className="text-cream/30">·</span>
-              <span className="text-[#d3ad77]">{p.city}</span>
+              <span className="text-cream">{p.city}</span>
               <span className="h-px w-5 bg-cream/25" />
             </figcaption>
           </Reveal>
         </div>
 
         {/* The room — supporting voices, a clean editorial row */}
-        <div className="relative mt-10 grid gap-x-10 gap-y-10 sm:mt-12 sm:grid-cols-3">
+        <div className="relative mt-8 grid gap-x-10 gap-y-9 sm:mt-10 sm:grid-cols-3">
           {supporting.map((r, i) => (
             <Reveal
               as="figure"
