@@ -11,7 +11,7 @@ export default function Footer() {
       <section className="relative overflow-hidden">
         {/* Scrolling dish backdrop */}
         <div
-          className="pointer-events-none absolute inset-0 scale-[1.06] [filter:brightness(0.55)_blur(1.5px)]"
+          className="pointer-events-none absolute inset-0 scale-[1.06] [filter:brightness(0.78)_blur(1px)]"
           aria-hidden="true"
         >
           <div className="flex h-full w-max animate-marquee will-change-transform hover:[animation-play-state:paused]">
@@ -36,8 +36,8 @@ export default function Footer() {
           aria-hidden="true"
           style={{
             background:
-              "radial-gradient(75% 95% at 50% 50%, rgba(7,5,4,0.62) 0%, rgba(7,5,4,0.45) 55%, transparent 100%), " +
-              "linear-gradient(180deg, rgba(7,5,4,0.95) 0%, rgba(7,5,4,0.55) 26%, rgba(7,5,4,0.55) 74%, rgba(7,5,4,0.97) 100%)",
+              "radial-gradient(70% 92% at 50% 50%, rgba(7,5,4,0.5) 0%, rgba(7,5,4,0.28) 55%, transparent 100%), " +
+              "linear-gradient(180deg, rgba(7,5,4,0.9) 0%, rgba(7,5,4,0.34) 28%, rgba(7,5,4,0.34) 72%, rgba(7,5,4,0.94) 100%)",
           }}
         />
         {/* Warm candle glow over the top */}
