@@ -39,12 +39,18 @@ export default function Proof() {
 
   return (
     <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-32 lg:py-36">
-      {/* warm theatrical glow */}
+      {/* stage spotlights raking down onto the featured review */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-80"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] mix-blend-screen"
+        aria-hidden="true"
         style={{
           background:
-            "radial-gradient(55% 100% at 50% 0%, rgba(255,210,156,0.11) 0%, transparent 70%)",
+            "conic-gradient(from 0deg at 30% -10%, transparent 158deg, rgba(255,210,156,0.12) 168deg, rgba(255,210,156,0.12) 174deg, transparent 184deg)," +
+            "conic-gradient(from 0deg at 70% -10%, transparent 176deg, rgba(255,210,156,0.12) 186deg, rgba(255,210,156,0.12) 192deg, transparent 202deg)",
+          maskImage:
+            "linear-gradient(to bottom, #000 0%, #000 42%, transparent 80%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, #000 0%, #000 42%, transparent 80%)",
         }}
       />
 
