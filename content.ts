@@ -27,6 +27,9 @@ export interface Dish {
 export interface LocationItem {
   city: string;
   state: string;
+  /** coordinates for the map */
+  lat: number;
+  lng: number;
   /** optionally marks a highlighted "nearest you" card (unused on the master page) */
   nearest?: boolean;
 }
@@ -240,14 +243,14 @@ export const content: SiteContent = {
     searchPlaceholder: "Search by city…",
     searchCta: "Find a location",
     items: [
-      { city: "West Des Moines", state: "IA" },
-      { city: "Des Moines", state: "IA" },
-      { city: "Middleton", state: "WI" },
-      { city: "Sun Prairie", state: "WI" },
-      { city: "Eau Claire", state: "WI" },
-      { city: "East Peoria", state: "IL" },
-      { city: "Olathe", state: "KS" },
-      { city: "Shenandoah", state: "TX" },
+      { city: "West Des Moines", state: "IA", lat: 41.5772, lng: -93.7113 },
+      { city: "Des Moines", state: "IA", lat: 41.5868, lng: -93.625 },
+      { city: "Middleton", state: "WI", lat: 43.0972, lng: -89.5043 },
+      { city: "Sun Prairie", state: "WI", lat: 43.1836, lng: -89.2137 },
+      { city: "Eau Claire", state: "WI", lat: 44.8113, lng: -91.4985 },
+      { city: "East Peoria", state: "IL", lat: 40.6663, lng: -89.5801 },
+      { city: "Olathe", state: "KS", lat: 38.8814, lng: -94.8191 },
+      { city: "Shenandoah", state: "TX", lat: 30.1816, lng: -95.4524 },
     ],
   },
 

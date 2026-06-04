@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { content } from "@/content";
 import Reveal from "./Reveal";
+import LocationsMap from "./LocationsMap";
 
 const STATE_NAMES: Record<string, string> = {
   IA: "Iowa",
@@ -49,8 +50,22 @@ export default function Locations() {
           <p className="mx-auto mt-5 max-w-xl text-dim-cream">{l.subtext}</p>
         </Reveal>
 
+        {/* The map — every venue plotted, framed like the stage */}
+        <div className="relative mt-12">
+          <div
+            className="pointer-events-none absolute -inset-4 rounded-[2rem]"
+            style={{
+              background:
+                "radial-gradient(closest-side, rgba(255,210,156,0.10) 0%, transparent 72%)",
+            }}
+          />
+          <div className="relative isolate h-[360px] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92)] sm:h-[460px]">
+            <LocationsMap />
+          </div>
+        </div>
+
         {/* Search — live-filters the directory */}
-        <Reveal delay={80} className="mx-auto mt-10 max-w-md">
+        <Reveal delay={120} className="mx-auto mt-10 max-w-md">
           <div className="relative">
             <svg
               width="16"
