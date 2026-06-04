@@ -29,10 +29,11 @@ export default function LocationsMap({
 
       const map = L.map(elRef.current, {
         scrollWheelZoom: false,
-        zoomControl: true,
+        zoomControl: false,
         attributionControl: true,
       });
       mapRef.current = map;
+      L.control.zoom({ position: "topright" }).addTo(map);
 
       L.tileLayer(
         "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
@@ -66,7 +67,14 @@ export default function LocationsMap({
       const bounds = L.latLngBounds(pts);
       const fit = () => {
         map.invalidateSize();
-        map.fitBounds(bounds, { padding: [40, 40], maxZoom: 8 });
+        const wide = window.innerWidth >= 640;
+        // keep pins clear of the floating panel (left rail on desktop,
+        // bottom sheet on mobile)
+        map.fitBounds(bounds, {
+          paddingTopLeft: wide ? [400, 50] : [30, 30],
+          paddingBottomRight: wide ? [50, 50] : [30, 330],
+          maxZoom: 8,
+        });
       };
       fit();
       setTimeout(fit, 350);

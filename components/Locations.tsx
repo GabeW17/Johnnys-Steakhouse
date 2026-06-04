@@ -62,24 +62,23 @@ export default function Locations() {
           <p className="mx-auto mt-5 max-w-xl text-dim-cream">{l.subtext}</p>
         </Reveal>
 
-        {/* Store locator — map (the star) + synced list/detail panel */}
-        <div className="mt-12 grid gap-5 lg:grid-cols-[1.55fr_1fr]">
-          {/* Map */}
-          <div className="relative">
-            <div
-              className="pointer-events-none absolute -inset-4 rounded-[2rem]"
-              style={{
-                background:
-                  "radial-gradient(closest-side, rgba(255,210,156,0.10) 0%, transparent 72%)",
-              }}
-            />
-            <div className="relative isolate h-[420px] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92)] lg:h-[560px]">
+        {/* Store locator — a full map with the list/detail floating on top */}
+        <div className="relative mt-12">
+          <div
+            className="pointer-events-none absolute -inset-4 rounded-[2rem]"
+            style={{
+              background:
+                "radial-gradient(closest-side, rgba(255,210,156,0.10) 0%, transparent 72%)",
+            }}
+          />
+          <div className="relative isolate h-[540px] overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92)] sm:h-[620px]">
+            {/* Map fills the frame */}
+            <div className="absolute inset-0 z-0">
               <LocationsMap onSelect={setSelected} focus={selected} />
             </div>
-          </div>
 
-          {/* Panel: list of all locations, or the selected one's detail */}
-          <div className="flex h-[460px] flex-col overflow-hidden rounded-2xl border border-cream/12 bg-[#141414] lg:h-[560px]">
+            {/* Floating panel: list of all locations, or the selected detail */}
+            <div className="absolute bottom-3 left-3 right-3 top-auto z-10 flex max-h-[56%] flex-col overflow-hidden rounded-2xl border border-cream/15 bg-[#0f0e0e]/85 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl sm:bottom-4 sm:left-4 sm:right-auto sm:top-4 sm:max-h-none sm:w-[358px]">
             {selected ? (
               <>
                 <button
@@ -224,6 +223,7 @@ export default function Locations() {
                 </div>
               </>
             )}
+            </div>
           </div>
         </div>
       </div>
