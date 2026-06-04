@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
+import "leaflet.markercluster/dist/MarkerCluster.css";
 import { content, type LocationItem } from "@/content";
 
 const keyOf = (l: LocationItem) => `${l.city}-${l.state}`;
@@ -25,6 +26,7 @@ export default function LocationsMap({
     (async () => {
       const mod = await import("leaflet");
       const L: any = (mod as any).default ?? mod;
+      await import("leaflet.markercluster"); // adds L.markerClusterGroup
       if (cancelled || !elRef.current || mapRef.current) return;
 
       const map = L.map(elRef.current, {
@@ -57,24 +59,35 @@ export default function LocationsMap({
         iconAnchor: [13, 14],
       });
 
+      // Cluster nearby venues into a count badge that splits on zoom/click
+      const cluster = L.markerClusterGroup({
+        showCoverageOnHover: false,
+        spiderfyOnMaxZoom: true,
+        maxClusterRadius: 40,
+        iconCreateFunction: (c: any) =>
+          L.divIcon({
+            html: `<div class="jis-cluster">${c.getChildCount()}</div>`,
+            className: "jis-cluster-wrap",
+            iconSize: [38, 38],
+          }),
+      });
+
       const pts: [number, number][] = [];
       content.locations.items.forEach((loc) => {
         pts.push([loc.lat, loc.lng]);
         const m = L.marker([loc.lat, loc.lng], {
           icon,
           title: `${loc.city}, ${loc.state}`,
-        })
-          .addTo(map)
-          .on("click", () => onSelectRef.current?.(loc));
+        }).on("click", () => onSelectRef.current?.(loc));
         markersRef.current[keyOf(loc)] = m;
+        cluster.addLayer(m);
       });
+      map.addLayer(cluster);
 
       const bounds = L.latLngBounds(pts);
       const fit = () => {
         map.invalidateSize();
         const wide = window.innerWidth >= 640;
-        // keep pins clear of the floating panel (left rail on desktop,
-        // bottom sheet on mobile); minZoom 4 floors it at a US view
         map.fitBounds(bounds, {
           paddingTopLeft: wide ? [330, 50] : [24, 30],
           paddingBottomRight: wide ? [50, 50] : [30, 300],
@@ -100,11 +113,17 @@ export default function LocationsMap({
     const map = mapRef.current;
     if (!map) return;
     const fk = focus ? keyOf(focus) : null;
-    Object.entries(markersRef.current).forEach(([k, m]) => {
-      const pin = m.getElement?.()?.querySelector?.(".jis-pin-logo");
-      if (pin) pin.classList.toggle("jis-pin-logo--active", k === fk);
-    });
-    if (focus) map.flyTo([focus.lat, focus.lng], 9, { duration: 0.9 });
+    const apply = () => {
+      Object.entries(markersRef.current).forEach(([k, m]) => {
+        const pin = m.getElement?.()?.querySelector?.(".jis-pin-logo");
+        if (pin) pin.classList.toggle("jis-pin-logo--active", k === fk);
+      });
+    };
+    if (focus) {
+      map.flyTo([focus.lat, focus.lng], 10, { duration: 0.9 });
+      map.once("moveend", apply);
+    }
+    apply();
   }, [focus]);
 
   return (
