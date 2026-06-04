@@ -8,24 +8,24 @@ export default function Signatures() {
   return (
     <section
       id="signatures"
-      className="relative overflow-hidden border-t border-cream/10 bg-ink py-20 sm:py-24 lg:py-28"
+      className="relative overflow-hidden border-t border-cream/10 bg-ink py-16 sm:py-20 lg:py-24"
     >
       {/* Three soft spotlights from above — one per act, raking down onto each word */}
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[34rem] mix-blend-screen"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] mix-blend-screen"
         aria-hidden="true"
         style={{
           background:
             "conic-gradient(from 0deg at 22% -16%, transparent 154deg, rgba(255,210,156,0.12) 167deg, rgba(255,210,156,0.12) 186deg, transparent 199deg)," +
             "conic-gradient(from 0deg at 50% -16%, transparent 160deg, rgba(255,210,156,0.12) 172deg, rgba(255,210,156,0.12) 190deg, transparent 202deg)," +
             "conic-gradient(from 0deg at 78% -16%, transparent 161deg, rgba(255,210,156,0.12) 174deg, rgba(255,210,156,0.12) 193deg, transparent 206deg)," +
-            "radial-gradient(32% 56% at 22% 27%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
-            "radial-gradient(32% 56% at 50% 27%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
-            "radial-gradient(32% 56% at 78% 27%, rgba(255,210,156,0.06) 0%, transparent 72%)",
+            "radial-gradient(34% 64% at 22% 34%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
+            "radial-gradient(34% 64% at 50% 34%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
+            "radial-gradient(34% 64% at 78% 34%, rgba(255,210,156,0.06) 0%, transparent 72%)",
           maskImage:
-            "linear-gradient(to bottom, #000 0%, #000 40%, transparent 76%)",
+            "linear-gradient(to bottom, #000 0%, #000 48%, transparent 92%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, #000 0%, #000 40%, transparent 76%)",
+            "linear-gradient(to bottom, #000 0%, #000 48%, transparent 92%)",
         }}
       />
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
@@ -57,7 +57,7 @@ export default function Signatures() {
         </Reveal>
 
         {/* The headliners — a billing of tonight's signatures */}
-        <Reveal className="mt-16 flex items-center justify-center gap-5 sm:mt-20">
+        <Reveal className="mt-12 flex items-center justify-center gap-5 sm:mt-14">
           <span className="h-px w-10 bg-cream/20 sm:w-16" />
           <p className="font-display text-lg italic text-cream/80 sm:text-xl">
             {s.heading}
@@ -65,7 +65,7 @@ export default function Signatures() {
           <span className="h-px w-10 bg-cream/20 sm:w-16" />
         </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
             {s.dishes.map((dish, i) => (
             <Reveal
               as="article"

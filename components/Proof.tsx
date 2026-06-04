@@ -26,7 +26,7 @@ export default function Proof() {
         </Reveal>
 
         {/* The spotlight — featured review, lit from above like a performer */}
-        <div className="relative mt-8 sm:mt-10">
+        <div className="relative mt-6 sm:mt-8">
           {/* a single soft spotlight from above + a gentle pool where it lands */}
           <div
             className="pointer-events-none absolute inset-x-0 -top-16 bottom-0 mix-blend-screen"
@@ -34,11 +34,11 @@ export default function Proof() {
             style={{
               background:
                 "conic-gradient(from 0deg at 50% -75%, transparent 162deg, rgba(255,210,156,0.09) 174deg, rgba(255,210,156,0.09) 186deg, transparent 198deg)," +
-                "radial-gradient(40% 50% at 50% 50%, rgba(255,210,156,0.13) 0%, transparent 72%)",
+                "radial-gradient(40% 66% at 50% 58%, rgba(255,210,156,0.13) 0%, transparent 74%)",
               maskImage:
-                "linear-gradient(to bottom, transparent 0%, #000 22%, #000 76%, transparent 100%)",
+                "linear-gradient(to bottom, transparent 0%, #000 16%, #000 88%, transparent 100%)",
               WebkitMaskImage:
-                "linear-gradient(to bottom, transparent 0%, #000 22%, #000 76%, transparent 100%)",
+                "linear-gradient(to bottom, transparent 0%, #000 16%, #000 88%, transparent 100%)",
             }}
           />
           <Reveal
