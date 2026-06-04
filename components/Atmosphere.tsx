@@ -9,12 +9,12 @@ export default function Atmosphere() {
       id="atmosphere"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-24 sm:py-28 lg:py-32"
     >
-      {/* faint warm ambient glow on the photo side */}
+      {/* warm ambient glow on the photo side */}
       <div
-        className="pointer-events-none absolute right-0 top-1/4 h-[36rem] w-[36rem] -translate-y-1/4 translate-x-1/4 rounded-full"
+        className="pointer-events-none absolute right-0 top-1/4 h-[40rem] w-[40rem] -translate-y-1/4 translate-x-1/4 rounded-full"
         style={{
           background:
-            "radial-gradient(closest-side, rgba(255,210,156,0.07) 0%, transparent 70%)",
+            "radial-gradient(closest-side, rgba(255,210,156,0.1) 0%, transparent 70%)",
         }}
       />
 
@@ -26,10 +26,12 @@ export default function Atmosphere() {
             className="pointer-events-none absolute -inset-6 rounded-[2.25rem]"
             style={{
               background:
-                "radial-gradient(closest-side, rgba(255,210,156,0.12) 0%, transparent 72%)",
+                "radial-gradient(closest-side, rgba(255,210,156,0.16) 0%, transparent 72%)",
             }}
           />
-          <div className="relative overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92)]">
+          <div className="relative overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_45px_90px_-35px_rgba(0,0,0,0.92),0_0_60px_-4px_rgba(255,210,156,0.4)] ring-1 ring-inset ring-cream/10">
+            {/* top-edge sheen */}
+            <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-cream/40 to-transparent" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={a.image}
@@ -65,7 +67,10 @@ export default function Atmosphere() {
               </p>
             ))}
           </div>
-          <a href="#visit" className="btn btn-primary mt-9">
+          <a
+            href="#locations"
+            className="mt-9 inline-flex items-center justify-center gap-2.5 rounded-lg bg-gradient-to-b from-white to-cream px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_14px_30px_-8px_rgba(0,0,0,0.72),0_4px_10px_-4px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_42px_-8px_rgba(0,0,0,0.82),0_6px_14px_-4px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.95)]"
+          >
             {a.cta}
           </a>
         </Reveal>
