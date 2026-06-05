@@ -63,6 +63,7 @@ export default function Signatures() {
                 <img
                   src={dish.image}
                   alt={dish.name}
+                  loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                 />
                 {/* keep the food crisp — only soft scrims for the index + a thin

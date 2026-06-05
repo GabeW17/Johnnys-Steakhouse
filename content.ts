@@ -310,6 +310,9 @@ export const content: SiteContent = {
       { city: "East Peoria", state: "IL", lat: 40.6663, lng: -89.5801, image: IMAGES.exteriors[2] },
       { city: "Olathe", state: "KS", lat: 38.8814, lng: -94.8191, image: IMAGES.exteriors[0] },
       { city: "Shenandoah", state: "TX", lat: 30.1816, lng: -95.4524, image: IMAGES.exteriors[1] },
+      { city: "Altoona", state: "IA", lat: 41.6447, lng: -93.4647, image: IMAGES.exteriors[2] },
+      { city: "Moline", state: "IL", lat: 41.5067, lng: -90.5151, image: IMAGES.exteriors[0] },
+      { city: "Thornton", state: "CO", lat: 39.868, lng: -104.9719, image: IMAGES.exteriors[1] },
     ],
   },
 

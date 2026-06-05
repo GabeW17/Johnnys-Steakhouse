@@ -45,6 +45,7 @@ export default function Footer() {
             src={f.ctaImage}
             alt=""
             aria-hidden="true"
+            loading="lazy"
             className="h-full w-full object-cover [filter:brightness(0.8)] transition-transform duration-[1400ms] ease-out group-hover:scale-105"
           />
         </div>

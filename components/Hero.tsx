@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { content } from "@/content";
 import CurtainIntro from "@/components/CurtainIntro";
 import HeroVideo from "@/components/HeroVideo";
@@ -39,12 +40,14 @@ export default function Hero() {
           {h.video && h.video.length > 0 ? (
             <HeroVideo sources={h.video} poster={h.image} />
           ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={h.image}
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 h-full w-full animate-heroZoom object-cover"
+              fill
+              priority
+              sizes="100vw"
+              className="animate-heroZoom object-cover"
             />
           )}
 

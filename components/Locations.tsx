@@ -14,6 +14,7 @@ const STATE_NAMES: Record<string, string> = {
   NE: "Nebraska",
   MO: "Missouri",
   MN: "Minnesota",
+  CO: "Colorado",
 };
 
 function milesBetween(

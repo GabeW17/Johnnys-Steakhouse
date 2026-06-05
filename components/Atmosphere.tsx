@@ -37,6 +37,7 @@ export default function Atmosphere() {
               src={a.image}
               alt=""
               aria-hidden="true"
+              loading="lazy"
               className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
             />
             {/* vignette + warm bottom glow */}
