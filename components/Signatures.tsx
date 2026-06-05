@@ -1,5 +1,6 @@
 import { content } from "@/content";
 import Reveal from "./Reveal";
+import ActSpotlights from "./ActSpotlights";
 
 export default function Signatures() {
   const m = content.manifesto;
@@ -10,24 +11,8 @@ export default function Signatures() {
       id="signatures"
       className="relative overflow-hidden border-t border-cream/10 bg-ink py-16 sm:py-20 lg:py-24"
     >
-      {/* Three soft spotlights from above — one per act, raking down onto each word */}
-      <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-[42rem] mix-blend-screen"
-        aria-hidden="true"
-        style={{
-          background:
-            "conic-gradient(from 0deg at 22% -16%, transparent 154deg, rgba(255,210,156,0.12) 167deg, rgba(255,210,156,0.12) 186deg, transparent 199deg)," +
-            "conic-gradient(from 0deg at 50% -16%, transparent 160deg, rgba(255,210,156,0.12) 172deg, rgba(255,210,156,0.12) 190deg, transparent 202deg)," +
-            "conic-gradient(from 0deg at 78% -16%, transparent 161deg, rgba(255,210,156,0.12) 174deg, rgba(255,210,156,0.12) 193deg, transparent 206deg)," +
-            "radial-gradient(34% 64% at 22% 34%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
-            "radial-gradient(34% 64% at 50% 34%, rgba(255,210,156,0.06) 0%, transparent 72%)," +
-            "radial-gradient(34% 64% at 78% 34%, rgba(255,210,156,0.06) 0%, transparent 72%)",
-          maskImage:
-            "linear-gradient(to bottom, #000 0%, #000 48%, transparent 92%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, #000 0%, #000 48%, transparent 92%)",
-        }}
-      />
+      {/* Three overhead spotlights — switch on one at a time, left → right */}
+      <ActSpotlights />
       <div className="relative mx-auto max-w-shell px-6 sm:px-8">
         {/* The three-act headline — one horizontal marquee, not stacked */}
         <Reveal className="mx-auto max-w-shell text-center">
