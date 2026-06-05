@@ -238,9 +238,7 @@ export const content: SiteContent = {
     cta: "Find your Johnny's",
     ctaSecondary: "View the menu",
     image: IMAGES.hero,
-    // Video clips are in /public — re-enable the playlist by restoring this array:
-    // ["/hero-cooking.mp4", "/hero-cooking-2.mp4", "/hero-cooking-3.mp4"]
-    video: [],
+    video: ["/videos/hero.mp4"],
   },
 
   manifesto: {
