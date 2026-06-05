@@ -172,13 +172,14 @@ export interface SiteContent {
 }
 
 const IMAGES = {
-  hero: "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=2000",
-  atmosphere:
-    "https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=1600",
+  // Real Johnny's Italian Steakhouse photos (from johnnysitaliansteakhouse.com),
+  // self-hosted under /public/photos.
+  hero: "/photos/hero-steak.jpg",
+  atmosphere: "/photos/supper-club-service.jpg",
   dishes: [
-    "https://images.unsplash.com/photo-1546964124-0cce460f38ef?q=80&w=1200",
-    "https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1200",
-    "https://images.unsplash.com/photo-1558030006-450675393462?q=80&w=1200",
+    "/photos/steak-de-burgo.jpg",
+    "/photos/chanel-no-5.jpg",
+    "/photos/bone-in-ribeye.jpg",
   ],
   exteriors: [
     "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1400",
