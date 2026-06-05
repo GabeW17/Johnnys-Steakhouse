@@ -19,7 +19,7 @@ function Stars() {
 const ARC = [
   "lg:absolute lg:left-0 lg:top-[6%] lg:w-[19%]", // far-left, beside the words
   "lg:absolute lg:left-[12%] lg:top-[49%] lg:w-[19%]", // mid-left, dipping down
-  "lg:absolute lg:left-1/2 lg:top-[61%] lg:w-[20%] lg:-translate-x-1/2", // center, lowest
+  "lg:absolute lg:left-1/2 lg:top-[58%] lg:w-[20%] lg:-translate-x-1/2", // center, lowest
   "lg:absolute lg:right-[12%] lg:top-[49%] lg:w-[19%]", // mid-right, dipping down
   "lg:absolute lg:right-0 lg:top-[6%] lg:w-[19%]", // far-right, beside the words
 ];
@@ -29,8 +29,8 @@ export default function Proof() {
   const reviews = p.reviews.slice(0, 5);
 
   return (
-    <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-16 sm:py-20 lg:py-24">
-      <div className="relative mx-auto max-w-shell px-6 sm:px-8 lg:h-[42rem]">
+    <section className="relative overflow-hidden border-t border-cream/10 bg-ink py-14 sm:py-16 lg:py-20">
+      <div className="relative mx-auto max-w-shell px-6 sm:px-8 lg:h-[36rem]">
         {/* warm stage light over the center */}
         <div
           className="pointer-events-none absolute left-1/2 top-0 hidden h-[24rem] w-[46rem] max-w-full -translate-x-1/2 lg:block"
