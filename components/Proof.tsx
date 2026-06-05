@@ -18,9 +18,9 @@ function Stars() {
 // On mobile everything just stacks.
 const ARC = [
   "lg:absolute lg:left-0 lg:top-[6%] lg:w-[19%]", // far-left, beside the words
-  "lg:absolute lg:left-[12%] lg:top-[49%] lg:w-[19%]", // mid-left, dipping down
-  "lg:absolute lg:left-1/2 lg:top-[58%] lg:w-[20%] lg:-translate-x-1/2", // center, lowest
-  "lg:absolute lg:right-[12%] lg:top-[49%] lg:w-[19%]", // mid-right, dipping down
+  "lg:absolute lg:left-[12%] lg:top-[53%] lg:w-[19%]", // mid-left, dipping down
+  "lg:absolute lg:left-1/2 lg:top-[60%] lg:w-[20%] lg:-translate-x-1/2", // center, lowest
+  "lg:absolute lg:right-[12%] lg:top-[53%] lg:w-[19%]", // mid-right, dipping down
   "lg:absolute lg:right-0 lg:top-[6%] lg:w-[19%]", // far-right, beside the words
 ];
 
@@ -58,6 +58,18 @@ export default function Proof() {
             <p className="mt-4 text-xs uppercase tracking-[0.22em] text-dim-cream">
               Rated {p.rating} · {p.count}
             </p>
+            <a
+              href="#"
+              className="group mt-6 inline-flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cream/85 transition-colors hover:text-cream"
+            >
+              Read all reviews
+              <span
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </a>
           </Reveal>
         </div>
 
