@@ -407,7 +407,7 @@ export const content: SiteContent = {
     button: "Subscribe",
     success: "Thanks — you're on the list. Keep an eye on your inbox.",
     socialEyebrow: "Follow along",
-    handle: "@johnnysitalian",
+    handle: "@johnnysitaliansteakhouse",
   },
 
   footer: {
@@ -429,7 +429,11 @@ export const content: SiteContent = {
       { label: "Gift Cards", href: "#" },
     ],
     social: [
-      { label: "Instagram", href: "#", icon: "instagram" },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/johnnysitaliansteakhouse/",
+        icon: "instagram",
+      },
       { label: "Facebook", href: "#", icon: "facebook" },
     ],
     copyright: "© 2026 Johnny's Italian Steakhouse",
