@@ -175,7 +175,7 @@ const IMAGES = {
   // Real Johnny's Italian Steakhouse photos (from johnnysitaliansteakhouse.com),
   // self-hosted under /public/photos.
   hero: "/photos/hero-steak.jpg",
-  atmosphere: "/photos/supper-club-service.jpg",
+  atmosphere: "/photos/blue-bar.jpg",
   dishes: [
     "/photos/steak-de-burgo.jpg",
     "/photos/chanel-no-5.jpg",
@@ -314,15 +314,15 @@ export const content: SiteContent = {
     reserveLabel: "Reserve a table",
     directionsLabel: "Get directions",
     items: [
-      { city: "West Des Moines", state: "IA", lat: 41.5772, lng: -93.7113, image: IMAGES.exteriors[0] },
-      { city: "Des Moines", state: "IA", lat: 41.5868, lng: -93.625, image: IMAGES.exteriors[1] },
+      { city: "West Des Moines", state: "IA", lat: 41.5772, lng: -93.7113, image: "/photos/locations/west-des-moines.webp" },
+      { city: "Des Moines", state: "IA", lat: 41.5868, lng: -93.625, image: "/photos/locations/des-moines.webp" },
       { city: "Middleton", state: "WI", lat: 43.0972, lng: -89.5043, image: IMAGES.exteriors[2] },
       { city: "Sun Prairie", state: "WI", lat: 43.1836, lng: -89.2137, image: IMAGES.exteriors[0] },
       { city: "Eau Claire", state: "WI", lat: 44.8113, lng: -91.4985, image: IMAGES.exteriors[1] },
       { city: "East Peoria", state: "IL", lat: 40.6663, lng: -89.5801, image: IMAGES.exteriors[2] },
       { city: "Olathe", state: "KS", lat: 38.8814, lng: -94.8191, image: IMAGES.exteriors[0] },
       { city: "Shenandoah", state: "TX", lat: 30.1816, lng: -95.4524, image: IMAGES.exteriors[1] },
-      { city: "Altoona", state: "IA", lat: 41.6447, lng: -93.4647, image: IMAGES.exteriors[2] },
+      { city: "Altoona", state: "IA", lat: 41.6447, lng: -93.4647, image: "/photos/locations/altoona.webp" },
       { city: "Moline", state: "IL", lat: 41.5067, lng: -90.5151, image: IMAGES.exteriors[0] },
       { city: "Thornton", state: "CO", lat: 39.868, lng: -104.9719, image: IMAGES.exteriors[1] },
     ],
