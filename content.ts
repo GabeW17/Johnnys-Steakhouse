@@ -317,7 +317,7 @@ export const content: SiteContent = {
       { city: "West Des Moines", state: "IA", lat: 41.5772, lng: -93.7113, image: "/photos/locations/west-des-moines.webp" },
       { city: "Des Moines", state: "IA", lat: 41.5868, lng: -93.625, image: "/photos/locations/des-moines.webp" },
       { city: "Middleton", state: "WI", lat: 43.0972, lng: -89.5043, image: IMAGES.exteriors[2] },
-      { city: "Sun Prairie", state: "WI", lat: 43.1836, lng: -89.2137, image: IMAGES.exteriors[0] },
+      { city: "Sun Prairie", state: "WI", lat: 43.1836, lng: -89.2137, image: "/photos/locations/sun-prairie.jpg" },
       { city: "Eau Claire", state: "WI", lat: 44.8113, lng: -91.4985, image: IMAGES.exteriors[1] },
       { city: "East Peoria", state: "IL", lat: 40.6663, lng: -89.5801, image: "/photos/locations/east-peoria.webp" },
       { city: "Olathe", state: "KS", lat: 38.8814, lng: -94.8191, image: "/photos/locations/olathe.webp" },
