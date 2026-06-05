@@ -33,61 +33,8 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-cream/15 bg-ink">
-      {/* ===== Closing CTA — a framed candlelit photo card ===== */}
-      <section className="bg-ink px-5 py-12 sm:px-8 sm:py-16">
-        <div className="group relative mx-auto max-w-shell overflow-hidden rounded-3xl border-2 border-cream/35 shadow-[0_40px_90px_-35px_rgba(0,0,0,0.92),0_0_60px_-6px_rgba(255,210,156,0.35)] ring-1 ring-inset ring-cream/10 transition-shadow duration-500 hover:shadow-[0_46px_100px_-35px_rgba(0,0,0,0.95),0_0_78px_-6px_rgba(255,210,156,0.5)]">
-          {/* top-edge sheen */}
-          <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-px bg-gradient-to-r from-transparent via-cream/40 to-transparent" />
-        {/* Still photo backdrop */}
-        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={f.ctaImage}
-            alt=""
-            aria-hidden="true"
-            loading="lazy"
-            className="h-full w-full object-cover [filter:brightness(0.8)] transition-transform duration-[1400ms] ease-out group-hover:scale-105"
-          />
-        </div>
-
-        {/* Dark scrim — darker at the edges (blend into footer) + behind the text */}
-        <div
-          className="pointer-events-none absolute inset-0"
-          aria-hidden="true"
-          style={{
-            background:
-              "radial-gradient(70% 92% at 50% 50%, rgba(7,5,4,0.46) 0%, rgba(7,5,4,0.22) 55%, transparent 100%), " +
-              "linear-gradient(180deg, rgba(7,5,4,0.88) 0%, rgba(7,5,4,0.26) 28%, rgba(7,5,4,0.26) 72%, rgba(7,5,4,0.94) 100%)",
-          }}
-        />
-        {/* Warm candle glow over the top */}
-        <div
-          className="pointer-events-none absolute inset-0 mix-blend-screen"
-          aria-hidden="true"
-          style={{
-            background:
-              "radial-gradient(70% 130% at 50% 0%, rgba(255,210,156,0.12) 0%, transparent 58%)",
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 flex flex-col items-center gap-7 px-6 py-20 text-center sm:py-24">
-          <h2 className="font-display text-3xl font-semibold leading-tight text-cream [text-shadow:0_1px_0_rgba(255,255,255,0.25),0_2px_5px_rgba(0,0,0,0.85),0_8px_20px_rgba(0,0,0,0.82),0_18px_44px_rgba(0,0,0,0.6),0_0_46px_rgba(255,210,156,0.22)] sm:text-4xl lg:text-5xl">
-            {f.ctaLine}
-          </h2>
-          <a
-            href={f.ctaHref}
-            className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-gradient-to-b from-white to-cream px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_14px_30px_-8px_rgba(0,0,0,0.72),0_4px_10px_-4px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_42px_-8px_rgba(0,0,0,0.82),0_6px_14px_-4px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.95)]"
-          >
-            <PinIcon />
-            {f.cta}
-          </a>
-        </div>
-        </div>
-      </section>
-
       {/* ===== Footer body ===== */}
-      <div className="relative border-t border-cream/10 bg-ink">
+      <div className="relative bg-ink">
         <div className="mx-auto max-w-shell px-6 pb-28 pt-16 sm:px-8 sm:pb-16">
           <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1.15fr] lg:gap-12">
             {/* Brand */}
