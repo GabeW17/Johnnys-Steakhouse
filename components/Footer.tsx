@@ -1,22 +1,5 @@
 import { content } from "@/content";
 
-function SocialIcon({ name }: { name: "instagram" | "facebook" }) {
-  if (name === "facebook") {
-    return (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M14 8.5V7c0-.83.67-1 1.5-1H17V3h-2.5C12 3 11 4.8 11 6.7V8.5H9V11h2v10h3V11h2.2l.3-2.5H14Z" />
-      </svg>
-    );
-  }
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
 function PinIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -54,18 +37,6 @@ export default function Footer() {
               <p className="mt-5 text-sm leading-relaxed text-dim-cream">
                 {f.blurb}
               </p>
-              <div className="mt-6 flex gap-3">
-                {f.social.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    aria-label={s.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-cream/20 text-cream/70 transition-all duration-300 hover:-translate-y-0.5 hover:border-cream/45 hover:bg-cream/[0.06] hover:text-cream"
-                  >
-                    <SocialIcon name={s.icon} />
-                  </a>
-                ))}
-              </div>
             </div>
 
             {/* Explore */}

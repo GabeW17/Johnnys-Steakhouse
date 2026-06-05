@@ -136,6 +136,17 @@ export interface SiteContent {
     features: string[];
   };
 
+  connect: {
+    eyebrow: string;
+    heading: string;
+    copy: string;
+    placeholder: string;
+    button: string;
+    success: string;
+    socialEyebrow: string;
+    handle: string;
+  };
+
   footer: {
     brand: string;
     tagline: string;
@@ -385,6 +396,17 @@ export const content: SiteContent = {
       "Private banquet rooms",
       "Dinner served nightly",
     ],
+  },
+
+  connect: {
+    eyebrow: "Stay in the loop",
+    heading: "Join the club.",
+    copy: "First dibs on prime-rib weekends, new menu drops, and the occasional comp — straight to your inbox.",
+    placeholder: "Your email",
+    button: "Subscribe",
+    success: "Thanks — you're on the list. Keep an eye on your inbox.",
+    socialEyebrow: "Follow along",
+    handle: "@johnnysitalian",
   },
 
   footer: {
