@@ -29,6 +29,34 @@
     background: var(--cream);
     color: var(--ink);
   }
+
+  /* Keyboard focus — a warm cream ring (mouse users don't see it). */
+  :focus-visible {
+    outline: 2px solid rgba(245, 239, 230, 0.75);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Nav link — underline wipes in on hover */
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    opacity: 0.5;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 @layer components {
@@ -218,8 +246,8 @@
 }
 .jis-pop-brand {
   display: block;
-  font-family: var(--font-bodoni), Georgia, serif;
-  font-style: italic;
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  font-weight: 600;
   font-size: 0.98rem;
   color: #f5efe6;
 }

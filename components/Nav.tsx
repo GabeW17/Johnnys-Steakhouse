@@ -28,7 +28,7 @@ export default function Nav() {
             <a
               key={link.label}
               href={link.href}
-              className="inline-flex items-center gap-1 text-[0.8rem] font-medium uppercase tracking-[0.1em] text-cream/80 transition-colors hover:text-cream"
+              className="nav-link inline-flex items-center gap-1 text-[0.8rem] font-medium uppercase tracking-[0.1em] text-cream/80 transition-colors hover:text-cream"
             >
               {link.label}
               {link.chevron && (

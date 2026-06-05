@@ -1,18 +1,7 @@
-import { Bodoni_Moda, Hanken_Grotesk } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { content } from "@/content";
 import MobileReserveBar from "@/components/MobileReserveBar";
-
-const bodoni = Bodoni_Moda({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  style: ["normal", "italic"],
-  variable: "--font-bodoni",
-  display: "swap",
-  // Bodoni Moda has no metric-override data; skip the auto fallback to avoid
-  // the harmless "Failed to find font override values" build warning.
-  adjustFontFallback: false,
-});
 
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
@@ -28,7 +17,7 @@ export const metadata = {
     template: "%s — Johnny's Italian Steakhouse",
   },
   description:
-    "Hand-cut steaks aged 28 days, house-made pasta, and a martini poured the old-fashioned way. An upscale Italian supper club with locations across the Midwest — find yours and reserve.",
+    "Hand-cut steaks aged 28 days, house-made pasta, and a martini poured the old-fashioned way. An upscale Italian supper club with locations across the country — find yours and reserve.",
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
   openGraph: {
@@ -48,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${bodoni.variable} ${hanken.variable}`}>
+    <html lang="en" className={hanken.variable}>
       <body className="bg-ink font-sans text-cream antialiased">
         <div className="grain" aria-hidden="true" />
         {children}
