@@ -1,8 +1,8 @@
-import { content } from "@/content";
+import { content, type SiteContent } from "@/content";
 import Reveal from "./Reveal";
 
-export default function Atmosphere() {
-  const a = content.atmosphere;
+export default function Atmosphere({ data }: { data?: SiteContent["atmosphere"] }) {
+  const a = data ?? content.atmosphere;
 
   return (
     <section

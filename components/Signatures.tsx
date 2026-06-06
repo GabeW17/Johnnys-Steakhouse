@@ -1,10 +1,10 @@
-import { content } from "@/content";
+import { content, type SiteContent } from "@/content";
 import Reveal from "./Reveal";
 import ActSpotlights from "./ActSpotlights";
 
-export default function Signatures() {
+export default function Signatures({ data }: { data?: SiteContent["signatures"] }) {
   const m = content.manifesto;
-  const s = content.signatures;
+  const s = data ?? content.signatures;
 
   return (
     <section

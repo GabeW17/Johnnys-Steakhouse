@@ -7,17 +7,19 @@ import Locations from "@/components/Locations";
 import Proof from "@/components/Proof";
 import Connect from "@/components/Connect";
 import Footer from "@/components/Footer";
+import { getContent } from "@/lib/getContent";
 
-export default function Home() {
+export default async function Home() {
+  const c = await getContent();
   return (
     <>
       <Nav />
       <LocationBar />
       <main>
-        <Hero />
-        <Signatures />
+        <Hero data={c.hero} />
+        <Signatures data={c.signatures} />
         <Locations />
-        <Atmosphere />
+        <Atmosphere data={c.atmosphere} />
         <Proof />
         <Connect />
       </main>

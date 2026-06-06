@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { content } from "@/content";
+import { content, type SiteContent } from "@/content";
 import CurtainIntro from "@/components/CurtainIntro";
 import HeroVideo from "@/components/HeroVideo";
 
@@ -22,8 +22,8 @@ function PinIcon() {
   );
 }
 
-export default function Hero() {
-  const h = content.hero;
+export default function Hero({ data }: { data?: SiteContent["hero"] }) {
+  const h = data ?? content.hero;
   const delays = [0, 150, 300, 440];
 
   return (
