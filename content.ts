@@ -178,6 +178,12 @@ export interface SiteContent {
   };
 
   mobileReserve: string;
+
+  /** per-location page content, keyed by city slug (one template renders all) */
+  locationPages: Record<
+    string,
+    { tagline: string; hours: string; specials: string; address: string; phone: string }
+  >;
 }
 
 const IMAGES = {
@@ -461,4 +467,18 @@ export const content: SiteContent = {
   },
 
   mobileReserve: "Find a table",
+
+  locationPages: {
+    "west-des-moines": { tagline: "Our flagship supper club — where it all began.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Prime Rib, every Friday & Saturday", address: "1601 22nd St, West Des Moines, IA 50266", phone: "(515) 309-7575" },
+    "des-moines": { tagline: "Downtown's table for a night out.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Live piano in the Blue Bar, Thu–Sat", address: "111 E Grand Ave, Des Moines, IA 50309", phone: "(515) 309-1300" },
+    "middleton": { tagline: "Madison's favorite cut, just west of the city.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Date-night prix fixe, Sundays", address: "8390 Market St, Middleton, WI 53562", phone: "(608) 831-9999" },
+    "sun-prairie": { tagline: "Big-night dining, neighborhood warmth.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Half-price wine bottles, Wednesdays", address: "1011 Tower Dr, Sun Prairie, WI 53590", phone: "(608) 837-1717" },
+    "eau-claire": { tagline: "The supper club the Chippewa Valley trusts.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Friday Prime Rib & live jazz", address: "2421 Golf Rd, Eau Claire, WI 54701", phone: "(715) 835-2424" },
+    "east-peoria": { tagline: "River-city steaks done right.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Surf & turf Saturdays", address: "401 Conference Center Dr, East Peoria, IL 61611", phone: "(309) 698-3000" },
+    "olathe": { tagline: "Kansas City's east-side classic.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Bottomless brunch, Sundays", address: "11700 S Strang Line Rd, Olathe, KS 66062", phone: "(913) 768-7800" },
+    "shenandoah": { tagline: "Houston-north's old-Hollywood dining room.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Chef's tasting menu, nightly", address: "19075 I-45 S, Shenandoah, TX 77385", phone: "(936) 270-7777" },
+    "altoona": { tagline: "Steaks worth the drive to Altoona.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Prime Rib weekends", address: "2614 Adventureland Dr, Altoona, IA 50009", phone: "(515) 967-2000" },
+    "moline": { tagline: "The Quad Cities' supper club.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Live music in the bar, Fri & Sat", address: "1630 47th Ave, Moline, IL 61265", phone: "(309) 762-5000" },
+    "thornton": { tagline: "Denver-north's table for a celebration.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Happy hour, 4–6 PM daily", address: "10250 Grant St, Thornton, CO 80229", phone: "(303) 280-9000" },
+  },
 };
