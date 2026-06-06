@@ -39,6 +39,21 @@ export interface LocationItem {
   nearest?: boolean;
 }
 
+export interface Promo {
+  id: string;
+  /** "home" (brand banner) or a location slug */
+  target: string;
+  message: string;
+  buttonLabel: string;
+  buttonHref: string;
+  image: string;
+  /** manual on/off — off means on standby */
+  enabled: boolean;
+  /** optional schedule window ("YYYY-MM-DD" or ""). Auto on/off within the window. */
+  start: string;
+  end: string;
+}
+
 export interface SiteContent {
   brand: string;
   /** short stylized text mark, used as a fallback when no logo image is set */
@@ -184,6 +199,9 @@ export interface SiteContent {
     string,
     { tagline: string; hours: string; specials: string; address: string; phone: string }
   >;
+
+  /** scheduled, targeted promo banners — one or many per page, can shuffle */
+  promotions: Promo[];
 }
 
 const IMAGES = {
@@ -481,4 +499,14 @@ export const content: SiteContent = {
     "moline": { tagline: "The Quad Cities' supper club.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Live music in the bar, Fri & Sat", address: "1630 47th Ave, Moline, IL 61265", phone: "(309) 762-5000" },
     "thornton": { tagline: "Denver-north's table for a celebration.", hours: "Sun–Thu · 4–10 PM    Fri–Sat · 4–11 PM", specials: "Happy hour, 4–6 PM daily", address: "10250 Grant St, Thornton, CO 80229", phone: "(303) 280-9000" },
   },
+
+  promotions: [
+    { id: "home-primerib", target: "home", message: "Prime Rib Weekend — every Friday & Saturday", buttonLabel: "Reserve a table", buttonHref: "#locations", image: "/photos/bone-in-ribeye.jpg", enabled: true, start: "", end: "" },
+    { id: "home-events", target: "home", message: "Now booking holiday parties & private events", buttonLabel: "Inquire", buttonHref: "#locations", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "" },
+    { id: "home-fathers", target: "home", message: "Father's Day — treat Dad to a steak · June 15", buttonLabel: "Book now", buttonHref: "#locations", image: "/photos/steak-de-burgo.jpg", enabled: true, start: "2026-06-12", end: "2026-06-16" },
+    { id: "home-patio", target: "home", message: "The summer patio is now open", buttonLabel: "See more", buttonHref: "#", image: "/photos/hero-steak.jpg", enabled: false, start: "", end: "" },
+    { id: "wdm-jazz", target: "west-des-moines", message: "Live jazz in the Blue Bar — every Friday", buttonLabel: "Reserve", buttonHref: "#", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "" },
+    { id: "wdm-wine", target: "west-des-moines", message: "Wine Down Wednesday — half-off bottles", buttonLabel: "Details", buttonHref: "#", image: "/photos/chanel-no-5.jpg", enabled: false, start: "", end: "" },
+    { id: "dsm-piano", target: "des-moines", message: "Live piano, Thursday–Saturday nights", buttonLabel: "Reserve", buttonHref: "#", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "" },
+  ],
 };

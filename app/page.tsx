@@ -6,18 +6,13 @@ import Atmosphere from "@/components/Atmosphere";
 import Locations from "@/components/Locations";
 import Proof from "@/components/Proof";
 import Connect from "@/components/Connect";
-import Banner from "@/components/Banner";
+import Promos from "@/components/Promos";
 import Footer from "@/components/Footer";
 import EditBridge from "@/components/EditBridge";
 import { getContent } from "@/lib/getContent";
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams?: { edit?: string };
-}) {
+export default async function Home() {
   const c = await getContent();
-  const editing = searchParams?.edit === "1";
   return (
     <>
       <EditBridge />
@@ -25,7 +20,7 @@ export default async function Home({
       <LocationBar />
       <main>
         <Hero data={c.hero} />
-        <Banner data={c.banner} editing={editing} />
+        <Promos promos={c.promotions} target="home" />
         <Signatures data={c.signatures} />
         <Locations />
         <Atmosphere data={c.atmosphere} />

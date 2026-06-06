@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import EditBridge from "@/components/EditBridge";
+import Promos from "@/components/Promos";
 import { getContent } from "@/lib/getContent";
 import { slugify } from "@/lib/slug";
 
@@ -65,6 +66,8 @@ export default async function LocationPage({
             </div>
           </div>
         </section>
+
+        <Promos promos={c.promotions} target={params.slug} />
 
         {/* Details */}
         <section className="border-t border-cream/10 bg-ink py-16 sm:py-20">
