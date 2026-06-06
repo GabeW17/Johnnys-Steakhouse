@@ -61,12 +61,27 @@ export default function EditBridge() {
       if (d.type === "mode") d.mode === "preview" ? disable() : enable();
     };
 
+    // In-site banner add/remove: flip the slot instantly, report to parent.
+    const slot = document.querySelector(".jis-banner-slot");
+    const setBanner = (on: boolean) => {
+      slot?.setAttribute("data-enabled", on ? "true" : "false");
+      window.parent.postMessage({ source: "jis-edit", type: "banner", value: on }, "*");
+    };
+    const addBtn = document.querySelector("[data-banner-add]");
+    const removeBtn = document.querySelector("[data-banner-remove]");
+    const onAdd = () => setBanner(true);
+    const onRemove = () => setBanner(false);
+    addBtn?.addEventListener("click", onAdd);
+    removeBtn?.addEventListener("click", onRemove);
+
     document.addEventListener("click", onClickCapture, true);
     window.addEventListener("message", onMessage);
     enable();
     window.parent.postMessage({ source: "jis-edit", type: "ready" }, "*");
 
     return () => {
+      addBtn?.removeEventListener("click", onAdd);
+      removeBtn?.removeEventListener("click", onRemove);
       document.removeEventListener("click", onClickCapture, true);
       window.removeEventListener("message", onMessage);
       disable();

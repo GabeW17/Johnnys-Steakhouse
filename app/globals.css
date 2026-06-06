@@ -336,3 +336,20 @@
   box-shadow: 0 0 0 2px rgba(214, 168, 106, 0.95);
   background-color: rgba(214, 168, 106, 0.1);
 }
+
+/* ===== In-site banner add/remove controls (editor only) ===== */
+.jis-banner-add,
+.jis-banner-remove {
+  display: none;
+}
+/* hide the real banner when the slot is toggled off */
+.jis-banner-slot[data-enabled="false"] .jis-banner-real {
+  display: none;
+}
+/* EDIT mode: reveal the + placeholder when off, and the ✕ when on */
+html[data-editing="edit"] .jis-banner-slot[data-enabled="false"] .jis-banner-add {
+  display: flex;
+}
+html[data-editing="edit"] .jis-banner-slot[data-enabled="true"] .jis-banner-remove {
+  display: flex;
+}

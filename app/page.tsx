@@ -11,8 +11,13 @@ import Footer from "@/components/Footer";
 import EditBridge from "@/components/EditBridge";
 import { getContent } from "@/lib/getContent";
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: { edit?: string };
+}) {
   const c = await getContent();
+  const editing = searchParams?.edit === "1";
   return (
     <>
       <EditBridge />
@@ -20,7 +25,7 @@ export default async function Home() {
       <LocationBar />
       <main>
         <Hero data={c.hero} />
-        <Banner data={c.banner} />
+        <Banner data={c.banner} editing={editing} />
         <Signatures data={c.signatures} />
         <Locations />
         <Atmosphere data={c.atmosphere} />
