@@ -69,6 +69,15 @@ export interface SiteContent {
     video?: string[];
   };
 
+  /** owner-controlled promo band — toggled on/off from the CMS for specials & news */
+  banner: {
+    enabled: boolean;
+    message: string;
+    buttonLabel: string;
+    buttonHref: string;
+    image: string;
+  };
+
   manifesto: {
     eyebrow: string;
     lines: string[];
@@ -239,6 +248,15 @@ export const content: SiteContent = {
     ctaSecondary: "View the menu",
     image: IMAGES.hero,
     video: ["/videos/hero.mp4"],
+  },
+
+  banner: {
+    // off by default on the standalone site; the CMS turns it on for the demo
+    enabled: false,
+    message: "Prime Rib Weekend — every Friday & Saturday",
+    buttonLabel: "Reserve a table",
+    buttonHref: "#locations",
+    image: "/photos/bone-in-ribeye.jpg",
   },
 
   manifesto: {
