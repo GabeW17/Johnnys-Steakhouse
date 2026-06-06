@@ -339,17 +339,44 @@
 
 /* ===== In-site banner add/remove controls (editor only) ===== */
 .jis-banner-add,
-.jis-banner-remove {
+.jis-banner-ctls {
   display: none;
 }
 /* hide the real banner when the slot is toggled off */
 .jis-banner-slot[data-enabled="false"] .jis-banner-real {
   display: none;
 }
-/* EDIT mode: reveal the + placeholder when off, and the ✕ when on */
+/* EDIT mode: reveal the + placeholder when off, and the controls when on */
 html[data-editing="edit"] .jis-banner-slot[data-enabled="false"] .jis-banner-add {
   display: flex;
 }
-html[data-editing="edit"] .jis-banner-slot[data-enabled="true"] .jis-banner-remove {
+html[data-editing="edit"] .jis-banner-slot[data-enabled="true"] .jis-banner-ctls {
   display: flex;
+}
+
+/* ===== Editable photos (editor only) ===== */
+html[data-editing="edit"] [data-edit-img]:not(button) {
+  position: relative;
+  cursor: pointer;
+}
+html[data-editing="edit"] [data-edit-img]:not(button)::after {
+  content: "Change photo";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 6, 4, 0.5);
+  color: #f5efe6;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+html[data-editing="edit"] [data-edit-img]:not(button):hover::after {
+  opacity: 1;
 }

@@ -4,7 +4,7 @@ function RealBanner({ b }: { b: SiteContent["banner"] }) {
   return (
     <section className="jis-banner-real relative overflow-hidden border-b border-cream/12">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={b.image} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+      <img data-img="banner.image" src={b.image} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
       <div
         className="absolute inset-0"
         style={{
@@ -13,15 +13,24 @@ function RealBanner({ b }: { b: SiteContent["banner"] }) {
         }}
       />
 
-      {/* in-site remove control (edit mode only) */}
-      <button
-        type="button"
-        data-banner-remove
-        aria-label="Remove banner"
-        className="jis-banner-remove absolute right-3 top-3 z-10 h-8 w-8 items-center justify-center rounded-full border border-cream/30 bg-ink/60 text-cream/90 backdrop-blur transition-colors hover:border-bad/70 hover:text-bad"
-      >
-        ✕
-      </button>
+      {/* in-site edit controls (edit mode only) */}
+      <div className="jis-banner-ctls absolute right-3 top-3 z-10 items-center gap-2">
+        <button
+          type="button"
+          data-edit-img="banner.image"
+          className="rounded-md border border-cream/30 bg-ink/60 px-3 py-1.5 text-[0.64rem] font-semibold uppercase tracking-wide text-cream/90 backdrop-blur transition-colors hover:border-cream/60"
+        >
+          Change photo
+        </button>
+        <button
+          type="button"
+          data-banner-remove
+          aria-label="Remove banner"
+          className="grid h-8 w-8 place-items-center rounded-full border border-cream/30 bg-ink/60 text-cream/90 backdrop-blur transition-colors hover:border-bad/70 hover:text-bad"
+        >
+          ✕
+        </button>
+      </div>
 
       <div className="relative mx-auto flex max-w-shell flex-col items-start gap-4 px-6 py-6 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <div>

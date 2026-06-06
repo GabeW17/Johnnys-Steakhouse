@@ -55,10 +55,26 @@ export default function EditBridge() {
       });
     };
 
+    // Photo controls: clicking a [data-edit-img] asks the parent to open the picker.
+    const photoEls = Array.from(document.querySelectorAll<HTMLElement>("[data-edit-img]"));
+    const onPhotoClick = (e: Event) => {
+      e.preventDefault();
+      const el = e.currentTarget as HTMLElement;
+      window.parent.postMessage(
+        { source: "jis-edit", type: "photoClick", path: el.getAttribute("data-edit-img") },
+        "*"
+      );
+    };
+    photoEls.forEach((el) => el.addEventListener("click", onPhotoClick));
+
     const onMessage = (e: MessageEvent) => {
       const d = e.data;
       if (!d || d.target !== "jis-edit") return;
       if (d.type === "mode") d.mode === "preview" ? disable() : enable();
+      if (d.type === "setPhoto" && d.path) {
+        const img = document.querySelector<HTMLImageElement>(`[data-img="${d.path}"]`);
+        if (img) img.src = d.src;
+      }
     };
 
     // In-site banner add/remove: flip the slot instantly, report to parent.
@@ -82,6 +98,7 @@ export default function EditBridge() {
     return () => {
       addBtn?.removeEventListener("click", onAdd);
       removeBtn?.removeEventListener("click", onRemove);
+      photoEls.forEach((el) => el.removeEventListener("click", onPhotoClick));
       document.removeEventListener("click", onClickCapture, true);
       window.removeEventListener("message", onMessage);
       disable();

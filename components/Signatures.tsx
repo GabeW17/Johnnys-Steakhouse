@@ -58,9 +58,10 @@ export default function Signatures({ data }: { data?: SiteContent["signatures"] 
               delay={i * 110}
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-cream/35 bg-[#161616] shadow-[0_28px_60px_-32px_rgba(0,0,0,0.92)] transition-all duration-500 hover:-translate-y-2 hover:border-cream/55 hover:shadow-[0_46px_90px_-30px_rgba(0,0,0,1)]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div data-edit-img={`signatures.dishes.${i}.image`} className="relative aspect-[4/3] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
+                  data-img={`signatures.dishes.${i}.image`}
                   src={dish.image}
                   alt={dish.name}
                   loading="lazy"
