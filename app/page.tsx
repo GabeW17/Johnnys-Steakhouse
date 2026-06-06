@@ -8,12 +8,14 @@ import Proof from "@/components/Proof";
 import Connect from "@/components/Connect";
 import Banner from "@/components/Banner";
 import Footer from "@/components/Footer";
+import EditBridge from "@/components/EditBridge";
 import { getContent } from "@/lib/getContent";
 
 export default async function Home() {
   const c = await getContent();
   return (
     <>
+      <EditBridge />
       <Nav />
       <LocationBar />
       <main>

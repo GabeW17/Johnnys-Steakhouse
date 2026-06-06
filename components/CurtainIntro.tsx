@@ -14,6 +14,11 @@ export default function CurtainIntro() {
 
   // Decide when to open: once everything has loaded (or a safety timeout).
   useEffect(() => {
+    // Skip the curtain inside the CMS editor (loaded with ?edit=1).
+    if (new URLSearchParams(window.location.search).get("edit") === "1") {
+      setDone(true);
+      return;
+    }
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setDone(true);
       return;

@@ -91,7 +91,8 @@ export default function Hero({ data }: { data?: SiteContent["hero"] }) {
                   className="animate-riseIn font-sans text-6xl font-medium uppercase leading-[0.98] tracking-tight text-cream [text-shadow:0_1px_0_rgba(255,255,255,0.18),0_2px_4px_rgba(0,0,0,0.75),0_6px_16px_rgba(0,0,0,0.8),0_20px_46px_rgba(0,0,0,0.62),0_0_48px_rgba(255,210,156,0.2)] sm:text-7xl lg:text-8xl"
                   style={{ animationDelay: `${delays[0]}ms` }}
                 >
-                  {h.headlineLead} {h.headlineEmphasis}
+                  <span data-edit="hero.headlineLead">{h.headlineLead}</span>{" "}
+                  <span data-edit="hero.headlineEmphasis">{h.headlineEmphasis}</span>
                 </h1>
                 <div
                   className="mt-8 flex animate-riseIn flex-col items-start gap-3.5 sm:flex-row sm:items-center"
@@ -102,13 +103,13 @@ export default function Hero({ data }: { data?: SiteContent["hero"] }) {
                     className="inline-flex items-center justify-center gap-2.5 rounded-lg bg-gradient-to-b from-white to-cream px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_14px_30px_-8px_rgba(0,0,0,0.72),0_4px_10px_-4px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_42px_-8px_rgba(0,0,0,0.82),0_6px_14px_-4px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.95)]"
                   >
                     <PinIcon />
-                    {h.cta}
+                    <span data-edit="hero.cta">{h.cta}</span>
                   </a>
                   <a
                     href="#signatures"
                     className="inline-flex items-center justify-center gap-2.5 rounded-lg border border-cream/60 bg-ink/25 px-7 py-3.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-cream shadow-[0_12px_26px_-10px_rgba(0,0,0,0.82),inset_0_1px_0_rgba(245,239,230,0.16)] backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-cream hover:text-ink hover:shadow-[0_18px_34px_-10px_rgba(0,0,0,0.85)]"
                   >
-                    {h.ctaSecondary}
+                    <span data-edit="hero.ctaSecondary">{h.ctaSecondary}</span>
                   </a>
                 </div>
               </div>
@@ -131,7 +132,7 @@ export default function Hero({ data }: { data?: SiteContent["hero"] }) {
                 className="hidden max-w-sm animate-riseIn text-right font-display text-lg italic leading-snug text-cream [text-shadow:0_2px_22px_rgba(0,0,0,0.98),0_1px_4px_rgba(0,0,0,0.92)] sm:block lg:max-w-md lg:text-xl"
                 style={{ animationDelay: `${delays[2]}ms` }}
               >
-                &ldquo;{h.subhead}&rdquo;
+                &ldquo;<span data-edit="hero.subhead">{h.subhead}</span>&rdquo;
               </p>
             </div>
           </div>

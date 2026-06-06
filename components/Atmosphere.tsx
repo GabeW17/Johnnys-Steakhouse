@@ -56,14 +56,14 @@ export default function Atmosphere({ data }: { data?: SiteContent["atmosphere"] 
         <Reveal delay={120} className="order-1 lg:order-2 lg:col-span-5">
           <div className="flex items-center gap-3">
             <span className="h-px w-8 bg-cream/30" />
-            <p className="eyebrow">{a.eyebrow}</p>
+            <p data-edit="atmosphere.eyebrow" className="eyebrow">{a.eyebrow}</p>
           </div>
-          <h2 className="mt-5 font-display text-4xl font-semibold leading-[1.05] text-cream sm:text-5xl">
+          <h2 data-edit="atmosphere.heading" className="mt-5 font-display text-4xl font-semibold leading-[1.05] text-cream sm:text-5xl">
             {a.heading}
           </h2>
           <div className="mt-6 space-y-5">
             {a.paragraphs.map((p, i) => (
-              <p key={i} className="leading-relaxed text-dim-cream">
+              <p key={i} data-edit={`atmosphere.paragraphs.${i}`} className="leading-relaxed text-dim-cream">
                 {p}
               </p>
             ))}

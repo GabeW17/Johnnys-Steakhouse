@@ -28,7 +28,10 @@ export default function Banner({ data }: { data?: SiteContent["banner"] }) {
           >
             Featured this week
           </p>
-          <p className="mt-1.5 font-display text-xl font-semibold leading-tight text-cream sm:text-2xl">
+          <p
+            data-edit="banner.message"
+            className="mt-1.5 font-display text-xl font-semibold leading-tight text-cream sm:text-2xl"
+          >
             {b.message}
           </p>
         </div>
@@ -36,7 +39,7 @@ export default function Banner({ data }: { data?: SiteContent["banner"] }) {
           href={b.buttonHref}
           className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-gradient-to-b from-white to-cream px-6 py-3 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_14px_30px_-8px_rgba(0,0,0,0.72),inset_0_1px_0_rgba(255,255,255,0.9)] transition-all duration-300 hover:-translate-y-0.5"
         >
-          {b.buttonLabel}
+          <span data-edit="banner.buttonLabel">{b.buttonLabel}</span>
         </a>
       </div>
     </section>

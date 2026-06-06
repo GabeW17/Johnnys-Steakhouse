@@ -44,7 +44,7 @@ export default function Signatures({ data }: { data?: SiteContent["signatures"] 
         {/* The headliners — a billing of tonight's signatures */}
         <Reveal className="mt-12 flex items-center justify-center gap-5 sm:mt-14">
           <span className="h-px w-10 bg-cream/20 sm:w-16" />
-          <p className="font-display text-lg italic text-cream/80 sm:text-xl">
+          <p data-edit="signatures.heading" className="font-display text-lg italic text-cream/80 sm:text-xl">
             {s.heading}
           </p>
           <span className="h-px w-10 bg-cream/20 sm:w-16" />
@@ -76,21 +76,21 @@ export default function Signatures({ data }: { data?: SiteContent["signatures"] 
               </div>
               <div className="flex flex-1 flex-col p-6 sm:p-7">
                 {dish.tag && (
-                  <p className="mb-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-dim-cream/75">
+                  <p data-edit={`signatures.dishes.${i}.tag`} className="mb-2.5 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-dim-cream/75">
                     {dish.tag}
                   </p>
                 )}
                 <div className="flex items-baseline gap-3">
-                  <h3 className="font-display text-2xl font-semibold leading-tight text-cream">
+                  <h3 data-edit={`signatures.dishes.${i}.name`} className="font-display text-2xl font-semibold leading-tight text-cream">
                     {dish.name}
                   </h3>
                   {/* menu-style leader between name and price */}
                   <span className="mb-1.5 h-px flex-1 bg-cream/15" />
-                  <span className="font-display text-xl text-cream/95">
+                  <span data-edit={`signatures.dishes.${i}.price`} className="font-display text-xl text-cream/95">
                     {dish.price}
                   </span>
                 </div>
-                <p className="mt-3 text-sm leading-relaxed text-dim-cream">
+                <p data-edit={`signatures.dishes.${i}.description`} className="mt-3 text-sm leading-relaxed text-dim-cream">
                   {dish.description}
                 </p>
               </div>
