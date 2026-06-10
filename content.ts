@@ -39,6 +39,23 @@ export interface LocationItem {
   nearest?: boolean;
 }
 
+export interface BlogPost {
+  slug: string;
+  title: string;
+  /** short summary for cards + meta description */
+  excerpt: string;
+  /** article body — blocks separated by blank lines; a short first line in a block renders as a subheading */
+  body: string;
+  image?: string;
+  author?: string;
+  /** display date, e.g. "June 4, 2026" */
+  date: string;
+  /** category chip, e.g. "Private Events" */
+  tag?: string;
+  /** location id or "all" */
+  scope?: string;
+}
+
 export interface Promo {
   id: string;
   /** "home" (brand banner) or a location slug */
@@ -52,6 +69,11 @@ export interface Promo {
   /** optional schedule window ("YYYY-MM-DD" or ""). Auto on/off within the window. */
   start: string;
   end: string;
+  /** optional weekly recurrence — weekday indexes (0=Sun … 6=Sat). When set,
+   * the promo only shows on those days, repeating every week. Empty/absent = every day. */
+  days?: number[];
+  /** also auto-publish this promo as a Google Business Profile post */
+  postToGoogle?: boolean;
 }
 
 export interface SiteContent {
@@ -202,6 +224,15 @@ export interface SiteContent {
 
   /** scheduled, targeted promo banners — one or many per page, can shuffle */
   promotions: Promo[];
+
+  /** journal / blog posts — authored in Content Studio, rendered at /blog */
+  blog: BlogPost[];
+
+  /** SEO fixes applied from the platform's Audit — change what the site outputs */
+  seo?: {
+    /** when true, embed LocalBusiness/Restaurant JSON-LD structured data */
+    schema?: boolean;
+  };
 }
 
 const IMAGES = {
@@ -244,6 +275,7 @@ export const content: SiteContent = {
       { label: "Home", href: "#top" },
       { label: "Menu", href: "#signatures", chevron: true },
       { label: "Locations", href: "#locations", chevron: true },
+      { label: "Journal", href: "/blog" },
       { label: "Join Newsletter", href: "#" },
       { label: "Gift Cards", href: "#" },
       { label: "Reservations", href: "#visit", chevron: true },
@@ -501,12 +533,42 @@ export const content: SiteContent = {
   },
 
   promotions: [
-    { id: "home-primerib", target: "home", message: "Prime Rib Weekend — every Friday & Saturday", buttonLabel: "Reserve a table", buttonHref: "#locations", image: "/photos/bone-in-ribeye.jpg", enabled: true, start: "", end: "" },
-    { id: "home-events", target: "home", message: "Now booking holiday parties & private events", buttonLabel: "Inquire", buttonHref: "#locations", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "" },
-    { id: "home-fathers", target: "home", message: "Father's Day — treat Dad to a steak · June 15", buttonLabel: "Book now", buttonHref: "#locations", image: "/photos/steak-de-burgo.jpg", enabled: true, start: "2026-06-12", end: "2026-06-16" },
+    { id: "home-primerib", target: "home", message: "Prime Rib Weekend — every Friday & Saturday", buttonLabel: "Reserve a table", buttonHref: "#locations", image: "/photos/bone-in-ribeye.jpg", enabled: true, start: "", end: "", days: [5, 6], postToGoogle: true },
+    { id: "home-events", target: "home", message: "Now booking holiday parties & private events", buttonLabel: "Inquire", buttonHref: "#locations", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "", postToGoogle: true },
+    { id: "home-fathers", target: "home", message: "Father's Day — treat Dad to a steak · June 15", buttonLabel: "Book now", buttonHref: "#locations", image: "/photos/steak-de-burgo.jpg", enabled: true, start: "2026-06-12", end: "2026-06-16", postToGoogle: true },
     { id: "home-patio", target: "home", message: "The summer patio is now open", buttonLabel: "See more", buttonHref: "#", image: "/photos/hero-steak.jpg", enabled: false, start: "", end: "" },
-    { id: "wdm-jazz", target: "west-des-moines", message: "Live jazz in the Blue Bar — every Friday", buttonLabel: "Reserve", buttonHref: "#", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "" },
-    { id: "wdm-wine", target: "west-des-moines", message: "Wine Down Wednesday — half-off bottles", buttonLabel: "Details", buttonHref: "#", image: "/photos/chanel-no-5.jpg", enabled: false, start: "", end: "" },
-    { id: "dsm-piano", target: "des-moines", message: "Live piano, Thursday–Saturday nights", buttonLabel: "Reserve", buttonHref: "#", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "" },
+    { id: "wdm-jazz", target: "west-des-moines", message: "Live jazz in the Blue Bar — every Friday", buttonLabel: "Reserve", buttonHref: "#", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "", days: [5] },
+    { id: "wdm-wine", target: "west-des-moines", message: "Wine Down Wednesday — half-off bottles", buttonLabel: "Details", buttonHref: "#", image: "/photos/chanel-no-5.jpg", enabled: true, start: "", end: "", days: [3] },
+    { id: "dsm-piano", target: "des-moines", message: "Live piano, Thursday–Saturday nights", buttonLabel: "Reserve", buttonHref: "#", image: "/photos/blue-bar.jpg", enabled: true, start: "", end: "", days: [4, 5, 6] },
   ],
+
+  blog: [
+    {
+      slug: "private-dining-venues-des-moines",
+      title: "The Best Private Dining Venues in Des Moines",
+      excerpt: "Planning a celebration, rehearsal dinner or corporate night out? Here's why Johnny's tops the list for private dining in Des Moines.",
+      image: "/photos/blue-bar.jpg",
+      author: "The Johnny's Team",
+      date: "June 4, 2026",
+      tag: "Private Events",
+      scope: "des-moines",
+      body:
+        "When you're planning a celebration in Des Moines, the room matters as much as the menu. The right private space turns a dinner into an evening people remember. Here's what to look for — and why Johnny's Italian Steakhouse keeps landing at the top of the list.\n\nA room that's actually private\nOur private dining room seats groups of every size behind its own doors — no shouting over the main floor, no feeling like an afterthought. It's your night, in your space.\n\nA menu built around your group\nEvery event gets custom menus built from our hand-cut, 28-day aged steaks, house-made pasta and full bar. Tell us your headcount and tastes and we'll tailor it — including dietary needs.\n\nA coordinator who handles the details\nYou get one dedicated event coordinator from the first email to the last pour, so the only thing you have to do is show up and enjoy.\n\nReserve your event\nTell us your date and headcount and we'll put together a proposal the same day. Your celebration deserves the supper club.",
+    },
+    {
+      slug: "why-johnnys-date-night-supper-club",
+      title: "Why Johnny's Is the Move for Date Night",
+      excerpt: "Low lighting, a martini poured the old-fashioned way, and a steak worth lingering over — the supper club was made for date night.",
+      image: "/photos/supper-club-service.jpg",
+      author: "The Johnny's Team",
+      date: "May 27, 2026",
+      tag: "Date Night",
+      scope: "all",
+      body:
+        "Some restaurants are for getting in and out. The supper club is for staying a while. If you're looking for a date night that feels like an occasion, here's why Johnny's Italian Steakhouse is the table to book.\n\nThe Blue Bar to start\nBegin with a martini poured the old-fashioned way in the Blue Bar — the kind of cocktail that sets the tone for the whole night.\n\nA steak worth lingering over\nOur signature Steak de Burgo and 28-day aged cuts are built to be savored, not rushed. Add house-made pasta to share and you've got a table neither of you wants to leave.\n\nThe room does half the work\nWarm light, white tablecloths and a soundtrack that lets you actually talk — the supper club atmosphere makes an ordinary Tuesday feel like a celebration.\n\nReserve the night\nBook online or call your nearest Johnny's. Date night is better when somebody else takes care of the details.",
+    },
+  ],
+
+  // Default: no structured data — the Audit flags this as "failing" until the fix embeds it.
+  seo: { schema: false },
 };

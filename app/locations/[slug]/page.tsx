@@ -5,6 +5,7 @@ import EditBridge from "@/components/EditBridge";
 import Promos from "@/components/Promos";
 import { getContent } from "@/lib/getContent";
 import { slugify } from "@/lib/slug";
+import { locationSchema } from "@/lib/schema";
 
 export default async function LocationPage({
   params,
@@ -23,6 +24,13 @@ export default async function LocationPage({
 
   return (
     <>
+      {/* Structured data — embedded once the Audit's "Structured data" fix is applied */}
+      {c.seo?.schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(locationSchema(c, item, lp)) }}
+        />
+      )}
       <EditBridge />
       <Nav />
       <main>

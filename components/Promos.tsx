@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import type { Promo } from "@/content";
 
-function activeNow(p: Promo, today: string): boolean {
+function activeNow(p: Promo, today: string, weekday: number): boolean {
   if (!p.enabled) return false;
   if (p.start && today < p.start) return false;
   if (p.end && today > p.end) return false;
+  // weekly recurrence: if specific days are set, only show on those weekdays
+  if (p.days && p.days.length > 0 && !p.days.includes(weekday)) return false;
   return true;
 }
 
@@ -20,8 +22,10 @@ export default function Promos({ promos, target }: { promos: Promo[]; target: st
   const [i, setI] = useState(0);
 
   useEffect(() => {
-    const today = new Date().toISOString().slice(0, 10);
-    setActive((promos ?? []).filter((p) => p.target === target && activeNow(p, today)));
+    const now = new Date();
+    const today = now.toISOString().slice(0, 10);
+    const weekday = now.getDay();
+    setActive((promos ?? []).filter((p) => p.target === target && activeNow(p, today, weekday)));
   }, [promos, target]);
 
   useEffect(() => {

@@ -10,11 +10,19 @@ import Promos from "@/components/Promos";
 import Footer from "@/components/Footer";
 import EditBridge from "@/components/EditBridge";
 import { getContent } from "@/lib/getContent";
+import { homeSchema } from "@/lib/schema";
 
 export default async function Home() {
   const c = await getContent();
   return (
     <>
+      {/* Structured data — embedded once the Audit's "Structured data" fix is applied */}
+      {c.seo?.schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema(c)) }}
+        />
+      )}
       <EditBridge />
       <Nav />
       <LocationBar />
